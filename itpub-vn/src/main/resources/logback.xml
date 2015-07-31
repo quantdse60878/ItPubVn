@@ -10,7 +10,8 @@
     </appender>
 
 	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+	   <file>${LOG_PATH}/xml.log</file>
+       <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- rollover daily -->
             <fileNamePattern>${LOG_PATH}/xml-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <maxHistory>10</maxHistory>
@@ -21,7 +22,7 @@
         </rollingPolicy>
         <append>true</append>
         <encoder>
-            <pattern>%d{ISO8601} %-5p \(%t\) \(%L\) [%C.%M] - %msg%n</pattern>
+            <pattern>%d{UTF-8} %-5p \(%t\) \(%L\) [%C.%M] - %msg%n</pattern>
         </encoder>
     </appender>
 

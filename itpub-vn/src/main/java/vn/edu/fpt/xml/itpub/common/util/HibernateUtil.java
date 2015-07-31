@@ -31,7 +31,6 @@ import vn.edu.fpt.xml.itpub.common.IConsts;
  * @version 1.0 <br>
  * @see (Related item)
  */
-@SuppressWarnings("deprecation")
 @WebListener
 public class HibernateUtil implements ServletContextListener {
     /**

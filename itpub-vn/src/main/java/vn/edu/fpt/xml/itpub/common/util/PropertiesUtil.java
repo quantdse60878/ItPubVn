@@ -96,7 +96,7 @@ public class PropertiesUtil implements ServletContextListener {
     }
 
     /**
-     * Get the instance attribute.
+     * Get the instance.
      * @return the instance
      */
     public static PropertiesUtil getInstance() {
@@ -133,7 +133,7 @@ public class PropertiesUtil implements ServletContextListener {
     
     /**
      * <p>
-     * Method summary.
+     * Get Double property.
      * </p>
      * @param key String
      * @return Double
@@ -145,10 +145,10 @@ public class PropertiesUtil implements ServletContextListener {
     
     /**
      * <p>
-     * Method summary.
+     * Get Float property.
      * </p>
      * @param key String
-     * @return Double
+     * @return Float
      * @see (Related item)
      */
     public Float getFloat(final String key) {
