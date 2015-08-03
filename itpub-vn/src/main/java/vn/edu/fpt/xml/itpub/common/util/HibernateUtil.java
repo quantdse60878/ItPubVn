@@ -40,14 +40,14 @@ public class HibernateUtil implements ServletContextListener {
     /**
      * The session factory.
      */
-    private SessionFactory sessionFactory;
+    private static SessionFactory sessionFactory;
     
     /* (non-Javadoc)
      * @see javax.servlet.ServletContextListener#contextDestroyed(javax.servlet.ServletContextEvent)
      */
     @Override
     public void contextDestroyed(final ServletContextEvent arg0) {
-        
+        HibernateUtil.shutdown();
     }
 
     /* (non-Javadoc)
@@ -67,7 +67,11 @@ public class HibernateUtil implements ServletContextListener {
      * Get the sessionFactory attribute.
      * @return the sessionFactory
      */
-    public SessionFactory getSessionFactory() {
+    public static SessionFactory getSessionFactory() {
         return sessionFactory;
+    }
+    
+    public static void shutdown() {
+        sessionFactory.close();
     }
 }
