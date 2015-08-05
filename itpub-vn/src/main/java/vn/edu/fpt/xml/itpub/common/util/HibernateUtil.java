@@ -71,6 +71,12 @@ public class HibernateUtil implements ServletContextListener {
         return sessionFactory;
     }
     
+    /**
+     * <p>
+     * Method summary.
+     * </p>
+     * @see (Related item)
+     */
     public static void shutdown() {
         sessionFactory.close();
     }
