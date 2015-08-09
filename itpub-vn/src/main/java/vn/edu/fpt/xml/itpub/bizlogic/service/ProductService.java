@@ -1,7 +1,7 @@
 /**
  * ALL Rights Reserved, Copyright (C) FPT University 2015. <br>
  * Program： XML Project  <br>
- * File： UserService.java <br>
+ * File： ProductService.java <br>
  * <p>
  * Created： Aug 9, 2015<br>
  * History： <br>
@@ -12,9 +12,6 @@
  */
 package vn.edu.fpt.xml.itpub.bizlogic.service;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 /**
  * 
  * Class summary.
@@ -24,11 +21,6 @@ import org.slf4j.LoggerFactory;
  * @see (Related item)
  */
 
-public class UserService extends AbstractService {
+public class ProductService extends AbstractService {
 
-    /**
-     * The logger.
-     */
-    private static final Logger LOGGER = LoggerFactory.getLogger(UserService.class);
-    
 }
