@@ -23,6 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import vn.edu.fpt.xml.itpub.bizlogic.service.PhoneImportService;
 import vn.edu.fpt.xml.itpub.web.common.DispatcherService;
 import vn.edu.fpt.xml.itpub.web.common.IServletMapping;
 
@@ -54,6 +55,7 @@ public class Controller extends HttpServlet {
     @Override
     protected void doGet(final HttpServletRequest request, final HttpServletResponse response)
             throws ServletException, IOException {
+        this.test();
         DispatcherService dispatcher = new DispatcherService();
         dispatcher.dispatchGetService(request, response);
     }
@@ -67,5 +69,10 @@ public class Controller extends HttpServlet {
             throws ServletException, IOException {
         DispatcherService dispatcher = new DispatcherService();
         dispatcher.dispatchPostService(request, response);
+    }
+    
+    public void test() {
+        PhoneImportService service = new PhoneImportService();
+        service.importJob();
     }
 }

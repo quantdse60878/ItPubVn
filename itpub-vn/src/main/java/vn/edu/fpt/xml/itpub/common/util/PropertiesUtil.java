@@ -154,4 +154,16 @@ public class PropertiesUtil implements ServletContextListener {
     public Float getFloat(final String key) {
         return Float.parseFloat(instance.getProps().getProperty(key));
     }
+    
+    /**
+     * <p>
+     * Get Boolean property.
+     * </p>
+     * @param key String
+     * @return Boolean
+     * @see (Related item)
+     */
+    public boolean getBoolean(final String key) {
+        return Boolean.parseBoolean(instance.getProps().getProperty(key));
+    }
 }

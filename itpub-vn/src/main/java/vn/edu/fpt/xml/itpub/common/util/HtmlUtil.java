@@ -12,6 +12,8 @@
  */
 package vn.edu.fpt.xml.itpub.common.util;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,6 +21,7 @@ import vn.edu.fpt.xml.itpub.common.IConsts;
 
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.WebClient;
+import com.gargoylesoftware.htmlunit.html.DomElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 /**
@@ -45,7 +48,7 @@ public class HtmlUtil {
      * @return {@link HtmlPage}
      * @see (Related item)
      */
-    public static HtmlPage getHtmlPage(final String url) {
+    public static HtmlPage getHtmlPage(final String url, final List<String> replacedTags) {
         LOGGER.info(IConsts.BEGIN_METHOD);
         WebClient webClient = null;
         try {
@@ -54,7 +57,25 @@ public class HtmlUtil {
             webClient.getOptions().setCssEnabled(false);
             webClient.getOptions().setThrowExceptionOnScriptError(false);
             webClient.getOptions().setThrowExceptionOnFailingStatusCode(false);
+            webClient.getOptions().setJavaScriptEnabled(false);
             final HtmlPage page = webClient.getPage(url);
+            /*
+             * Replace unnecessary tag
+             */
+            if (null != replacedTags && !replacedTags.isEmpty()) {
+                for (String tag: replacedTags) {
+                    List<DomElement> ls = page.getElementsByTagName(tag);
+                    if (null != ls && ls.isEmpty()) {
+                        for (DomElement el: ls) {
+                            el.setTextContent(null);
+                            el.removeAllChildren();
+                        }
+                    }
+                }
+            }
+            /*
+             * End replace.
+             */
             LOGGER.debug("End scrapping HTML");
             return page;
         } catch (Exception e) {
