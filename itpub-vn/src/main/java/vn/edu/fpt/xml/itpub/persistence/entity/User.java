@@ -15,9 +15,7 @@ package vn.edu.fpt.xml.itpub.persistence.entity;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Table;
 
 /**
  * The User entity.
@@ -28,7 +26,6 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "User")
 public class User extends AbstractKeyEntity implements Serializable {
 
     /**
@@ -39,48 +36,40 @@ public class User extends AbstractKeyEntity implements Serializable {
     /**
      * 
      */
-    @Column(name = "username")
     private String username;
     /**
      * 
      */
-    @Column(name = "password")
     private String password;
 
     /**
      * 
      */
-    @Column(name = "fullname")
     private String fullname;
     
     /**
      * 
      */
-    @Column(name = "gender")
     private byte gender;
     
     /**
      * 
      */
-    @Column(name = "locale")
     private String locale;
     
     /**
      * 
      */
-    @Column(name = "lastLogin")
     private Date lastLogin;
     
     /**
      * 
      */
-    @Column(name = "createTime")
     private Date createTime;
     
     /**
      * 
      */
-    @Column(name = "updateTime")
     private Date updateTime;
 
     /**

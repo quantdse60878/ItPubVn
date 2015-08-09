@@ -10,6 +10,7 @@
 		<property name="hibernate.connection.password">root</property>
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.format_sql">true</property>
+		<property name="hibernate.ejb.naming_strategy">vn.edu.fpt.xml.itpub.common.HibernateNamingStrategy</property>
 		<!-- List of mapping class -->
 		<mapping class="vn.edu.fpt.xml.itpub.persistence.entity.User"></mapping>
 	</session-factory>
