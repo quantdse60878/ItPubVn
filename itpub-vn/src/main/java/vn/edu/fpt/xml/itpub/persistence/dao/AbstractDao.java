@@ -23,6 +23,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import vn.edu.fpt.xml.itpub.common.util.HibernateUtil;
+import vn.edu.fpt.xml.itpub.persistence.entity.AbstractKeyEntity;
 
 /**
  * 
@@ -34,7 +35,7 @@ import vn.edu.fpt.xml.itpub.common.util.HibernateUtil;
  * @version 1.0 <br>
  * @see (Related item)
  */
-public abstract class AbstractDao<E, ID extends Serializable> implements IBaseDao<E, ID> {
+public abstract class AbstractDao<E extends AbstractKeyEntity, ID extends Serializable> implements IBaseDao<E, ID> {
     /**
      * 
      */

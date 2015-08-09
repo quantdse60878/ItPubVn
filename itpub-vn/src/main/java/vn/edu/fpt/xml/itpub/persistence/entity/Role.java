@@ -12,10 +12,12 @@
  */
 package vn.edu.fpt.xml.itpub.persistence.entity;
 
-import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 /**
  * 
@@ -26,12 +28,68 @@ import javax.persistence.Table;
  * @see (Related item)
  */
 @Entity
-@Table(name = "Role")
-public class Role extends AbstractKeyEntity implements Serializable {
+public class Role extends AbstractKeyEntity {
 
     /**
      * 
      */
     private static final long serialVersionUID = 5344834686238451568L;
     
+    /**
+     * 
+     */
+    private String roleName;
+    
+    /**
+     * 
+     */
+    private String roleDescription;
+
+    /**
+     * 
+     */
+    @ManyToMany
+    @JoinTable(name = "UserRole", 
+    joinColumns = @JoinColumn(name = "roleId"), inverseJoinColumns = @JoinColumn(name = "userId"))
+    private List<User> users;
+    
+    /**
+     * Get the roleName attribute.
+     * @return the roleName
+     */
+    public String getRoleName() {
+        return roleName;
+    }
+
+    /**
+     * Set the roleName attribute.
+     * @param roleName the roleName to set
+     */
+    public void setRoleName(final String roleName) {
+        this.roleName = roleName;
+    }
+
+    /**
+     * Get the roleDescription attribute.
+     * @return the roleDescription
+     */
+    public String getRoleDescription() {
+        return roleDescription;
+    }
+
+    /**
+     * Set the roleDescription attribute.
+     * @param roleDescription the roleDescription to set
+     */
+    public void setRoleDescription(final String roleDescription) {
+        this.roleDescription = roleDescription;
+    }
+
+    /**
+     * 
+     */
+    public Role() {
+        super();
+    }
+
 }

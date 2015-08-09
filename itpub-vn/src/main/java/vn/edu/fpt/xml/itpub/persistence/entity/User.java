@@ -12,10 +12,14 @@
  */
 package vn.edu.fpt.xml.itpub.persistence.entity;
 
-import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 /**
  * The User entity.
@@ -26,7 +30,7 @@ import javax.persistence.Entity;
  */
 
 @Entity
-public class User extends AbstractKeyEntity implements Serializable {
+public class User extends AbstractKeyEntity {
 
     /**
      * 
@@ -72,6 +76,14 @@ public class User extends AbstractKeyEntity implements Serializable {
      */
     private Date updateTime;
 
+    /**
+     * List of roles.
+     */
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "UserRole", joinColumns = @JoinColumn(name = "userId"),
+            inverseJoinColumns = @JoinColumn(name = "roleId"))
+    private List<Role> roles;
+    
     /**
      * Get the username attribute.
      * @return the username
@@ -200,7 +212,21 @@ public class User extends AbstractKeyEntity implements Serializable {
         this.updateTime = updateTime;
     }
 
+    /**
+     * Get the roles attribute.
+     * @return the roles
+     */
+    public List<Role> getRoles() {
+        return roles;
+    }
 
+    /**
+     * Set the roles attribute.
+     * @param roles the roles to set
+     */
+    public void setRoles(final List<Role> roles) {
+        this.roles = roles;
+    }
     /**
      * 
      */

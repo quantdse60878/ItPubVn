@@ -12,6 +12,8 @@
  */
 package vn.edu.fpt.xml.itpub.persistence.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,7 +29,11 @@ import javax.persistence.MappedSuperclass;
  * @see (Related item)
  */
 @MappedSuperclass
-public class AbstractKeyEntity {
+public class AbstractKeyEntity implements Serializable {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 4628280798960958179L;
     /**
      * 
      */

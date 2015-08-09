@@ -46,8 +46,8 @@ CREATE TABLE IF NOT EXISTS `xml2015`.`user` (
   `gender` TINYINT(255) NULL DEFAULT NULL COMMENT '',
   `locale` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT '',
   `lastLogin` DATETIME NOT NULL COMMENT '',
-  `createTime` DATETIME NOT NULL COMMENT '',
-  `updateTime` DATETIME NOT NULL COMMENT '',
+  `createdDate` DATETIME NOT NULL COMMENT '',
+  `updatedDate` DATETIME NOT NULL COMMENT '',
   PRIMARY KEY (`id`)  COMMENT '')
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
@@ -65,6 +65,8 @@ CREATE TABLE IF NOT EXISTS `xml2015`.`customer` (
   `customerName` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL COMMENT '',
   `address` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL COMMENT '',
   `mobile` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT '',
+  `createdDate` DATETIME NOT NULL COMMENT '',
+  `updatedDate` DATETIME NOT NULL COMMENT '',
   PRIMARY KEY (`id`)  COMMENT '',
   INDEX `FK_Customer_User` (`userId` ASC)  COMMENT '',
   CONSTRAINT `FK_Customer_User`
@@ -100,8 +102,8 @@ DROP TABLE IF EXISTS `xml2015`.`importschedule` ;
 CREATE TABLE IF NOT EXISTS `xml2015`.`importschedule` (
   `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '',
   `scheduleName` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT '',
-  `startTime` DATETIME NULL DEFAULT NULL COMMENT '',
-  `endTime` DATETIME NULL DEFAULT NULL COMMENT '',
+  `startDate` DATETIME NULL DEFAULT NULL COMMENT '',
+  `endDate` DATETIME NULL DEFAULT NULL COMMENT '',
   `lastImportId` INT(11) NULL DEFAULT NULL COMMENT '',
   `status` TINYINT(4) NULL DEFAULT '0' COMMENT '0: ACTIVE 1: INACTIVE 2: RUNNING',
   `crawlingUrl` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT '',
@@ -124,20 +126,20 @@ CREATE TABLE IF NOT EXISTS `xml2015`.`product` (
   `barcode` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL COMMENT '',
   `price` DECIMAL(10,0) NOT NULL COMMENT '',
   `status` TINYINT(4) NULL DEFAULT '0' COMMENT '0: ACTIVE\\n 1: INACTIVE',
-  `createUser` INT(11) NOT NULL COMMENT '',
-  `createTime` DATETIME NOT NULL COMMENT '',
-  `updateTime` DATETIME NOT NULL COMMENT '',
+  `createdUser` INT(11) NOT NULL COMMENT '',
+  `createdDate` DATETIME NOT NULL COMMENT '',
+  `updatedDate` DATETIME NOT NULL COMMENT '',
   PRIMARY KEY (`id`)  COMMENT '',
   INDEX `FK_DeviceType` (`deviceTypeId` ASC)  COMMENT '',
   INDEX `FK_Branch` (`brandId` ASC)  COMMENT '',
-  INDEX `FK_CreateUser` (`createUser` ASC)  COMMENT '',
+  INDEX `FK_createdUser` (`createdUser` ASC)  COMMENT '',
   CONSTRAINT `FK_Branch`
     FOREIGN KEY (`brandId`)
     REFERENCES `xml2015`.`brand` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `FK_CreateUser`
-    FOREIGN KEY (`createUser`)
+  CONSTRAINT `FK_createdUser`
+    FOREIGN KEY (`createdUser`)
     REFERENCES `xml2015`.`user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
@@ -182,7 +184,7 @@ CREATE TABLE IF NOT EXISTS `xml2015`.`inventorytracking` (
   `productId` INT(11) NOT NULL COMMENT '',
   `type` TINYINT(4) NOT NULL DEFAULT '0' COMMENT '0: IMPORT \\n 1: EXPORT',
   `quantity` INT(255) NOT NULL COMMENT '',
-  `createDate` DATETIME NOT NULL COMMENT '',
+  `createdDate` DATETIME NOT NULL COMMENT '',
   `stockInUser` INT(11) NULL DEFAULT NULL COMMENT '',
   `stockOutUser` INT(11) NULL DEFAULT NULL COMMENT '',
   PRIMARY KEY (`id`)  COMMENT '',
@@ -219,7 +221,7 @@ CREATE TABLE IF NOT EXISTS `xml2015`.`order` (
   `orderNo` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL COMMENT '',
   `barcode` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT '',
   `customerId` INT(11) NOT NULL COMMENT '',
-  `createDate` DATETIME NOT NULL COMMENT '',
+  `createdDate` DATETIME NOT NULL COMMENT '',
   `approvedDate` DATETIME NULL DEFAULT NULL COMMENT '',
   `approvedUser` INT(255) NULL DEFAULT NULL COMMENT '',
   `status` TINYINT(255) NOT NULL DEFAULT '0' COMMENT '0: ENTRY \\n 1: APPROVED \\n 2: CANCEL 3: REFUSE',
@@ -265,21 +267,6 @@ COLLATE = utf8_unicode_ci;
 
 
 -- -----------------------------------------------------
--- Table `xml2015`.`propertykey`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `xml2015`.`propertykey` ;
-
-CREATE TABLE IF NOT EXISTS `xml2015`.`propertykey` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '',
-  `propertyKeyName` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL COMMENT '',
-  `description` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT '',
-  PRIMARY KEY (`id`)  COMMENT '')
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8
-COLLATE = utf8_unicode_ci;
-
-
--- -----------------------------------------------------
 -- Table `xml2015`.`productinfo`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `xml2015`.`productinfo` ;
@@ -287,19 +274,13 @@ DROP TABLE IF EXISTS `xml2015`.`productinfo` ;
 CREATE TABLE IF NOT EXISTS `xml2015`.`productinfo` (
   `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '',
   `productId` INT(11) NOT NULL COMMENT '',
-  `propertyKeyId` INT(11) NULL DEFAULT NULL COMMENT '',
-  `propertyValue` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL COMMENT '',
+  `propertyName` VARCHAR(255) NULL DEFAULT NULL COMMENT '',
+  `propertyValue` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL COMMENT '',
   PRIMARY KEY (`id`)  COMMENT '',
   INDEX `FK_Product` (`productId` ASC)  COMMENT '',
-  INDEX `FK_PropertyKey` (`propertyKeyId` ASC)  COMMENT '',
   CONSTRAINT `FK_Product`
     FOREIGN KEY (`productId`)
     REFERENCES `xml2015`.`product` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `FK_PropertyKey`
-    FOREIGN KEY (`propertyKeyId`)
-    REFERENCES `xml2015`.`propertykey` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB

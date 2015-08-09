@@ -10,8 +10,19 @@
 		<property name="hibernate.connection.password">root</property>
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.format_sql">true</property>
-		<property name="hibernate.ejb.naming_strategy">vn.edu.fpt.xml.itpub.common.HibernateNamingStrategy</property>
+		<property name="hibernate.ejb.naming_strategy">vn.edu.fpt.xml.itpub.persistence.HibernateNamingStrategy</property>
 		<!-- List of mapping class -->
-		<mapping class="vn.edu.fpt.xml.itpub.persistence.entity.User"></mapping>
+		<mapping class="vn.edu.fpt.xml.itpub.persistence.entity.User" />
+		<mapping class="vn.edu.fpt.xml.itpub.persistence.entity.Role"/>
+		<mapping class="vn.edu.fpt.xml.itpub.persistence.entity.Brand"/>
+		<mapping class="vn.edu.fpt.xml.itpub.persistence.entity.Customer"/>
+		<mapping class="vn.edu.fpt.xml.itpub.persistence.entity.DeviceType"/>
+		<mapping class="vn.edu.fpt.xml.itpub.persistence.entity.ImportSchedule"/>
+		<mapping class="vn.edu.fpt.xml.itpub.persistence.entity.Inventory"/>
+		<mapping class="vn.edu.fpt.xml.itpub.persistence.entity.InventoryTracking"/>
+		<mapping class="vn.edu.fpt.xml.itpub.persistence.entity.Product"/>
+		<mapping class="vn.edu.fpt.xml.itpub.persistence.entity.ProductInfo"/>
+		<mapping class="vn.edu.fpt.xml.itpub.persistence.entity.Order"/>
+		<mapping class="vn.edu.fpt.xml.itpub.persistence.entity.OrderDetail"/>
 	</session-factory>
 </hibernate-configuration>

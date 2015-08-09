@@ -10,7 +10,7 @@
  *  
  * @author dangquantran
  */
-package vn.edu.fpt.xml.itpub.common;
+package vn.edu.fpt.xml.itpub.persistence;
 
 import org.hibernate.cfg.DefaultNamingStrategy;
 

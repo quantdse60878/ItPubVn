@@ -15,6 +15,8 @@ package vn.edu.fpt.xml.itpub.persistence.dao;
 import java.io.Serializable;
 import java.util.List;
 
+import vn.edu.fpt.xml.itpub.persistence.entity.AbstractKeyEntity;
+
 /**
  * The base DAO.
  * 
@@ -24,7 +26,7 @@ import java.util.List;
  * @version 1.0 <br>
  * @see (Related item)
  */
-public interface IBaseDao<E, ID extends Serializable> {
+public interface IBaseDao<E extends AbstractKeyEntity, ID extends Serializable> {
     /**
      * <p>
      * Save entity to db.
