@@ -15,8 +15,6 @@ package vn.edu.fpt.xml.itpub.bizlogic.service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import vn.edu.fpt.xml.itpub.persistence.dao.ImportScheduleDao;
-
 /**
  * 
  * The abstract service.
@@ -33,9 +31,4 @@ public class AbstractService {
      * The logger.
      */
     private static final Logger LOGGER = LoggerFactory.getLogger(AbstractService.class);
-    
-    /**
-     * The import schedule dao.
-     */
-    protected static final ImportScheduleDao IMPORT_SCHEDULE_DAO = new ImportScheduleDao();
 }

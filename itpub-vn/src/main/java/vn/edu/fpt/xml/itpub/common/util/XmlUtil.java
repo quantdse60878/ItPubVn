@@ -18,6 +18,10 @@ import java.io.StringWriter;
 import java.util.Map;
 import java.util.Set;
 
+import javax.xml.XMLConstants;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
 import javax.xml.transform.Result;
 import javax.xml.transform.Source;
 import javax.xml.transform.Templates;
@@ -27,9 +31,13 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.xml.sax.SAXException;
 
 import vn.edu.fpt.xml.itpub.common.IConsts;
 import vn.edu.fpt.xml.itpub.common.exception.BizlogicException;
@@ -77,12 +85,12 @@ public class XmlUtil {
             final Transformer transformer = templates.newTransformer();
             
             // Set parameter to transformer
-            if (null != paramVals && !paramVals.isEmpty()) {
-                Set<String> keys = paramVals.keySet();
-                for (String key : keys) {
-                    transformer.setParameter(key, paramVals.get(key));
-                }
-            }
+//            if (null != paramVals && !paramVals.isEmpty()) {
+//                Set<String> keys = paramVals.keySet();
+//                for (String key : keys) {
+//                    transformer.setParameter(key, paramVals.get(key));
+//                }
+//            }
             
             // Create input source from string
             final StringReader reader = new StringReader(xmlString);
@@ -106,6 +114,51 @@ public class XmlUtil {
             throw new BizlogicException(message);
         } finally {
             LOGGER.info(IConsts.END_METHOD);
+        }
+    }
+
+    /**
+     * <p>
+     * Unmarshall xml string to JAXB object.
+     * </p>
+     * @param clazz {@link Class}
+     * @param xml {@link String}
+     * @param schemaPath {@link String}
+     * @param <T> POJO class
+     * @return T
+     * @see (Related item)
+     */
+    @SuppressWarnings("unchecked")
+    public static <T> T unmarshallJAXB(final Class<T> clazz, final String xml, final String schemaPath) {
+        LOGGER.debug(IConsts.BEGIN_METHOD);
+        try {
+            // Create JAXB context
+            final JAXBContext context = JAXBContext.newInstance(clazz);
+            final Unmarshaller unmarshaller = context.createUnmarshaller();
+            
+            // Set schema validator
+            if (null != schemaPath && StringUtils.isNotEmpty(schemaPath)) {
+                final SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+                final Schema schema = sf.newSchema(new File(schemaPath));
+                unmarshaller.setSchema(schema);
+            }
+            
+            // Create input source
+            final StringReader sr = new StringReader(xml);
+            final Source source = new StreamSource(sr);
+            
+            
+            // Unmarshall step
+            final T instance = (T) unmarshaller.unmarshal(source);
+            if (null == instance) {
+                LOGGER.warn("Unmarshalling step having problem. Check this");
+            }
+            return instance;
+        } catch (JAXBException | SAXException e) {
+            LOGGER.error("Exception at: " + e.getMessage());
+            return null;
+        } finally {
+            LOGGER.debug(IConsts.END_METHOD);
         }
     }
 }

@@ -23,4 +23,9 @@ package vn.edu.fpt.xml.itpub.common.util;
 
 public class StringUtil {
 
+    public static String replaceAllCommentedHtmlTag(final String input) {
+        String rs = input.replaceAll("(?s)<!--.*?-->", "");
+        rs = rs.replaceAll("<script.*?/script>", "");
+        return rs;
+    }
 }

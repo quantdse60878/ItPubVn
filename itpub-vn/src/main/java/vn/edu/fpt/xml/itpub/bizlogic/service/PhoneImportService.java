@@ -13,6 +13,7 @@
 package vn.edu.fpt.xml.itpub.bizlogic.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,9 +26,16 @@ import vn.edu.fpt.xml.itpub.bizlogic.model.ProductModel;
 import vn.edu.fpt.xml.itpub.common.IConsts;
 import vn.edu.fpt.xml.itpub.common.exception.BizlogicException;
 import vn.edu.fpt.xml.itpub.common.util.HtmlUtil;
+import vn.edu.fpt.xml.itpub.common.util.StringUtil;
 import vn.edu.fpt.xml.itpub.common.util.XmlUtil;
 import vn.edu.fpt.xml.itpub.persistence.IDbConsts.IImportScheduleStatus;
+import vn.edu.fpt.xml.itpub.persistence.IDbConsts.IProductStatus;
+import vn.edu.fpt.xml.itpub.persistence.dao.ImportScheduleDao;
+import vn.edu.fpt.xml.itpub.persistence.dao.ProductDao;
+import vn.edu.fpt.xml.itpub.persistence.dao.UserDao;
 import vn.edu.fpt.xml.itpub.persistence.entity.ImportSchedule;
+import vn.edu.fpt.xml.itpub.persistence.entity.Product;
+import vn.edu.fpt.xml.itpub.persistence.entity.User;
 
 import com.gargoylesoftware.htmlunit.html.DomElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
@@ -48,14 +56,23 @@ public class PhoneImportService extends AbstractService {
     /**
      * 
      */
-    private static final String RAW_PHONE_XSL_PATH = IConsts.REAL_PATH + "/WEB-INF/xsl/rawPhoneData.xsl";
+    private static final String RAW_PRODUCT_XSL_PATH = IConsts.REAL_PATH + "/WEB-INF/xsl/rawFilter.xsl";
 
+    /**
+     * 
+     */
+    private static final String PRODUCT_SCHEMA_PATH = IConsts.REAL_PATH + "/WEB-INF/xsd/product.xsd";
+    
     public void importJob() {
         LOGGER.info(IConsts.BEGIN_METHOD);
+        ImportScheduleDao isDao = new ImportScheduleDao();
+        ProductDao productDao = new ProductDao();
+        UserDao userDao = new UserDao();
         try {
-            List<ImportSchedule> listSchedule = IMPORT_SCHEDULE_DAO.findByStatus(IImportScheduleStatus.ACTIVE);
+            productDao.beginTransaction();
+            User user = userDao.findById(IConsts.DEFAULT_SYSTEM_USER);
+            List<ImportSchedule> listSchedule = isDao.findByStatus(IImportScheduleStatus.ACTIVE);
             if (null != listSchedule && !listSchedule.isEmpty()) {
-
                 for (ImportSchedule schedule : listSchedule) {
                     // Craw root url
                     HtmlPage rootPage = HtmlUtil.getHtmlPage(schedule.getCrawlingUrl(), null);
@@ -83,17 +100,57 @@ public class PhoneImportService extends AbstractService {
                         // End remove
                         
                         // Parse raw data to POJO object
-                        final String rawData = productPage.asXml();
-                        final ProductModel phone = this.getPhoneInfo(rawData, schedule, productUrl);
-                        if (null != phone) {
-                            // TODO Save to db
+                        String rawData = productPage.asXml();
+                        
+                        // TODO remove comment tags, special tag
+                        // Remove comments data
+//                        rawData = StringUtil.replaceAllCommentedHtmlTag(rawData);
+                        // End remove comments data
+                        
+                        final ProductModel model = this.getPhoneInfo(rawData, schedule, productUrl);
+                        if (null != model) {
+                            Product product = new Product();
+                            product.setBrand(schedule.getBrand());
+                            product.setDeviceType(schedule.getDeviceType());
+                            product.setName(model.getName());
+                            product.setBarcode("");
+                            product.setQuarantyInfo(model.getQuarantyInfo());
+                            product.setDescription(model.getDescription());
+                            product.setPromotion(model.getPromotion());
+                            product.setImageUrl(model.getImageUrl());
+                            String strPrice = model.getPrice();
+                            StringBuilder sb = new StringBuilder();
+                            for (char c: strPrice.toCharArray()) {
+                                if(c >= 48 && c<=57) {
+                                    sb.append(c);
+                                }
+                            }
+                            String rs = sb.toString();
+                            if (null != rs && !rs.isEmpty()) {
+                                final double price = Double.parseDouble(sb.toString());
+                                product.setPrice(price);
+                            } else {
+                                product.setPrice(0);
+                            }
+                            product.setStatus(IProductStatus.ACTIVE);
+                            product.setDirectLink(productUrl);
+                            product.setCreatedDate(new Date());
+                            product.setUpdatedDate(new Date());
+                            product.setCreatedUser(user);
+                            
+                            productDao.save(product);
+                            productDao.flush();
+                            
+                            
                         }
                     }
                 }
-
             }
-
+            productDao.commitTransaction();
         } finally {
+            isDao = null;
+            productDao = null;
+            userDao = null;
             LOGGER.info(IConsts.END_METHOD);
         }
     }
@@ -118,49 +175,50 @@ public class PhoneImportService extends AbstractService {
             // Set param to XSL
             if (null != setting) {
                final String name = setting.getXpathStringName();
-               if (null != name && StringUtils.isEmpty(name)) {
+               if (null != name && StringUtils.isNotEmpty(name)) {
                    paramVals.put("name", name);
                }
                final String quarantyInfo = setting.getXpathStringQuarantyInfo();
-               if (null != quarantyInfo && StringUtils.isEmpty(quarantyInfo)) {
+               if (null != quarantyInfo && StringUtils.isNotEmpty(quarantyInfo)) {
                    paramVals.put("quarantyInfo", quarantyInfo);
                }
                final String description = setting.getXpathStringDescription();
-               if (null != description && StringUtils.isEmpty(description)) {
+               if (null != description && StringUtils.isNotEmpty(description)) {
                    paramVals.put("description", description);
                }
                final String promotion = setting.getXpathStringPromotion();
-               if (null != promotion && StringUtils.isEmpty(promotion)) {
+               if (null != promotion && StringUtils.isNotEmpty(promotion)) {
                    paramVals.put("promotion", promotion);
                }
                final String imageUrl = setting.getXpathStringImageUrl();
-               if (null != imageUrl && StringUtils.isEmpty(imageUrl)) {
+               if (null != imageUrl && StringUtils.isNotEmpty(imageUrl)) {
                    paramVals.put("imageUrl", imageUrl);
                }
                final String price = setting.getXpathStringPirce();
-               if (null != price && StringUtils.isEmpty(price)) {
+               if (null != price && StringUtils.isNotEmpty(price)) {
                    paramVals.put("price", price);
                }
-               if (null != directUrl && StringUtils.isEmpty(directUrl)) {
+               if (null != directUrl && StringUtils.isNotEmpty(directUrl)) {
                    paramVals.put("directUrl", directUrl);
                }
                final String infos = setting.getXpathListStringInfos();
-               if (null != infos && StringUtils.isEmpty(infos)) {
+               if (null != infos && StringUtils.isNotEmpty(infos)) {
                    paramVals.put("infos", infos);
                }
             }
             // end set
             
             // Convert RAW data to xml string using XSL
-            final String outputXml = XmlUtil.applyXSL(rawData, RAW_PHONE_XSL_PATH, paramVals);
+            final String outputXml = XmlUtil.applyXSL(rawData, RAW_PRODUCT_XSL_PATH, paramVals);
             
             // Binding output to JAXB
-            
+            ProductModel model = XmlUtil.unmarshallJAXB(ProductModel.class, outputXml, PRODUCT_SCHEMA_PATH);
+            return model;
         } catch (BizlogicException e) {
             LOGGER.error("Error while parsing xml to JAXB model of Phone: " + e.getMessage());
+            return null;
         } finally {
             LOGGER.debug(IConsts.END_METHOD);
         }
-        return null;
     }
 }

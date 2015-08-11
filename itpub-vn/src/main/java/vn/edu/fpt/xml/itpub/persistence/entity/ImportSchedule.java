@@ -119,8 +119,8 @@ public class ImportSchedule extends AbstractKeyEntity {
      * 
      */
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId", nullable = false)
-    private User user;
+    @JoinColumn(name = "createdUser", nullable = false)
+    private User createdUser;
     
     
     /**
@@ -365,20 +365,22 @@ public class ImportSchedule extends AbstractKeyEntity {
         this.brand = brand;
     }
 
+    
+    
     /**
-     * Get the user attribute.
-     * @return the user
+     * Get the createdUser attribute.
+     * @return the createdUser
      */
-    public User getUser() {
-        return user;
+    public User getCreatedUser() {
+        return createdUser;
     }
 
     /**
-     * Set the user attribute.
-     * @param user the user to set
+     * Set the createdUser attribute.
+     * @param createdUser the createdUser to set
      */
-    public void setUser(final User user) {
-        this.user = user;
+    public void setCreatedUser(final User createdUser) {
+        this.createdUser = createdUser;
     }
 
     /**

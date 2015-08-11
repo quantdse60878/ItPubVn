@@ -42,4 +42,10 @@ public interface IConsts {
      * The real path folder.
      */
     String REAL_PATH = PropertiesUtil.getInstance().getString(PropertiesUtil.CONTEXT_REAL_PATH);
+    
+    /**
+     * The default system user.
+     * Use for importing product.
+     */
+    int DEFAULT_SYSTEM_USER = 1;
 }

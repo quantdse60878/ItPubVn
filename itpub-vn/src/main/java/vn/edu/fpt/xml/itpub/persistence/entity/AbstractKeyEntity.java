@@ -40,12 +40,12 @@ public class AbstractKeyEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Integer id;
 
     /**
      * @param id The id
      */
-    public AbstractKeyEntity(final int id) {
+    public AbstractKeyEntity(final Integer id) {
         super();
         this.id = id;
     }
@@ -61,7 +61,7 @@ public class AbstractKeyEntity implements Serializable {
      * Get the id attribute.
      * @return the id
      */
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -69,7 +69,7 @@ public class AbstractKeyEntity implements Serializable {
      * Set the id attribute.
      * @param id the id to set
      */
-    public void setId(final int id) {
+    public void setId(final Integer id) {
         this.id = id;
     }
     

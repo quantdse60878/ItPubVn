@@ -23,7 +23,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import vn.edu.fpt.xml.itpub.common.util.HibernateUtil;
-import vn.edu.fpt.xml.itpub.persistence.entity.AbstractKeyEntity;
 
 /**
  * 
@@ -35,7 +34,7 @@ import vn.edu.fpt.xml.itpub.persistence.entity.AbstractKeyEntity;
  * @version 1.0 <br>
  * @see (Related item)
  */
-public abstract class AbstractDao<E extends AbstractKeyEntity, ID extends Serializable> implements IBaseDao<E, ID> {
+public abstract class AbstractDao<E, ID extends Serializable> implements IBaseDao<E, ID> {
     /**
      * 
      */
@@ -56,8 +55,7 @@ public abstract class AbstractDao<E extends AbstractKeyEntity, ID extends Serial
     @SuppressWarnings("unchecked")
     public AbstractDao() {
         super();
-        sessionFactory = HibernateUtil.getSessionFactory();
-        session = sessionFactory.openSession();
+        session = HibernateUtil.getSession();
         
         Type genericSuperclass = this.getClass().getGenericSuperclass();
         if (genericSuperclass instanceof ParameterizedType) {
@@ -153,5 +151,23 @@ public abstract class AbstractDao<E extends AbstractKeyEntity, ID extends Serial
     public E findById(final ID id) {
         return (E) getSession().get(clazz, id);
     }
-    
+
+    /* (non-Javadoc)
+     * @see vn.edu.fpt.xml.itpub.persistence.dao.IBaseDao#flush()
+     */
+    @Override
+    public void flush() {
+        getSession().flush();
+        
+    }
+
+    /* (non-Javadoc)
+     * @see vn.edu.fpt.xml.itpub.persistence.dao.IBaseDao#
+     * saveAndFlush(vn.edu.fpt.xml.itpub.persistence.entity.AbstractKeyEntity)
+     */
+    @Override
+    public void saveAndFlush(final E e) {
+        getSession().save(e);
+        getSession().flush();
+    }
 }

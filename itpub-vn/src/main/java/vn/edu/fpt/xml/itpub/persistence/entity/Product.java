@@ -106,19 +106,19 @@ public class Product extends AbstractKeyEntity {
      * 
      */
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "createUser")
+    @JoinColumn(name = "createdUser")
     private User createdUser;
 
     
     /**
      * 
      */
-    private Date createdTime;
+    private Date createdDate;
     
     /**
      * 
      */
-    private Date updatedTime;
+    private Date updatedDate;
 
     /**
      * 
@@ -238,37 +238,6 @@ public class Product extends AbstractKeyEntity {
         this.createdUser = createdUser;
     }
 
-    /**
-     * Get the createdTime attribute.
-     * @return the createdTime
-     */
-    public Date getCreatedTime() {
-        return createdTime;
-    }
-
-    /**
-     * Set the createdTime attribute.
-     * @param createdTime the createdTime to set
-     */
-    public void setCreatedTime(final Date createdTime) {
-        this.createdTime = createdTime;
-    }
-
-    /**
-     * Get the updatedTime attribute.
-     * @return the updatedTime
-     */
-    public Date getUpdatedTime() {
-        return updatedTime;
-    }
-
-    /**
-     * Set the updatedTime attribute.
-     * @param updatedTime the updatedTime to set
-     */
-    public void setUpdatedTime(final Date updatedTime) {
-        this.updatedTime = updatedTime;
-    }
 
     /**
      * Get the productInfos attribute.
@@ -388,6 +357,38 @@ public class Product extends AbstractKeyEntity {
      */
     public void setDirectLink(final String directLink) {
         this.directLink = directLink;
+    }
+
+    /**
+     * Get the createdDate attribute.
+     * @return the createdDate
+     */
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    /**
+     * Set the createdDate attribute.
+     * @param createdDate the createdDate to set
+     */
+    public void setCreatedDate(final Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    /**
+     * Get the updatedDate attribute.
+     * @return the updatedDate
+     */
+    public Date getUpdatedDate() {
+        return updatedDate;
+    }
+
+    /**
+     * Set the updatedDate attribute.
+     * @param updatedDate the updatedDate to set
+     */
+    public void setUpdatedDate(final Date updatedDate) {
+        this.updatedDate = updatedDate;
     }
     
 }

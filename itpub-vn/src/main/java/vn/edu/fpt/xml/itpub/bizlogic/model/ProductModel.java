@@ -44,45 +44,51 @@ public class ProductModel implements Serializable {
      * The name.
      */
     @XmlElement(name = "name")
-    private String name;
+    protected String name;
     
     /**
      * The quaranty info.
      */
     @XmlElement(name = "quarantyInfo")
-    private String quarantyInfo;
+    protected String quarantyInfo;
     
     /**
      * The description.
      */
     @XmlElement(name = "description")
-    private String description;
+    protected String description;
+    
+    /**
+     * The promotion.
+     */
+    @XmlElement(name = "promotion")
+    protected String promotion;
     
     /**
      * The image url.
      */
     @XmlSchemaType(name = "anyURI")
     @XmlElement(name = "imageUrl")
-    private String imageUrl;
+    protected String imageUrl;
     
     /**
      * The price.
      */
     @XmlElement(name = "price")
-    private String price;
+    protected String price;
     
     /**
      * The directLink.
      */
     @XmlSchemaType(name = "anyURI")
     @XmlElement(name = "directLink")
-    private String directLink;
+    protected String directLink;
     
     /**
      * The infos.
      */
     @XmlElement(name = "infos")
-    private InfoModel infos;
+    protected InfoModel infos;
 
     /**
      * Get the name attribute.
@@ -194,6 +200,29 @@ public class ProductModel implements Serializable {
      */
     public void setInfos(final InfoModel infos) {
         this.infos = infos;
+    }
+
+    /**
+     * Get the promotion attribute.
+     * @return the promotion
+     */
+    public String getPromotion() {
+        return promotion;
+    }
+
+    /**
+     * Set the promotion attribute.
+     * @param promotion the promotion to set
+     */
+    public void setPromotion(final String promotion) {
+        this.promotion = promotion;
+    }
+
+    /**
+     * 
+     */
+    public ProductModel() {
+        super();
     }
     
 }

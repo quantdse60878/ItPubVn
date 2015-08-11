@@ -69,12 +69,12 @@ public class User extends AbstractKeyEntity {
     /**
      * 
      */
-    private Date createdTime;
+    private Date createdDate;
     
     /**
      * 
      */
-    private Date updatedTime;
+    private Date updatedDate;
 
     /**
      * 
@@ -185,36 +185,37 @@ public class User extends AbstractKeyEntity {
         this.lastLogin = lastLogin;
     }
     
+
     /**
-     * Get the createdTime attribute.
-     * @return the createdTime
+     * Get the createdDate attribute.
+     * @return the createdDate
      */
-    public Date getCreatedTime() {
-        return createdTime;
+    public Date getCreatedDate() {
+        return createdDate;
     }
 
     /**
-     * Set the createdTime attribute.
-     * @param createdTime the createdTime to set
+     * Set the createdDate attribute.
+     * @param createdDate the createdDate to set
      */
-    public void setCreatedTime(final Date createdTime) {
-        this.createdTime = createdTime;
+    public void setCreatedDate(final Date createdDate) {
+        this.createdDate = createdDate;
     }
 
     /**
-     * Get the updatedTime attribute.
-     * @return the updatedTime
+     * Get the updatedDate attribute.
+     * @return the updatedDate
      */
-    public Date getUpdatedTime() {
-        return updatedTime;
+    public Date getUpdatedDate() {
+        return updatedDate;
     }
 
     /**
-     * Set the updatedTime attribute.
-     * @param updatedTime the updatedTime to set
+     * Set the updatedDate attribute.
+     * @param updatedDate the updatedDate to set
      */
-    public void setUpdatedTime(final Date updatedTime) {
-        this.updatedTime = updatedTime;
+    public void setUpdatedDate(final Date updatedDate) {
+        this.updatedDate = updatedDate;
     }
 
     /**

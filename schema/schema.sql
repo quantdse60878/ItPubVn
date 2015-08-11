@@ -153,7 +153,7 @@ CREATE TABLE IF NOT EXISTS `xml2015`.`product` (
   `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '',
   `deviceTypeId` INT(11) NOT NULL COMMENT '',
   `brandId` INT(11) NOT NULL COMMENT '',
-  `barcode` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL COMMENT '',
+  `barcode` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' COMMENT '',
   `name` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL COMMENT '',
   `quarantyInfo` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' COMMENT '',
   `description` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' COMMENT '',

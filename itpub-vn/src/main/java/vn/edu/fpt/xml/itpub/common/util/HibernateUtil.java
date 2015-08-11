@@ -16,6 +16,7 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.slf4j.Logger;
@@ -42,6 +43,8 @@ public class HibernateUtil implements ServletContextListener {
      */
     private static SessionFactory sessionFactory;
     
+    private static Session session;
+    
     /* (non-Javadoc)
      * @see javax.servlet.ServletContextListener#contextDestroyed(javax.servlet.ServletContextEvent)
      */
@@ -58,6 +61,7 @@ public class HibernateUtil implements ServletContextListener {
         LOGGER.info(IConsts.BEGIN_METHOD);
         try {
             sessionFactory = new Configuration().configure().buildSessionFactory();
+            session = sessionFactory.openSession();
         } finally {
             LOGGER.info(IConsts.END_METHOD);
         }
@@ -69,6 +73,13 @@ public class HibernateUtil implements ServletContextListener {
      */
     public static SessionFactory getSessionFactory() {
         return sessionFactory;
+    }
+    
+    /**
+     * 
+     */
+    public static Session getSession() {
+        return session;
     }
     
     /**
