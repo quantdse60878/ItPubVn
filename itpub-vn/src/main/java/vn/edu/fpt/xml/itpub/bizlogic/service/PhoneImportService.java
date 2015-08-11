@@ -47,13 +47,14 @@ public class PhoneImportService extends AbstractService {
     private static final String RAW_PHONE_XSL_PATH = IConsts.REAL_PATH + "/WEB-INF/xsl/rawPhoneData.xsl"; 
 
     
+    
     public void importJob(){
         LOGGER.info(IConsts.BEGIN_METHOD);
         try {
             List<String> tags = new ArrayList<>();
-//            tags.add("script");
-//            tags.add("noscript");
-//            tags.add("style");
+            tags.add("script");
+            tags.add("noscript");
+            tags.add("style");
             HtmlPage html = HtmlUtil.getHtmlPage("http://hcm.cellphones.com.vn/mobile/iphone-5s.html", tags);
             
             /*
