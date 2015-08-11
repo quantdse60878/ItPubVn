@@ -77,6 +77,11 @@ public class User extends AbstractKeyEntity {
     private Date updatedTime;
 
     /**
+     * 
+     */
+    private byte status;
+    
+    /**
      * List of roles.
      */
     @ManyToMany(fetch = FetchType.LAZY)
@@ -227,6 +232,24 @@ public class User extends AbstractKeyEntity {
     public void setRoles(final List<Role> roles) {
         this.roles = roles;
     }
+    
+    
+    /**
+     * Get the status attribute.
+     * @return the status
+     */
+    public byte getStatus() {
+        return status;
+    }
+
+    /**
+     * Set the status attribute.
+     * @param status the status to set
+     */
+    public void setStatus(final byte status) {
+        this.status = status;
+    }
+
     /**
      * 
      */

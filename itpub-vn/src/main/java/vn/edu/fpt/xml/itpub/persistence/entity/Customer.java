@@ -70,6 +70,11 @@ public class Customer extends AbstractKeyEntity {
     /**
      * 
      */
+    private byte status;
+    
+    /**
+     * 
+     */
     public Customer() {
         super();
     }
@@ -168,6 +173,22 @@ public class Customer extends AbstractKeyEntity {
      */
     public void setUpdatedDate(final Date updatedDate) {
         this.updatedDate = updatedDate;
+    }
+
+    /**
+     * Get the status attribute.
+     * @return the status
+     */
+    public byte getStatus() {
+        return status;
+    }
+
+    /**
+     * Set the status attribute.
+     * @param status the status to set
+     */
+    public void setStatus(final byte status) {
+        this.status = status;
     }
     
 }
