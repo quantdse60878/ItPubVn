@@ -102,8 +102,6 @@ DROP TABLE IF EXISTS `xml2015`.`importschedule` ;
 CREATE TABLE IF NOT EXISTS `xml2015`.`importschedule` (
   `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '',
   `scheduleName` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT '',
-  `startDate` DATETIME NULL DEFAULT NULL COMMENT '',
-  `endDate` DATETIME NULL DEFAULT NULL COMMENT '',
   `status` TINYINT(4) NULL DEFAULT '0' COMMENT '0: ACTIVE 1: INACTIVE',
   `isRunning` TINYINT(4) NULL DEFAULT '0' COMMENT '0: STOPPED, 1: IS_RUNNING',
   `crawlingUrl` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT '',
@@ -116,7 +114,30 @@ CREATE TABLE IF NOT EXISTS `xml2015`.`importschedule` (
   `xpathStringPirce` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT '',
   `xpathStringDirectLink` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT '',
   `xpathListStringInfos` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT '',
-  PRIMARY KEY (`id`)  COMMENT '')
+  `deviceTypeId` INT(11) NOT NULL COMMENT '',
+  `brandId` INT(11) NOT NULL COMMENT '',
+  `createdUser` INT(11) NOT NULL COMMENT '',
+  `createdDate` DATETIME NOT NULL COMMENT '',
+  `updatedDate` DATETIME NOT NULL COMMENT '',
+  PRIMARY KEY (`id`)  COMMENT '',
+  INDEX `FK_DeviceType_ImportSchedule` (`deviceTypeId` ASC)  COMMENT '',
+  INDEX `FK_Branch_ImportSchedule` (`brandId` ASC)  COMMENT '',
+  INDEX `FK_createdUser_ImportSchedule` (`createdUser` ASC)  COMMENT '',
+  CONSTRAINT `FK_Branch_ImportSchedule`
+    FOREIGN KEY (`brandId`)
+    REFERENCES `xml2015`.`brand` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `FK_createdUser_ImportSchedule`
+    FOREIGN KEY (`createdUser`)
+    REFERENCES `xml2015`.`user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `FK_DeviceType_ImportSchedule`
+    FOREIGN KEY (`deviceTypeId`)
+    REFERENCES `xml2015`.`devicetype` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_unicode_ci;
@@ -136,7 +157,8 @@ CREATE TABLE IF NOT EXISTS `xml2015`.`product` (
   `description` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' COMMENT '',
   `promotion` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' COMMENT '',
   `imageUrl` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' COMMENT '',
-  `price` DECIMAL(10,0) NOT NULL COMMENT '',
+  `internalImageUrl` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' COMMENT '',
+  `price` DOUBLE NOT NULL COMMENT '',
   `status` TINYINT(4) NULL DEFAULT '0' COMMENT '0: ACTIVE\\n 1: INACTIVE',
   `directLink` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' COMMENT '',
   `createdUser` INT(11) NOT NULL COMMENT '',

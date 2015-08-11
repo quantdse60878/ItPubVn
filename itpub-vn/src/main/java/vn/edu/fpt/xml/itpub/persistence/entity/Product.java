@@ -64,12 +64,43 @@ public class Product extends AbstractKeyEntity {
     /**
      * 
      */
+    private String quarantyInfo;
+    
+    /**
+     * 
+     */
+    private String description;
+
+    /**
+     * 
+     */
+    private String promotion;
+    
+    /**
+     * 
+     */
+    private String imageUrl;
+    
+    
+    /**
+     * 
+     */
+    private String internalImageUrl;
+    
+    /**
+     * 
+     */
     private double price;
     
     /**
      * 
      */
     private byte status;
+    
+    /**
+     * 
+     */
+    private String directLink;
     
     /**
      * 
@@ -82,12 +113,12 @@ public class Product extends AbstractKeyEntity {
     /**
      * 
      */
-    private Date createTime;
+    private Date createdTime;
     
     /**
      * 
      */
-    private Date updateTime;
+    private Date updatedTime;
 
     /**
      * 
@@ -208,35 +239,35 @@ public class Product extends AbstractKeyEntity {
     }
 
     /**
-     * Get the createTime attribute.
-     * @return the createTime
+     * Get the createdTime attribute.
+     * @return the createdTime
      */
-    public Date getCreateTime() {
-        return createTime;
+    public Date getCreatedTime() {
+        return createdTime;
     }
 
     /**
-     * Set the createTime attribute.
-     * @param createTime the createTime to set
+     * Set the createdTime attribute.
+     * @param createdTime the createdTime to set
      */
-    public void setCreateTime(final Date createTime) {
-        this.createTime = createTime;
+    public void setCreatedTime(final Date createdTime) {
+        this.createdTime = createdTime;
     }
 
     /**
-     * Get the updateTime attribute.
-     * @return the updateTime
+     * Get the updatedTime attribute.
+     * @return the updatedTime
      */
-    public Date getUpdateTime() {
-        return updateTime;
+    public Date getUpdatedTime() {
+        return updatedTime;
     }
 
     /**
-     * Set the updateTime attribute.
-     * @param updateTime the updateTime to set
+     * Set the updatedTime attribute.
+     * @param updatedTime the updatedTime to set
      */
-    public void setUpdateTime(final Date updateTime) {
-        this.updateTime = updateTime;
+    public void setUpdatedTime(final Date updatedTime) {
+        this.updatedTime = updatedTime;
     }
 
     /**
@@ -260,6 +291,103 @@ public class Product extends AbstractKeyEntity {
      */
     public Product() {
         super();
+    }
+
+    /**
+     * Get the quarantyInfo attribute.
+     * @return the quarantyInfo
+     */
+    public String getQuarantyInfo() {
+        return quarantyInfo;
+    }
+
+    /**
+     * Set the quarantyInfo attribute.
+     * @param quarantyInfo the quarantyInfo to set
+     */
+    public void setQuarantyInfo(final String quarantyInfo) {
+        this.quarantyInfo = quarantyInfo;
+    }
+
+    /**
+     * Get the description attribute.
+     * @return the description
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * Set the description attribute.
+     * @param description the description to set
+     */
+    public void setDescription(final String description) {
+        this.description = description;
+    }
+
+    /**
+     * Get the promotion attribute.
+     * @return the promotion
+     */
+    public String getPromotion() {
+        return promotion;
+    }
+
+    /**
+     * Set the promotion attribute.
+     * @param promotion the promotion to set
+     */
+    public void setPromotion(final String promotion) {
+        this.promotion = promotion;
+    }
+
+    /**
+     * Get the imageUrl attribute.
+     * @return the imageUrl
+     */
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    /**
+     * Set the imageUrl attribute.
+     * @param imageUrl the imageUrl to set
+     */
+    public void setImageUrl(final String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+
+    /**
+     * Get the internalImageUrl attribute.
+     * @return the internalImageUrl
+     */
+    public String getInternalImageUrl() {
+        return internalImageUrl;
+    }
+
+    /**
+     * Set the internalImageUrl attribute.
+     * @param internalImageUrl the internalImageUrl to set
+     */
+    public void setInternalImageUrl(final String internalImageUrl) {
+        this.internalImageUrl = internalImageUrl;
+    }
+
+    /**
+     * Get the directLink attribute.
+     * @return the directLink
+     */
+    public String getDirectLink() {
+        return directLink;
+    }
+
+    /**
+     * Set the directLink attribute.
+     * @param directLink the directLink to set
+     */
+    public void setDirectLink(final String directLink) {
+        this.directLink = directLink;
     }
     
 }
