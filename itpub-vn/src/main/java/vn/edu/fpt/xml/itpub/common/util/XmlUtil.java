@@ -15,6 +15,8 @@ package vn.edu.fpt.xml.itpub.common.util;
 import java.io.File;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.util.Map;
+import java.util.Set;
 
 import javax.xml.transform.Result;
 import javax.xml.transform.Source;
@@ -54,32 +56,41 @@ public class XmlUtil {
      * Apply XSL to XML String.
      * </p>
      * @param xmlString {@link String}
-     * @param xslFilePath {@link String}
+     * @param xslPath {@link String}
+     * @param paramVals {@link Map}
      * @return {@link String}
      * @throws BizlogicException be
      * @see (Related item)
      */
-    public static String applyXSL(final String xmlString, final String xslFilePath) throws BizlogicException {
+    public static String applyXSL(final String xmlString, final String xslPath, final Map<String, String> paramVals)
+            throws BizlogicException {
         LOGGER.info(IConsts.BEGIN_METHOD);
         try {
             // Create TransformerFactory instance
-            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            final TransformerFactory transformerFactory = TransformerFactory.newInstance();
             
             // Create Template instance
-            File xslFile = new File(xslFilePath);
-            Source xslSource = new StreamSource(xslFile);
-            Templates templates = transformerFactory.newTemplates(xslSource);
-            
+            final File xslFile = new File(xslPath);
+            final Source xslSource = new StreamSource(xslFile);
+            final Templates templates = transformerFactory.newTemplates(xslSource);
             // Create Transformer instance
-            Transformer transformer = templates.newTransformer();
+            final Transformer transformer = templates.newTransformer();
+            
+            // Set parameter to transformer
+            if (null != paramVals && !paramVals.isEmpty()) {
+                Set<String> keys = paramVals.keySet();
+                for (String key : keys) {
+                    transformer.setParameter(key, paramVals.get(key));
+                }
+            }
             
             // Create input source from string
-            StringReader reader = new StringReader(xmlString);
-            Source source = new StreamSource(reader);
+            final StringReader reader = new StringReader(xmlString);
+            final Source source = new StreamSource(reader);
             
             // Create output result to string
-            StringWriter writer = new StringWriter();
-            Result result = new StreamResult(writer);
+            final StringWriter writer = new StringWriter();
+            final Result result = new StreamResult(writer);
             
             // Write to output result
             transformer.transform(source, result);

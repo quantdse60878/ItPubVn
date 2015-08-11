@@ -1,5 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/phone"
-	xmlns:tns="http://www.example.org/phone" elementFormDefault="qualified">
-	
-</schema>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="phone">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="name"/>
+        <xs:element type="xs:string" name="quarantyInfo"/>
+        <xs:element type="xs:string" name="description"/>
+        <xs:element type="xs:string" name="promotion"/>
+        <xs:element type="xs:anyURI" name="imageUrl"/>
+        <xs:element type="xs:string" name="price"/>
+        <xs:element type="xs:anyURI" name="directLink"/>
+        <xs:element name="infos">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="property" maxOccurs="unbounded" minOccurs="0"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

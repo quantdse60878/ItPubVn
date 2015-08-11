@@ -104,14 +104,22 @@ CREATE TABLE IF NOT EXISTS `xml2015`.`importschedule` (
   `scheduleName` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT '',
   `startDate` DATETIME NULL DEFAULT NULL COMMENT '',
   `endDate` DATETIME NULL DEFAULT NULL COMMENT '',
-  `lastImportId` INT(11) NULL DEFAULT NULL COMMENT '',
-  `status` TINYINT(4) NULL DEFAULT '0' COMMENT '0: ACTIVE 1: INACTIVE 2: RUNNING',
+  `status` TINYINT(4) NULL DEFAULT '0' COMMENT '0: ACTIVE 1: INACTIVE',
+  `isRunning` TINYINT(4) NULL DEFAULT '0' COMMENT '0: STOPPED, 1: IS_RUNNING',
   `crawlingUrl` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT '',
+  `xpathHrefChild` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT '',
+  `xpathStringName` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT '',
+  `xpathStringQuarantyInfo` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT '',
+  `xpathStringDescription` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT '',
+  `xpathStringPromotion` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT '',
+  `xpathStringImageUrl` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT '',
+  `xpathStringPirce` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT '',
+  `xpathStringDirectLink` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT '',
+  `xpathListStringInfos` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NULL DEFAULT NULL COMMENT '',
   PRIMARY KEY (`id`)  COMMENT '')
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_unicode_ci;
-
 
 -- -----------------------------------------------------
 -- Table `xml2015`.`product`
@@ -122,10 +130,15 @@ CREATE TABLE IF NOT EXISTS `xml2015`.`product` (
   `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '',
   `deviceTypeId` INT(11) NOT NULL COMMENT '',
   `brandId` INT(11) NOT NULL COMMENT '',
-  `name` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL COMMENT '',
   `barcode` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL COMMENT '',
+  `name` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL COMMENT '',
+  `quarantyInfo` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' COMMENT '',
+  `description` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' COMMENT '',
+  `promotion` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' COMMENT '',
+  `imageUrl` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' COMMENT '',
   `price` DECIMAL(10,0) NOT NULL COMMENT '',
   `status` TINYINT(4) NULL DEFAULT '0' COMMENT '0: ACTIVE\\n 1: INACTIVE',
+  `directLink` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' COMMENT '',
   `createdUser` INT(11) NOT NULL COMMENT '',
   `createdDate` DATETIME NOT NULL COMMENT '',
   `updatedDate` DATETIME NOT NULL COMMENT '',

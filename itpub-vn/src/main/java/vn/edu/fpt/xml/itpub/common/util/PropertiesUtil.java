@@ -32,6 +32,10 @@ import org.slf4j.LoggerFactory;
  */
 @WebListener
 public class PropertiesUtil implements ServletContextListener {
+    /**
+     * 
+     */
+    public static final String CONTEXT_REAL_PATH = "context.realPath";
     
     /**
      * The logger.
@@ -79,20 +83,26 @@ public class PropertiesUtil implements ServletContextListener {
      * @see javax.servlet.ServletContextListener#contextDestroyed(javax.servlet.ServletContextEvent)
      */
     @Override
-    public void contextDestroyed(final ServletContextEvent arg0) {
-        try {
-            getInstance().props.load(Thread.currentThread().getContextClassLoader().getResourceAsStream(CONFIG_FILE));
-        } catch (IOException e) {
-            LOGGER.error(e.getMessage());
-        }
+    public void contextDestroyed(final ServletContextEvent sce) {
+       
     }
 
     /* (non-Javadoc)
      * @see javax.servlet.ServletContextListener#contextInitialized(javax.servlet.ServletContextEvent)
      */
     @Override
-    public void contextInitialized(final ServletContextEvent arg0) {
-        
+    public void contextInitialized(final ServletContextEvent sce) {
+        try {
+            getInstance().props.load(Thread.currentThread().getContextClassLoader().getResourceAsStream(CONFIG_FILE));
+            
+            /*
+             * Load real servlet context directory path to props val for using
+             */
+            getInstance().props.put(CONTEXT_REAL_PATH, sce.getServletContext().getRealPath(""));
+            
+        } catch (IOException e) {
+            LOGGER.error(e.getMessage());
+        }
     }
 
     /**

@@ -65,9 +65,9 @@ public class HtmlUtil {
             if (null != replacedTags && !replacedTags.isEmpty()) {
                 for (String tag: replacedTags) {
                     List<DomElement> ls = page.getElementsByTagName(tag);
-                    if (null != ls && ls.isEmpty()) {
+                    if (null != ls && !ls.isEmpty()) {
                         for (DomElement el: ls) {
-                            el.setTextContent(null);
+                            el.setTextContent("");
                             el.removeAllChildren();
                         }
                     }

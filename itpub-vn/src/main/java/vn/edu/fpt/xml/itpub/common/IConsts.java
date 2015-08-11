@@ -37,4 +37,9 @@ public interface IConsts {
      * The flag is allow running job or not.
      */
     boolean ENABLE_CRONJOB = PropertiesUtil.getInstance().getBoolean("cronjob.enable");
+    
+    /**
+     * The real path folder.
+     */
+    String REAL_PATH = PropertiesUtil.getInstance().getString(PropertiesUtil.CONTEXT_REAL_PATH);
 }
