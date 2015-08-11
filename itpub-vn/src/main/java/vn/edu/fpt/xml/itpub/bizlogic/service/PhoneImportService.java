@@ -22,6 +22,8 @@ import vn.edu.fpt.xml.itpub.common.IConsts;
 import vn.edu.fpt.xml.itpub.common.exception.BizlogicException;
 import vn.edu.fpt.xml.itpub.common.util.HtmlUtil;
 import vn.edu.fpt.xml.itpub.common.util.XmlUtil;
+import vn.edu.fpt.xml.itpub.persistence.dao.ImportScheduleDao;
+import vn.edu.fpt.xml.itpub.persistence.entity.ImportSchedule;
 
 import com.gargoylesoftware.htmlunit.html.DomElement;
 import com.gargoylesoftware.htmlunit.html.DomNode;
@@ -51,6 +53,8 @@ public class PhoneImportService extends AbstractService {
     public void importJob(){
         LOGGER.info(IConsts.BEGIN_METHOD);
         try {
+            List<ImportSchedule> listSchedule = IMPORT_SCHEDULE_DAO.findAll();
+            
             List<String> tags = new ArrayList<>();
             tags.add("script");
             tags.add("noscript");
