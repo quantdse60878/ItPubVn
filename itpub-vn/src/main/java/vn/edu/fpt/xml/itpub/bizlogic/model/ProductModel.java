@@ -29,11 +29,11 @@ import javax.xml.bind.annotation.XmlType;
  * @version 1.0 <br>
  * @see (Related item)
  */
-@XmlRootElement(name = "phone")
+@XmlRootElement(name = "product")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = { "name", "quarantyInfo", "description", "promotion",
     "imageUrl", "price", "directLink", "infos" })
-public class PhoneModel implements Serializable {
+public class ProductModel implements Serializable {
     
     /**
      * 

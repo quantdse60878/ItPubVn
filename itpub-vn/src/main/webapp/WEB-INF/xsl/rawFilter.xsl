@@ -8,9 +8,9 @@
     <xsl:param name="imageUrl" select="//*[@id='image']"/>
     <xsl:param name="price" select="//*[@id='price']"/>
     <xsl:param name="directLink" select="'http://localhost:8080'"/>
-    <xsl:param name="info" select="//div[@class='content-thongso']//ul//li"/>
+    <xsl:param name="infos" select="//div[@class='content-thongso']//ul//li"/>
     <xsl:template match="html">
-        <phone>
+        <product>
             <name>
                 <xsl:value-of select= "normalize-space($name)"></xsl:value-of>
             </name>
@@ -33,12 +33,12 @@
                 <xsl:value-of select= "normalize-space($directLink)"></xsl:value-of>
             </directLink>
             <infos>
-                <xsl:for-each select = "$info">
+                <xsl:for-each select = "$infos">
                     <property>
                             <xsl:value-of select= "normalize-space(.)"></xsl:value-of>
                     </property>
                 </xsl:for-each>
             </infos>
-        </phone>
+        </product>
     </xsl:template>
 </xsl:stylesheet>
