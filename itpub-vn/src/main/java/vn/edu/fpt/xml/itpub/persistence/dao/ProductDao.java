@@ -16,6 +16,7 @@ import java.util.List;
 
 import org.hibernate.Query;
 
+import vn.edu.fpt.xml.itpub.persistence.IDbConsts.IProductStatus;
 import vn.edu.fpt.xml.itpub.persistence.entity.Product;
 
 /**
@@ -46,5 +47,20 @@ public class ProductDao extends AbstractDao<Product, Integer> {
             return ls.get(0);
         }
         return null;
+    }
+    
+    /**
+     * <p>
+     * Find by status.
+     * </p>
+     * @param status {@link IProductStatus}
+     * @return {@link List}
+     * @see (Related item)
+     */
+    @SuppressWarnings("unchecked")
+    public List<Product> findByStatus(final byte status) {
+        final Query query = getSession().createQuery("from Product where status = :status");
+        query.setParameter("status", status);
+        return query.list();
     }
 }

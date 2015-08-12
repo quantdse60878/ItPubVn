@@ -16,11 +16,11 @@ import java.io.File;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.util.Map;
-import java.util.Set;
 
 import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.transform.Result;
 import javax.xml.transform.Source;
@@ -157,6 +157,42 @@ public class XmlUtil {
         } catch (JAXBException | SAXException e) {
             LOGGER.error("Exception at: " + e.getMessage());
             return null;
+        } finally {
+            LOGGER.debug(IConsts.END_METHOD);
+        }
+    }
+    
+    /**
+     * <p>
+     * Marshall JAXB object to output String.
+     * </p>
+     * @param <M> The model class
+     * @param clazz The class intance
+     * @param input input source
+     * @param isFormatOutput The flag for choosing formatting output data or not
+     * @return {@link String}
+     * @see (Related item)
+     */
+    public static <M> String marshallJAXB(final Class<M> clazz, final M input, final boolean isFormatOutput) {
+        LOGGER.debug(IConsts.BEGIN_METHOD);
+        try {
+            // Create marshall instance
+            final JAXBContext context = JAXBContext.newInstance(clazz);
+            final Marshaller marshaller = context.createMarshaller();
+            
+            // Create ouput result
+            final StringWriter sw = new StringWriter();
+            marshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
+            if (isFormatOutput) {
+                marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+            }
+            
+            marshaller.marshal(input, sw);
+            return sw.toString();
+        } catch (JAXBException e) {
+            LOGGER.error("Exception at: " + e.getMessage());
+            e.printStackTrace();
+            return "";
         } finally {
             LOGGER.debug(IConsts.END_METHOD);
         }

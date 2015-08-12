@@ -29,10 +29,15 @@ public interface IJspPage {
     /**
      * Login page.
      */
-    String LOGIN = "login" + POSTFIX;
+    String LOGIN = "/login" + POSTFIX;
     /**
      * Index page.
      */
-    String INDEX = "index" + POSTFIX;
+    String INDEX = "/index" + POSTFIX;
+    
+    /**
+     * Home page.
+     */
+    String HOME = "/home" + POSTFIX;
     
 }

@@ -26,4 +26,9 @@ public interface IRequestUrl {
      * Login url.
      */
     String LOGIN = "/login";
+    
+    /**
+     * Home url.
+     */
+    String HOME = "/home";
 }

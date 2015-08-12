@@ -40,7 +40,7 @@ public class InfoModel implements Serializable {
     /**
      * The list of property.
      */
-    protected List<String> property;
+    private List<String> property;
 
     /**
      * Get the property attribute.

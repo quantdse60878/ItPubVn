@@ -24,7 +24,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import vn.edu.fpt.xml.itpub.bizlogic.model.InfoModel;
-import vn.edu.fpt.xml.itpub.bizlogic.model.ProductModel;
+import vn.edu.fpt.xml.itpub.bizlogic.model.RawDataModel;
 import vn.edu.fpt.xml.itpub.common.IConsts;
 import vn.edu.fpt.xml.itpub.common.exception.BizlogicException;
 import vn.edu.fpt.xml.itpub.common.util.HtmlUtil;
@@ -118,7 +118,7 @@ public class PhoneImportService extends AbstractService {
                         rawData = StringUtil.cleanupHtml(rawData);
                         // End remove comments data
                         
-                        final ProductModel model = this.getPhoneInfo(rawData, schedule, productUrl);
+                        final RawDataModel model = this.getPhoneInfo(rawData, schedule, productUrl);
                         if (null != model) {
                             
                             // Save product data
@@ -141,13 +141,13 @@ public class PhoneImportService extends AbstractService {
                             String strPrice = model.getPrice();
                             StringBuilder sb = new StringBuilder();
                             for (char c: strPrice.toCharArray()) {
-                                if (c >= 48 && c<=57) {
+                                if (c >= 48 && c <= 57) {
                                     sb.append(c);
                                 }
                             }
                             String rs = sb.toString();
                             if (null != rs && !rs.isEmpty()) {
-                                final double price = Double.parseDouble(sb.toString());
+                                final int price = Integer.parseInt(rs);
                                 product.setPrice(price);
                                 product.setStatus(IProductStatus.ACTIVE);
                             } else {
@@ -231,10 +231,10 @@ public class PhoneImportService extends AbstractService {
      * @param rawData {@link String}
      * @param setting {@link ImportSchedule}
      * @param directUrl {@link String}
-     * @return {@link ProductModel}
+     * @return {@link RawDataModel}
      * @see (Related item)
      */
-    public ProductModel getPhoneInfo(final String rawData, final ImportSchedule setting, final String directUrl) {
+    public RawDataModel getPhoneInfo(final String rawData, final ImportSchedule setting, final String directUrl) {
         LOGGER.debug(IConsts.BEGIN_METHOD);
         try {
             LOGGER.debug("directUrl[{}]", directUrl);
@@ -280,7 +280,7 @@ public class PhoneImportService extends AbstractService {
             final String outputXml = XmlUtil.applyXSL(rawData, RAW_PRODUCT_XSL_PATH, paramVals);
             
             // Binding output to JAXB
-            ProductModel model = XmlUtil.unmarshallJAXB(ProductModel.class, outputXml, PRODUCT_SCHEMA_PATH);
+            RawDataModel model = XmlUtil.unmarshallJAXB(RawDataModel.class, outputXml, PRODUCT_SCHEMA_PATH);
             return model;
         } catch (BizlogicException e) {
             LOGGER.error("Error while parsing xml to JAXB model of Phone: " + e.getMessage());

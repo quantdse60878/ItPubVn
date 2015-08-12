@@ -22,5 +22,5 @@ package vn.edu.fpt.xml.itpub.web.common;
  */
 
 public interface IRequestParam {
-
+    
 }

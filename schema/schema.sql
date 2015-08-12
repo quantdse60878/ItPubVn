@@ -160,7 +160,7 @@ CREATE TABLE IF NOT EXISTS `xml2015`.`product` (
   `promotion` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' COMMENT '',
   `imageUrl` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' COMMENT '',
   `internalImageUrl` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' COMMENT '',
-  `price` DOUBLE NOT NULL COMMENT '',
+  `price` INT(11) NOT NULL COMMENT '',
   `status` TINYINT(4) NULL DEFAULT '0' COMMENT '0: ACTIVE\\n 1: INACTIVE',
   `directLink` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' COMMENT '',
   `createdUser` INT(11) NOT NULL COMMENT '',

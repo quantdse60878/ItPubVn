@@ -10,7 +10,7 @@
  * 
  * @author dangquantran
  */
-package vn.edu.fpt.xml.itpub.web.common;
+package vn.edu.fpt.xml.itpub.web;
 
 import java.io.IOException;
 
@@ -21,6 +21,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import vn.edu.fpt.xml.itpub.web.common.IBaseDispatcher;
+import vn.edu.fpt.xml.itpub.web.common.IRequestUrl;
+import vn.edu.fpt.xml.itpub.web.common.IServletMapping;
 
 /**
  * The Servlet dispatcher implementation. Handling input request url and forward
@@ -54,8 +58,12 @@ public class DispatcherService implements IBaseDispatcher {
             case IRequestUrl.LOGIN :
                 dispatcherServlet = IServletMapping.USER_SERVLET;
                 break;
+                
+            case IRequestUrl.HOME:
+                dispatcherServlet = IServletMapping.HOME_SERVLET;
+                break;
             default :
-                dispatcherServlet = IServletMapping.CONTROLLER;
+                dispatcherServlet = IServletMapping.HOME_SERVLET;
                 break;
 
         }

@@ -1,7 +1,7 @@
 /**
  * ALL Rights Reserved, Copyright (C) FPT University 2015. <br>
  * Program： XML Project  <br>
- * File： PhoneModel.java <br>
+ * File： RawDataModel.java <br>
  * <p>
  * Created： Aug 11, 2015<br>
  * History： <br>
@@ -29,11 +29,11 @@ import javax.xml.bind.annotation.XmlType;
  * @version 1.0 <br>
  * @see (Related item)
  */
-@XmlRootElement(name = "product")
+@XmlRootElement(name = "rawData")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = { "name", "quarantyInfo", "description", "promotion",
     "imageUrl", "price", "directLink", "infos" })
-public class ProductModel implements Serializable {
+public class RawDataModel implements Serializable {
     
     /**
      * 
@@ -44,51 +44,51 @@ public class ProductModel implements Serializable {
      * The name.
      */
     @XmlElement(name = "name")
-    protected String name;
+    private String name;
     
     /**
      * The quaranty info.
      */
     @XmlElement(name = "quarantyInfo")
-    protected String quarantyInfo;
+    private String quarantyInfo;
     
     /**
      * The description.
      */
     @XmlElement(name = "description")
-    protected String description;
+    private String description;
     
     /**
      * The promotion.
      */
     @XmlElement(name = "promotion")
-    protected String promotion;
+    private String promotion;
     
     /**
      * The image url.
      */
     @XmlSchemaType(name = "anyURI")
     @XmlElement(name = "imageUrl")
-    protected String imageUrl;
+    private String imageUrl;
     
     /**
      * The price.
      */
     @XmlElement(name = "price")
-    protected String price;
+    private String price;
     
     /**
      * The directLink.
      */
     @XmlSchemaType(name = "anyURI")
     @XmlElement(name = "directLink")
-    protected String directLink;
+    private String directLink;
     
     /**
      * The infos.
      */
     @XmlElement(name = "infos")
-    protected InfoModel infos;
+    private InfoModel infos;
 
     /**
      * Get the name attribute.
@@ -221,7 +221,7 @@ public class ProductModel implements Serializable {
     /**
      * 
      */
-    public ProductModel() {
+    public RawDataModel() {
         super();
     }
     

@@ -37,4 +37,9 @@ public interface IServletMapping {
      */
     String USER_SERVLET = PREFIX + "/userServlet";
     
+    /**
+     * The home servlet.
+     */
+    String HOME_SERVLET = PREFIX + "/homeServlet";
+    
 }

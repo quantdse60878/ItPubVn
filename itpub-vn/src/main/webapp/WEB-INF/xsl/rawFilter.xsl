@@ -10,7 +10,7 @@
     <xsl:param name="directLink" select="'http://localhost:8080'"/>
     <xsl:param name="infos" select="//div[@class='content-thongso']//ul//li"/>
     <xsl:template match="html">
-        <product>
+        <rawData>
             <name>
                 <xsl:value-of select= "normalize-space($name)"></xsl:value-of>
             </name>
@@ -39,6 +39,6 @@
                     </property>
                 </xsl:for-each>
             </infos>
-        </product>
+        </rawData>
     </xsl:template>
 </xsl:stylesheet>
