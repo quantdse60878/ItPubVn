@@ -23,7 +23,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import vn.edu.fpt.xml.itpub.web.common.IBaseDispatcher;
-import vn.edu.fpt.xml.itpub.web.common.IRequestUrl;
+import vn.edu.fpt.xml.itpub.web.common.IRequestAction;
 import vn.edu.fpt.xml.itpub.web.common.IServletMapping;
 
 /**
@@ -52,20 +52,17 @@ public class DispatcherService implements IBaseDispatcher {
     public void dispatchGetService(final HttpServletRequest request, final HttpServletResponse response)
             throws ServletException, IOException {
         String dispatcherServlet = "";
-        final String url  = getRequestUrl(request);
-        LOGGER.debug(url);
-        switch (url) {
-            case IRequestUrl.LOGIN :
+        final String action  = request.getParameter("action");
+        switch (action) {
+            case IRequestAction.LOGIN:
                 dispatcherServlet = IServletMapping.USER_SERVLET;
                 break;
-                
-            case IRequestUrl.HOME:
+            case IRequestAction.HOME:
                 dispatcherServlet = IServletMapping.HOME_SERVLET;
                 break;
             default :
                 dispatcherServlet = IServletMapping.HOME_SERVLET;
                 break;
-
         }
         final RequestDispatcher rd = request.getRequestDispatcher(dispatcherServlet);
         rd.forward(request, response);
@@ -84,13 +81,12 @@ public class DispatcherService implements IBaseDispatcher {
         final String url  = getRequestUrl(request);
         LOGGER.debug(url);
         switch (getRequestUrl(request)) {
-            case IRequestUrl.LOGIN :
+            case IRequestAction.LOGIN:
                 dispatcherServlet = IServletMapping.USER_SERVLET;
                 break;
             default :
                 dispatcherServlet = IServletMapping.CONTROLLER;
                 break;
-
         }
         final RequestDispatcher rd = request.getRequestDispatcher(dispatcherServlet);
         rd.forward(request, response);

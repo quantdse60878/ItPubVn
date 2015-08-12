@@ -29,6 +29,7 @@ import vn.edu.fpt.xml.itpub.bizlogic.service.ProductService;
 import vn.edu.fpt.xml.itpub.common.IConsts;
 import vn.edu.fpt.xml.itpub.common.util.XmlUtil;
 import vn.edu.fpt.xml.itpub.web.common.IJspPage;
+import vn.edu.fpt.xml.itpub.web.common.IRequestAttribute;
 import vn.edu.fpt.xml.itpub.web.common.IServletMapping;
 
 /**
@@ -65,11 +66,11 @@ public class HomeServlet extends HttpServlet {
         try {
             // Get data list
             ProductService productService = new ProductService();
-            ProductPageModel pageModel = productService.getDataList();
-            final String xmlData = XmlUtil.marshallJAXB(ProductPageModel.class, pageModel, false);
-            LOGGER.debug("xmlData[{}]", xmlData);
+//            ProductPageModel pageModel = productService.getDataList();
+//            final String xmlData = XmlUtil.marshallJAXB(ProductPageModel.class, pageModel, false);
+//            LOGGER.debug("xmlData[{}]", xmlData);
             
-            req.setAttribute("dataList", xmlData);
+//            req.setAttribute(IRequestAttribute.DATA_LIST, xmlData);
             
             // Forward result to home page
             RequestDispatcher rd = req.getRequestDispatcher(IJspPage.HOME);

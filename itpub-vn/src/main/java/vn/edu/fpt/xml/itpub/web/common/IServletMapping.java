@@ -22,24 +22,20 @@ package vn.edu.fpt.xml.itpub.web.common;
  */
 
 public interface IServletMapping {
-    /**
-     * The prefix.
-     */
-    String PREFIX = "/servlet";
 
     /**
      * The main controller.
      */
-    String CONTROLLER = "/";
+    String CONTROLLER = "/controller";
     
     /**
      * The user servlet.
      */
-    String USER_SERVLET = PREFIX + "/userServlet";
+    String USER_SERVLET = "/userServlet";
     
     /**
      * The home servlet.
      */
-    String HOME_SERVLET = PREFIX + "/homeServlet";
+    String HOME_SERVLET =  "/homeServlet";
     
 }

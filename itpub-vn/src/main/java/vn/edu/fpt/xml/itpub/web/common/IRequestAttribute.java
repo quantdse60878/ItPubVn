@@ -22,5 +22,8 @@ package vn.edu.fpt.xml.itpub.web.common;
  */
 
 public interface IRequestAttribute {
-
+    /**
+     * The data list.
+     */
+    String DATA_LIST = "dataList";
 }
