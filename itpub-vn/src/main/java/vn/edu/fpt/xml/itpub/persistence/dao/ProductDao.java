@@ -12,6 +12,10 @@
  */
 package vn.edu.fpt.xml.itpub.persistence.dao;
 
+import java.util.List;
+
+import org.hibernate.Query;
+
 import vn.edu.fpt.xml.itpub.persistence.entity.Product;
 
 /**
@@ -23,6 +27,24 @@ import vn.edu.fpt.xml.itpub.persistence.entity.Product;
  * @see (Related item)
  */
 
-public class ProductDao extends AbstractDao<Product, Integer>{
+public class ProductDao extends AbstractDao<Product, Integer> {
 
+    /**
+     * <p>
+     * Find one by direct link.
+     * </p>
+     * @param directLink {@link String}
+     * @return {@link Product}
+     * @see (Related item)
+     */
+    @SuppressWarnings("unchecked")
+    public Product findByDirectLink(final String directLink) {
+        final Query query = getSession().createQuery("from Product where directLink = :directLink");
+        query.setParameter("directLink", directLink);
+        final List<Product> ls = query.list();
+        if (null != ls && !ls.isEmpty()) {
+            return ls.get(0);
+        }
+        return null;
+    }
 }

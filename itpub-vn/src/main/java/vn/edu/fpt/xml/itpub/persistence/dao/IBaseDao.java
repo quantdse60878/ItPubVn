@@ -91,4 +91,14 @@ public interface IBaseDao<E, ID extends Serializable> {
      * @see (Related item)
      */
     void saveAndFlush(E e);
+    
+    /**
+     * <p>
+     * Save or update entity.
+     * </p>
+     * @param e E.
+     * @see (Related item)
+     */
+    void saveOrUpdate(E e);
+    
 }

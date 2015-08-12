@@ -51,7 +51,6 @@ public class PhoneImportJob implements Job {
                 LOGGER.debug("Starting schedule job at {}", new Date());
                 PhoneImportService job = new PhoneImportService();
                 job.importJob();
-                
                 LOGGER.debug("Ending schedule job at {}", new Date());
             } else {
                 LOGGER.debug("Import job setting is disabled");

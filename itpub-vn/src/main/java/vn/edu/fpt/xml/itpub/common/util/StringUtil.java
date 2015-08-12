@@ -23,9 +23,11 @@ package vn.edu.fpt.xml.itpub.common.util;
 
 public class StringUtil {
 
-    public static String replaceAllCommentedHtmlTag(final String input) {
-        String rs = input.replaceAll("(?s)<!--.*?-->", "");
-        rs = rs.replaceAll("<script.*?/script>", "");
+    public static String cleanupHtml(final String input) {
+        String rs =  input.replaceAll("(?i)<(/?script[^>]*)>", "");
+//        rs =  rs.replaceAll("(?i)<(/?noscript[^>]*)>", "");
+//        rs =  rs.replaceAll("(?i)<(/?style[^>]*)>", "");
+        rs = rs.replaceAll( "(?s)<!--.*?-->", "" );
         return rs;
     }
 }

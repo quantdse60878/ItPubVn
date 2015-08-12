@@ -39,6 +39,11 @@ public interface IConsts {
     boolean ENABLE_CRONJOB = PropertiesUtil.getInstance().getBoolean("cronjob.enable");
     
     /**
+     * The cronjob schedule.
+     */
+    String CRON_SCHEDULE = PropertiesUtil.getInstance().getString("cronjob.schedule");
+    
+    /**
      * The real path folder.
      */
     String REAL_PATH = PropertiesUtil.getInstance().getString(PropertiesUtil.CONTEXT_REAL_PATH);

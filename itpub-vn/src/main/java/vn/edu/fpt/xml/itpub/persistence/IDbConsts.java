@@ -97,6 +97,16 @@ public interface IDbConsts {
          * 
          */
         byte IN_ACTIVE = 1;
+        
+        /**
+         * 
+         */
+        byte UP_COMMING = 2;
+        
+        /**
+         * 
+         */
+        byte SECOND_HAND = 3;
     }
     
     /**

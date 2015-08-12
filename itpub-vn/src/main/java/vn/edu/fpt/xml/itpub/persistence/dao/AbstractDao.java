@@ -20,7 +20,6 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 
 import vn.edu.fpt.xml.itpub.common.util.HibernateUtil;
 
@@ -35,10 +34,6 @@ import vn.edu.fpt.xml.itpub.common.util.HibernateUtil;
  * @see (Related item)
  */
 public abstract class AbstractDao<E, ID extends Serializable> implements IBaseDao<E, ID> {
-    /**
-     * 
-     */
-    private SessionFactory sessionFactory;
     /**
      * 
      */
@@ -170,4 +165,14 @@ public abstract class AbstractDao<E, ID extends Serializable> implements IBaseDa
         getSession().save(e);
         getSession().flush();
     }
+
+    /* (non-Javadoc)
+     * @see vn.edu.fpt.xml.itpub.persistence.dao.IBaseDao#saveOrUpdate(java.lang.Object)
+     */
+    @Override
+    public void saveOrUpdate(final E e) {
+        getSession().saveOrUpdate(e);
+    }
+    
+    
 }

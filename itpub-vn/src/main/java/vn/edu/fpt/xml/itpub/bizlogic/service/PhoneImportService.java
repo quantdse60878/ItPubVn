@@ -17,11 +17,13 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import vn.edu.fpt.xml.itpub.bizlogic.model.InfoModel;
 import vn.edu.fpt.xml.itpub.bizlogic.model.ProductModel;
 import vn.edu.fpt.xml.itpub.common.IConsts;
 import vn.edu.fpt.xml.itpub.common.exception.BizlogicException;
@@ -29,12 +31,19 @@ import vn.edu.fpt.xml.itpub.common.util.HtmlUtil;
 import vn.edu.fpt.xml.itpub.common.util.StringUtil;
 import vn.edu.fpt.xml.itpub.common.util.XmlUtil;
 import vn.edu.fpt.xml.itpub.persistence.IDbConsts.IImportScheduleStatus;
+import vn.edu.fpt.xml.itpub.persistence.IDbConsts.IInventoryTrackingType;
 import vn.edu.fpt.xml.itpub.persistence.IDbConsts.IProductStatus;
 import vn.edu.fpt.xml.itpub.persistence.dao.ImportScheduleDao;
+import vn.edu.fpt.xml.itpub.persistence.dao.InventoryDao;
+import vn.edu.fpt.xml.itpub.persistence.dao.InventoryTrackingDao;
 import vn.edu.fpt.xml.itpub.persistence.dao.ProductDao;
+import vn.edu.fpt.xml.itpub.persistence.dao.ProductInfoDao;
 import vn.edu.fpt.xml.itpub.persistence.dao.UserDao;
 import vn.edu.fpt.xml.itpub.persistence.entity.ImportSchedule;
+import vn.edu.fpt.xml.itpub.persistence.entity.Inventory;
+import vn.edu.fpt.xml.itpub.persistence.entity.InventoryTracking;
 import vn.edu.fpt.xml.itpub.persistence.entity.Product;
+import vn.edu.fpt.xml.itpub.persistence.entity.ProductInfo;
 import vn.edu.fpt.xml.itpub.persistence.entity.User;
 
 import com.gargoylesoftware.htmlunit.html.DomElement;
@@ -68,8 +77,10 @@ public class PhoneImportService extends AbstractService {
         ImportScheduleDao isDao = new ImportScheduleDao();
         ProductDao productDao = new ProductDao();
         UserDao userDao = new UserDao();
+        ProductInfoDao piDao = new ProductInfoDao();
+        InventoryDao inventoryDao = new InventoryDao();
+        InventoryTrackingDao iTrackingDao = new InventoryTrackingDao();
         try {
-            productDao.beginTransaction();
             User user = userDao.findById(IConsts.DEFAULT_SYSTEM_USER);
             List<ImportSchedule> listSchedule = isDao.findByStatus(IImportScheduleStatus.ACTIVE);
             if (null != listSchedule && !listSchedule.isEmpty()) {
@@ -104,12 +115,21 @@ public class PhoneImportService extends AbstractService {
                         
                         // TODO remove comment tags, special tag
                         // Remove comments data
-//                        rawData = StringUtil.replaceAllCommentedHtmlTag(rawData);
+                        rawData = StringUtil.cleanupHtml(rawData);
                         // End remove comments data
                         
                         final ProductModel model = this.getPhoneInfo(rawData, schedule, productUrl);
                         if (null != model) {
-                            Product product = new Product();
+                            
+                            // Save product data
+                            productDao.beginTransaction();
+                            boolean createNew = false;
+                            // TODO set param to XSL to use real data
+                            Product product = productDao.findByDirectLink(productUrl);
+                            if (null == product) {
+                                product = new Product();
+                                createNew = true;
+                            }
                             product.setBrand(schedule.getBrand());
                             product.setDeviceType(schedule.getDeviceType());
                             product.setName(model.getName());
@@ -121,7 +141,7 @@ public class PhoneImportService extends AbstractService {
                             String strPrice = model.getPrice();
                             StringBuilder sb = new StringBuilder();
                             for (char c: strPrice.toCharArray()) {
-                                if(c >= 48 && c<=57) {
+                                if (c >= 48 && c<=57) {
                                     sb.append(c);
                                 }
                             }
@@ -129,28 +149,76 @@ public class PhoneImportService extends AbstractService {
                             if (null != rs && !rs.isEmpty()) {
                                 final double price = Double.parseDouble(sb.toString());
                                 product.setPrice(price);
+                                product.setStatus(IProductStatus.ACTIVE);
                             } else {
                                 product.setPrice(0);
+                                product.setStatus(IProductStatus.IN_ACTIVE);
                             }
-                            product.setStatus(IProductStatus.ACTIVE);
                             product.setDirectLink(productUrl);
-                            product.setCreatedDate(new Date());
+                            if (createNew) {
+                                product.setCreatedDate(new Date());
+                            }
                             product.setUpdatedDate(new Date());
                             product.setCreatedUser(user);
                             
-                            productDao.save(product);
-                            productDao.flush();
+                            productDao.saveOrUpdate(product);
                             
+                            productDao.flush();
+                            productDao.commitTransaction();
+                            
+                            // Save product information
+                            final InfoModel infos = model.getInfos();
+                            if (null != infos && createNew) {
+                                final List<String> properties = infos.getProperty();
+                                if (null != properties && !properties.isEmpty()) {
+                                   piDao.beginTransaction();
+                                   for (String prop : properties) {
+                                       String[] data = prop.split(":");
+                                       if (null != data && data.length == 2) {
+                                           ProductInfo pi = new ProductInfo();
+                                           pi.setProduct(product);
+                                           pi.setPropertyName(data[0]);
+                                           pi.setPropertyValue(data[1]);
+                                           piDao.save(pi);
+                                       }
+                                   }
+                                   piDao.flush();
+                                   piDao.commitTransaction();
+                                }
+                            }
+                            
+                            // Save product inventory and tracking data
+                            if (createNew) {
+                                Random random = new Random();
+                                int quantity = random.nextInt(10);
+                                inventoryDao.beginTransaction();
+                                Inventory inventory = new Inventory();
+                                inventory.setProduct(product);
+                                inventory.setQuantity(quantity);
+                                inventoryDao.save(inventory);
+                                inventoryDao.commitTransaction();
+                                
+                                iTrackingDao.beginTransaction();
+                                InventoryTracking tracking = new InventoryTracking();
+                                tracking.setCreatedDate(new Date());
+                                tracking.setProduct(product);
+                                tracking.setQuantity(quantity);
+                                tracking.setStockInUser(user);
+                                tracking.setType(IInventoryTrackingType.IMPORT);
+                                iTrackingDao.save(tracking);
+                                iTrackingDao.commitTransaction();
+                            }
                             
                         }
                     }
                 }
             }
-            productDao.commitTransaction();
+            
         } finally {
             isDao = null;
             productDao = null;
             userDao = null;
+            piDao = null;
             LOGGER.info(IConsts.END_METHOD);
         }
     }
@@ -170,7 +238,7 @@ public class PhoneImportService extends AbstractService {
         LOGGER.debug(IConsts.BEGIN_METHOD);
         try {
             LOGGER.debug("directUrl[{}]", directUrl);
-            LOGGER.debug("rawData[{}]", rawData);
+//            LOGGER.debug("rawData[{}]", rawData);
             Map<String, String> paramVals = new HashMap<>();
             // Set param to XSL
             if (null != setting) {

@@ -27,6 +27,8 @@ import org.quartz.TriggerBuilder;
 import org.quartz.ee.servlet.QuartzInitializerListener;
 import org.quartz.impl.StdSchedulerFactory;
 
+import vn.edu.fpt.xml.itpub.common.IConsts;
+
 /**
  * 
  * Class summary.
@@ -45,14 +47,13 @@ public class QuartzListener extends QuartzInitializerListener {
         // set other properties ...such as
         props.setProperty("org.quartz.jobStore.class", "org.quartz.simpl.RAMJobStore");
         props.setProperty("org.quartz.threadPool.class", "org.quartz.simpl.SimpleThreadPool");
-        props.setProperty("org.quartz.threadPool.threadCount", "1");
+        props.setProperty("org.quartz.threadPool.threadCount", "4");
         try {
             SchedulerFactory schedulerFactory = new StdSchedulerFactory(props);
             Scheduler scheduler = schedulerFactory.getScheduler();
-            // TODO set to call PhoneImportJob
-            JobDetail jobDetail = JobBuilder.newJob(JobTest.class).build();
+            JobDetail jobDetail = JobBuilder.newJob(PhoneImportJob.class).build();
             Trigger trigger = TriggerBuilder.newTrigger().withIdentity("simple").withSchedule(
-                    CronScheduleBuilder.cronSchedule("0 0/5 * 1/1 * ? *")).startNow().build();
+                    CronScheduleBuilder.cronSchedule(IConsts.CRON_SCHEDULE)).startNow().build();
             scheduler.scheduleJob(jobDetail, trigger);
 //            scheduler.start();
         } catch (Exception e) {
