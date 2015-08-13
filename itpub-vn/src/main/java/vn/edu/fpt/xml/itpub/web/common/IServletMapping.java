@@ -38,4 +38,9 @@ public interface IServletMapping {
      */
     String HOME_SERVLET =  "/homeServlet";
     
+    /**
+     * The product detail servlet.
+     */
+    String PRODUCT_SERVLET = "/productServlet";
+    
 }

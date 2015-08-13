@@ -1,12 +1,12 @@
 /**
  * ALL Rights Reserved, Copyright (C) FPT University 2015. <br>
  * Program： XML Project  <br>
- * File： RawDataModel.java <br>
+ * File： ProductModel.java <br>
  * <p>
- * Created： Aug 11, 2015<br>
+ * Created： Aug 13, 2015<br>
  * History： <br>
  * Date            Person          Reason <br>
- * Aug 11, 2015         dangquantran         Initial<br>
+ * Aug 13, 2015         dangquantran         Initial<br>
  *  
  * @author dangquantran
  */
@@ -18,8 +18,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlSeeAlso;
 
 /**
  * 
@@ -29,66 +28,108 @@ import javax.xml.bind.annotation.XmlType;
  * @version 1.0 <br>
  * @see (Related item)
  */
-@XmlRootElement(name = "rawData")
+@XmlRootElement(name = "product")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = { "name", "quarantyInfo", "description", "promotion",
-    "imageUrl", "price", "directLink", "infos" })
-public class RawDataModel implements Serializable {
+@XmlSeeAlso(InfoListModel.class)
+public class ProductModel implements Serializable {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -6966037429086055576L;
+
+    /**
+     * 
+     */
+    private int id;
     
     /**
      * 
      */
-    private static final long serialVersionUID = 8519875414358013092L;
-
+    @XmlElement(name = "brand")
+    private String brand;
+    
     /**
-     * The name.
+     * 
      */
     @XmlElement(name = "name")
     private String name;
     
     /**
-     * The quaranty info.
+     * 
+     */
+    @XmlElement(name = "barcode")
+    private String barcode;
+    
+    /**
+     * 
      */
     @XmlElement(name = "quarantyInfo")
     private String quarantyInfo;
     
     /**
-     * The description.
+     * 
      */
     @XmlElement(name = "description")
     private String description;
-    
+
     /**
-     * The promotion.
+     * 
      */
     @XmlElement(name = "promotion")
     private String promotion;
     
     /**
-     * The image url.
+     * 
      */
-    @XmlSchemaType(name = "anyURI")
-    @XmlElement(name = "imageUrl")
+    @XmlElement(name = "promotion")
     private String imageUrl;
     
+    
     /**
-     * The price.
+     * 
+     */
+    @XmlElement(name = "internalImageUrl")
+    private String internalImageUrl;
+    
+    /**
+     * 
      */
     @XmlElement(name = "price")
-    private String price;
+    private int price;
     
     /**
-     * The directLink.
+     * 
      */
-    @XmlSchemaType(name = "anyURI")
+    @XmlElement(name = "status")
+    private byte status;
+    
+    /**
+     * 
+     */
     @XmlElement(name = "directLink")
     private String directLink;
-    
+
     /**
-     * The infos.
+     * 
      */
     @XmlElement(name = "infos")
-    private RawInfoModel infos;
+    private InfoListModel infos;
+    
+    /**
+     * Get the brand attribute.
+     * @return the brand
+     */
+    public String getBrand() {
+        return brand;
+    }
+
+    /**
+     * Set the brand attribute.
+     * @param brand the brand to set
+     */
+    public void setBrand(final String brand) {
+        this.brand = brand;
+    }
 
     /**
      * Get the name attribute.
@@ -104,6 +145,22 @@ public class RawDataModel implements Serializable {
      */
     public void setName(final String name) {
         this.name = name;
+    }
+
+    /**
+     * Get the barcode attribute.
+     * @return the barcode
+     */
+    public String getBarcode() {
+        return barcode;
+    }
+
+    /**
+     * Set the barcode attribute.
+     * @param barcode the barcode to set
+     */
+    public void setBarcode(final String barcode) {
+        this.barcode = barcode;
     }
 
     /**
@@ -139,6 +196,22 @@ public class RawDataModel implements Serializable {
     }
 
     /**
+     * Get the promotion attribute.
+     * @return the promotion
+     */
+    public String getPromotion() {
+        return promotion;
+    }
+
+    /**
+     * Set the promotion attribute.
+     * @param promotion the promotion to set
+     */
+    public void setPromotion(final String promotion) {
+        this.promotion = promotion;
+    }
+
+    /**
      * Get the imageUrl attribute.
      * @return the imageUrl
      */
@@ -155,10 +228,26 @@ public class RawDataModel implements Serializable {
     }
 
     /**
+     * Get the internalImageUrl attribute.
+     * @return the internalImageUrl
+     */
+    public String getInternalImageUrl() {
+        return internalImageUrl;
+    }
+
+    /**
+     * Set the internalImageUrl attribute.
+     * @param internalImageUrl the internalImageUrl to set
+     */
+    public void setInternalImageUrl(final String internalImageUrl) {
+        this.internalImageUrl = internalImageUrl;
+    }
+
+    /**
      * Get the price attribute.
      * @return the price
      */
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
@@ -166,8 +255,24 @@ public class RawDataModel implements Serializable {
      * Set the price attribute.
      * @param price the price to set
      */
-    public void setPrice(final String price) {
+    public void setPrice(final int price) {
         this.price = price;
+    }
+
+    /**
+     * Get the status attribute.
+     * @return the status
+     */
+    public byte getStatus() {
+        return status;
+    }
+
+    /**
+     * Set the status attribute.
+     * @param status the status to set
+     */
+    public void setStatus(final byte status) {
+        this.status = status;
     }
 
     /**
@@ -187,10 +292,19 @@ public class RawDataModel implements Serializable {
     }
 
     /**
+     * 
+     */
+    public ProductModel() {
+        super();
+    }
+
+    
+
+    /**
      * Get the infos attribute.
      * @return the infos
      */
-    public RawInfoModel getInfos() {
+    public InfoListModel getInfos() {
         return infos;
     }
 
@@ -198,31 +312,24 @@ public class RawDataModel implements Serializable {
      * Set the infos attribute.
      * @param infos the infos to set
      */
-    public void setInfos(final RawInfoModel infos) {
+    public void setInfos(final InfoListModel infos) {
         this.infos = infos;
     }
 
     /**
-     * Get the promotion attribute.
-     * @return the promotion
+     * Get the id attribute.
+     * @return the id
      */
-    public String getPromotion() {
-        return promotion;
+    public int getId() {
+        return id;
     }
 
     /**
-     * Set the promotion attribute.
-     * @param promotion the promotion to set
+     * Set the id attribute.
+     * @param id the id to set
      */
-    public void setPromotion(final String promotion) {
-        this.promotion = promotion;
+    public void setId(final int id) {
+        this.id = id;
     }
 
-    /**
-     * 
-     */
-    public RawDataModel() {
-        super();
-    }
-    
 }

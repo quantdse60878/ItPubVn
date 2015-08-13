@@ -1,12 +1,12 @@
 /**
  * ALL Rights Reserved, Copyright (C) FPT University 2015. <br>
  * Program： XML Project  <br>
- * File： IRequestParam.java <br>
+ * File： IRequestAction.java <br>
  * <p>
- * Created： Jul 24, 2015<br>
+ * Created： Aug 13, 2015<br>
  * History： <br>
  * Date            Person          Reason <br>
- * Jul 24, 2015         dangquantran         Initial<br>
+ * Aug 13, 2015         dangquantran         Initial<br>
  *  
  * @author dangquantran
  */
@@ -14,22 +14,27 @@ package vn.edu.fpt.xml.itpub.web.common;
 
 /**
  * 
- * The definition of request parameter.
+ * Class summary.
  * 
  * @author dangquantran <br>
  * @version 1.0 <br>
  * @see (Related item)
  */
 
-public interface IRequestParam {
+public interface IRequestAction {
+
+    /**
+     * Login action.
+     */
+    String LOGIN = "login";
     
     /**
-     * The action param.
+     * Home action.
      */
-    String ACTION = "action";
+    String HOME = "home";
     
     /**
-     * The id.
+     * 
      */
-    String ID = "id";
+    String VIEW_DETAIL = "viewDetail";
 }

@@ -26,4 +26,9 @@ public interface IRequestAttribute {
      * The data list.
      */
     String DATA_LIST = "dataList";
+    
+    /**
+     * The detail information of product.
+     */
+    String PRODUCT_DETAIL = "productDetail";
 }

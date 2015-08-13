@@ -24,6 +24,7 @@ import org.slf4j.LoggerFactory;
 
 import vn.edu.fpt.xml.itpub.web.common.IBaseDispatcher;
 import vn.edu.fpt.xml.itpub.web.common.IRequestAction;
+import vn.edu.fpt.xml.itpub.web.common.IRequestParam;
 import vn.edu.fpt.xml.itpub.web.common.IServletMapping;
 
 /**
@@ -40,6 +41,7 @@ public class DispatcherService implements IBaseDispatcher {
     /**
      * The logger.
      */
+    @SuppressWarnings("unused")
     private static final Logger LOGGER = LoggerFactory.getLogger(DispatcherService.class);
     
     /*
@@ -52,7 +54,7 @@ public class DispatcherService implements IBaseDispatcher {
     public void dispatchGetService(final HttpServletRequest request, final HttpServletResponse response)
             throws ServletException, IOException {
         String dispatcherServlet = "";
-        final String action  = request.getParameter("action");
+        final String action  = request.getParameter(IRequestParam.ACTION);
         if (null == action) {
              dispatcherServlet = IServletMapping.HOME_SERVLET;
         } else {
@@ -62,6 +64,9 @@ public class DispatcherService implements IBaseDispatcher {
                     break;
                 case IRequestAction.HOME:
                     dispatcherServlet = IServletMapping.HOME_SERVLET;
+                    break;
+                case IRequestAction.VIEW_DETAIL:
+                    dispatcherServlet = IServletMapping.PRODUCT_SERVLET;
                     break;
                 default :
                     dispatcherServlet = IServletMapping.HOME_SERVLET;
@@ -83,16 +88,26 @@ public class DispatcherService implements IBaseDispatcher {
     public void dispatchPostService(final HttpServletRequest request, final HttpServletResponse response)
             throws ServletException, IOException {
         String dispatcherServlet = "";
-        final String url  = getRequestUrl(request);
-        LOGGER.debug(url);
-        switch (getRequestUrl(request)) {
-            case IRequestAction.LOGIN:
-                dispatcherServlet = IServletMapping.USER_SERVLET;
-                break;
-            default :
-                dispatcherServlet = IServletMapping.CONTROLLER;
-                break;
+        final String action  = request.getParameter(IRequestParam.ACTION);
+        if (null == action) {
+             dispatcherServlet = IServletMapping.HOME_SERVLET;
+        } else {
+            switch (action) {
+                case IRequestAction.LOGIN:
+                    dispatcherServlet = IServletMapping.USER_SERVLET;
+                    break;
+                case IRequestAction.HOME:
+                    dispatcherServlet = IServletMapping.HOME_SERVLET;
+                    break;
+                case IRequestAction.VIEW_DETAIL:
+                    dispatcherServlet = IServletMapping.PRODUCT_SERVLET;
+                    break;
+                default :
+                    dispatcherServlet = IServletMapping.HOME_SERVLET;
+                    break;
+            }
         }
+        
         final RequestDispatcher rd = request.getRequestDispatcher(dispatcherServlet);
         rd.forward(request, response);
     }

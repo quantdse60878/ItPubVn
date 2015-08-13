@@ -31,7 +31,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "property"
 })
-public class InfoModel implements Serializable {
+public class RawInfoModel implements Serializable {
     
     /**
      * 
@@ -56,6 +56,13 @@ public class InfoModel implements Serializable {
      */
     public void setProperty(final List<String> property) {
         this.property = property;
+    }
+
+    /**
+     * 
+     */
+    public RawInfoModel() {
+        super();
     }
     
 }

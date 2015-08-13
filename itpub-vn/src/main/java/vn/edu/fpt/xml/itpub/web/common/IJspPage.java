@@ -40,4 +40,9 @@ public interface IJspPage {
      */
     String HOME = "home" + POSTFIX;
     
+    /**
+     * Detail page.
+     */
+    String PHONE = "phone" + POSTFIX;
+    
 }

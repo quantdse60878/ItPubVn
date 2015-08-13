@@ -23,7 +23,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import vn.edu.fpt.xml.itpub.bizlogic.model.InfoModel;
+import vn.edu.fpt.xml.itpub.bizlogic.model.RawInfoModel;
 import vn.edu.fpt.xml.itpub.bizlogic.model.RawDataModel;
 import vn.edu.fpt.xml.itpub.common.IConsts;
 import vn.edu.fpt.xml.itpub.common.exception.BizlogicException;
@@ -167,7 +167,7 @@ public class PhoneImportService extends AbstractService {
                             productDao.commitTransaction();
                             
                             // Save product information
-                            final InfoModel infos = model.getInfos();
+                            final RawInfoModel infos = model.getInfos();
                             if (null != infos && createNew) {
                                 final List<String> properties = infos.getProperty();
                                 if (null != properties && !properties.isEmpty()) {

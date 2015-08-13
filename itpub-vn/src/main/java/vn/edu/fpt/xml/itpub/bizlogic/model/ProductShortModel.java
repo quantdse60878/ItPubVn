@@ -67,6 +67,12 @@ public class ProductShortModel implements Serializable {
     private String brand;
     
     /**
+     * 
+     */
+    @XmlElement(name = "type", required = true)
+    private String type;
+    
+    /**
      * Get the id attribute.
      * @return the id
      */
@@ -145,6 +151,22 @@ public class ProductShortModel implements Serializable {
      */
     public void setBrand(final String brand) {
         this.brand = brand;
+    }
+
+    /**
+     * Get the type attribute.
+     * @return the type
+     */
+    public String getType() {
+        return type;
+    }
+
+    /**
+     * Set the type attribute.
+     * @param type the type to set
+     */
+    public void setType(final String type) {
+        this.type = type;
     }
 
     /**
