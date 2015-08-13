@@ -242,7 +242,9 @@ public class PhoneImportService extends AbstractService {
             Map<String, String> paramVals = new HashMap<>();
             // Set param to XSL
             if (null != setting) {
-               final String name = setting.getXpathStringName();
+               String name = setting.getXpathStringName();
+//               name = StringUtil.replaceQuote(name);
+               LOGGER.info(name);
                if (null != name && StringUtils.isNotEmpty(name)) {
                    paramVals.put("name", name);
                }

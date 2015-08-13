@@ -16,6 +16,7 @@ import java.io.File;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.util.Map;
+import java.util.Set;
 
 import javax.xml.XMLConstants;
 import javax.xml.bind.JAXBContext;
@@ -85,12 +86,12 @@ public class XmlUtil {
             final Transformer transformer = templates.newTransformer();
             
             // Set parameter to transformer
-//            if (null != paramVals && !paramVals.isEmpty()) {
-//                Set<String> keys = paramVals.keySet();
-//                for (String key : keys) {
-//                    transformer.setParameter(key, paramVals.get(key));
-//                }
-//            }
+            if (null != paramVals && !paramVals.isEmpty()) {
+                Set<String> keys = paramVals.keySet();
+                for (String key : keys) {
+                    transformer.setParameter(key, paramVals.get(key));
+                }
+            }
             
             // Create input source from string
             final StringReader reader = new StringReader(xmlString);

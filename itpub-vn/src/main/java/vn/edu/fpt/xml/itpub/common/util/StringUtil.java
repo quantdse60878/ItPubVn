@@ -30,4 +30,8 @@ public class StringUtil {
         rs = rs.replaceAll( "(?s)<!--.*?-->", "" );
         return rs;
     }
+    
+    public static String replaceQuote(final String input) {
+        return input.replaceAll("'", "&#38;#39;");
+    }
 }
