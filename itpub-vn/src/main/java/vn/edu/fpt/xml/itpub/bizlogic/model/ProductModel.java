@@ -81,7 +81,7 @@ public class ProductModel implements Serializable {
     /**
      * 
      */
-    @XmlElement(name = "promotion")
+    @XmlElement(name = "imageUrl")
     private String imageUrl;
     
     

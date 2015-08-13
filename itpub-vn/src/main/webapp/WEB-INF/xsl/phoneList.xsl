@@ -2,10 +2,6 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"                                 
                 version="1.0">
     <xsl:output method="html" indent="yes" encoding="UTF-8" omit-xml-declaration="yes"/>
-
-    <!-- TODO customize transformation rules 
-         syntax recommendation http://www.w3.org/TR/xslt 
-    -->
     <xsl:template match="/">
         <html>            
             <body>
