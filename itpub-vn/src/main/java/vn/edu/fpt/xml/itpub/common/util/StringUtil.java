@@ -32,6 +32,6 @@ public class StringUtil {
     }
     
     public static String replaceQuote(final String input) {
-        return input.replaceAll("'", "&#38;#39;");
+        return input.replaceAll("'", "|");
     }
 }

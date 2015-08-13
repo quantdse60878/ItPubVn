@@ -243,7 +243,7 @@ public class PhoneImportService extends AbstractService {
             // Set param to XSL
             if (null != setting) {
                String name = setting.getXpathStringName();
-//               name = StringUtil.replaceQuote(name);
+               name = StringUtil.replaceQuote(name);
                LOGGER.info(name);
                if (null != name && StringUtils.isNotEmpty(name)) {
                    paramVals.put("name", name);

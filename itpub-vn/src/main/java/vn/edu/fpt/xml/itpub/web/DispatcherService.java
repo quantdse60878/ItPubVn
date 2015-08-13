@@ -53,17 +53,22 @@ public class DispatcherService implements IBaseDispatcher {
             throws ServletException, IOException {
         String dispatcherServlet = "";
         final String action  = request.getParameter("action");
-        switch (action) {
-            case IRequestAction.LOGIN:
-                dispatcherServlet = IServletMapping.USER_SERVLET;
-                break;
-            case IRequestAction.HOME:
-                dispatcherServlet = IServletMapping.HOME_SERVLET;
-                break;
-            default :
-                dispatcherServlet = IServletMapping.HOME_SERVLET;
-                break;
+        if (null == action) {
+             dispatcherServlet = IServletMapping.HOME_SERVLET;
+        } else {
+            switch (action) {
+                case IRequestAction.LOGIN:
+                    dispatcherServlet = IServletMapping.USER_SERVLET;
+                    break;
+                case IRequestAction.HOME:
+                    dispatcherServlet = IServletMapping.HOME_SERVLET;
+                    break;
+                default :
+                    dispatcherServlet = IServletMapping.HOME_SERVLET;
+                    break;
+            }
         }
+        
         final RequestDispatcher rd = request.getRequestDispatcher(dispatcherServlet);
         rd.forward(request, response);
     }

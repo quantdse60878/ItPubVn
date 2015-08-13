@@ -30,6 +30,7 @@ import vn.edu.fpt.xml.itpub.bizlogic.service.ProductService;
 import vn.edu.fpt.xml.itpub.common.IConsts;
 import vn.edu.fpt.xml.itpub.common.util.XmlUtil;
 import vn.edu.fpt.xml.itpub.web.common.IJspPage;
+import vn.edu.fpt.xml.itpub.web.common.IRequestAttribute;
 import vn.edu.fpt.xml.itpub.web.common.IServletMapping;
 
 /**
@@ -63,16 +64,14 @@ public class HomeServlet extends HttpServlet {
             IOException {
         // super.doGet(req, resp);
         LOGGER.info(IConsts.BEGIN_METHOD);
-        PhoneImportService service = new PhoneImportService();
-        service.importJob();
         try {
             // Get data list
-//            ProductService productService = new ProductService();
-//            ProductPageModel pageModel = productService.getDataList();
-//            final String xmlData = XmlUtil.marshallJAXB(ProductPageModel.class, pageModel, false);
-//            LOGGER.debug("xmlData[{}]", xmlData);
-
-            RequestDispatcher rd = req.getRequestDispatcher(IJspPage.HOME);
+            ProductService productService = new ProductService();
+            ProductPageModel pageModel = productService.getDataList();
+            final String xmlData = XmlUtil.marshallJAXB(ProductPageModel.class, pageModel, false);
+            LOGGER.debug("xmlData[{}]", xmlData);
+            req.setAttribute(IRequestAttribute.DATA_LIST, xmlData);
+            RequestDispatcher rd = req.getRequestDispatcher("home.jsp");
             rd.forward(req, resp);
         } finally {
             LOGGER.info(IConsts.END_METHOD);

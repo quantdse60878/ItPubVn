@@ -52,7 +52,7 @@ public class ProductShortModel implements Serializable {
      * 
      */
     @XmlElement(name = "price", required = true)
-    private double price;
+    private int price;
     
     /**
      * 
@@ -102,7 +102,7 @@ public class ProductShortModel implements Serializable {
      * Get the price attribute.
      * @return the price
      */
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
@@ -110,7 +110,7 @@ public class ProductShortModel implements Serializable {
      * Set the price attribute.
      * @param price the price to set
      */
-    public void setPrice(final double price) {
+    public void setPrice(final int price) {
         this.price = price;
     }
 
