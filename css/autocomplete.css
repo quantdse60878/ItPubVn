@@ -1,0 +1,53 @@
+.ac_results, .result_hint {
+	z-index: 100;
+	padding: 0px;
+	border: 1px solid #ccc;
+	background-color: white;
+	border-top:none;
+}
+.ac_results ul, .result_hint ul {
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;	
+	overflow-x: hidden!important;
+}
+.ac_results li{
+	width:467px;
+}
+
+.result_hint li {
+	margin: 0px;
+	cursor: default;
+	display: block;
+	width: 654px;
+
+	font: menu;
+	font-size: 12px;
+	line-height: 16px;
+	overflow: hidden;
+}
+
+.ac_loading {
+	background: white url('indicator.gif') right center no-repeat;
+}
+
+.ac_odd {
+	background-color: #eee;
+}
+
+.ac_over {
+	background-color: #0A246A;
+	color: white;
+}
+/** atclmovie*/
+.atclmovie{float: left;
+padding: 10px;
+width: 634px;}
+.atclmovie *{}
+.hintavatar{width:50px;float:left;}
+.atcplinfo {padding-left:10px;width:574px;float:left;} 
+.hintfixwidth{min-width: 400px;}
+.atcplinfo moviename{width:100%;}
+.atcplinfo moviename b{float:left;}
+.fea_iconhint{margin-top:2px;margin-right:3px;}

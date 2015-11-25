@@ -1,0 +1,9 @@
+#tooltip {	position: absolute;	z-index: 3000;	padding: 5px;background:#fff;width:500px; color:#333; font-family: Tahoma;
+box-shadow: 1px 1px 10px 1px #333;
+opacity:1;
+}
+#tooltip h3{font-size: 12px;color:#933233;background:#fff;padding:7px 0 5px 7px;}
+#ttwrap{background:#fff;padding:0 7px 7px 7px;}
+#ttwrap p{padding-bottom: 5px;}
+.tt_bold{font-weight: bold;}
+.ttimdb_score{border-radius: 2px;background: #e6ab3b;width:25px;text-align: center;padding: 0 4px 0 4px;font-weight: bold;}

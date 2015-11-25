@@ -1,0 +1,6 @@
+{
+  "directory" : "src/main/webapp/bower",
+  "storage" : {
+    "packages" : ".bower"
+  }
+}

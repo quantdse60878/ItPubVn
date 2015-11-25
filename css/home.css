@@ -1,0 +1,102 @@
+/** Phim top*/
+.container_top{
+	/*width: 988px;
+	margin:0 auto;
+	position: relative;
+	padding-top:20px;
+	height: 353px;*/
+   width: 968px;
+    margin: 0 auto;
+    position: relative;
+    padding-top: 20px;
+    margin-bottom: 20px;
+    height: 353px;
+    padding: 10px 10px 0 10px;
+    background: #ffffff;
+}
+.phim_top{width: 435px;float: left;position: absolute;}
+.phto_view_title{background: url('/phim/images/imgv10/pub_icon.png') -176px 0px no-repeat;width: 30px;height: 30px;float: left;}
+.phtotit_select{text-transform: uppercase;margin-left: 5px;height: 30px;line-height: 30px;font-size: 18px;}
+.phto_view_title:hover{background-position:-242px -47px;}
+.phto_view_title:hover .Menu_top{display: block;}
+.filmtop{position: relative;
+float: left;
+margin-right: 15px;
+width: 97px;
+height: 140px;
+margin-bottom:10px;
+} 
+#load_film_top{margin-top:10px;}
+.film_slide{float: left;margin-bottom: 10px;}
+.hot_box{float: right;}
+.Menu_top{position: absolute;top:29px;left:0px;z-index:100;background: #fff;width:988px;border-top:1px solid #bbb;display: none;}
+.block_menu{float: left;width:196px;background: #fff;text-align:left;}
+.Title_menu{background: #dddddd;height: 36px;line-height: 36px;padding-left:20px;color:#888;}
+.blmenu_child{width:180px;margin-left:20px;float:left;}
+.blmenu_child li{float:left;height: 30px;line-height: 30px;width:100%;}
+.blmenu_child li:hover a{color:#933333;}
+.blmborder{border-left: 1px solid #bbb;}
+#fssList{display: none;}
+#fssPlayPause{display: none;}
+.origin_top{position: relative;width: 435px;height: 290px;}
+/** End top */
+/** Phim hot*/
+.phhot_title{text-transform: uppercase;height: 30px;line-height: 30px;font-size: 18px;}
+.phhot_contai{margin-top:10px;width: 516px;height: 290px;position: relative;overflow: hidden;}
+/** End Phim hot*/
+
+/** Phim le*/
+.home_PleABCD{width: 988px;margin: 0 auto;}
+/** End Phim le*/
+/** Phim bo*/
+.home_PboEuro, .home_PboAsia{width: 988px;margin: 0 auto;}
+.phbo_tab{position: relative;width: 100%;background: #dddddd;float:left ;}
+.phbo_bar{width: 100%;background: #fff;height: 35px;float: left;border-bottom: 1px solid #bbb;line-height: 35px;}
+
+/** End Phim bo*/
+.detail_link1 {
+display: none;
+position: absolute;
+top: 42%;
+left:43%;
+width: 48px;
+height: 48px;
+z-index: 15;
+}
+.hot_box:hover .detail_link1{
+   display:block;
+}
+#fssNext,.nivo-nextNav-twoo{
+   display:none;
+   position: absolute;
+   top:50%;
+   margin-top:-30px;
+   right:-1px;
+   background: url('/movie/images/images_index_new/arrow_next.png') no-repeat;
+   width:26px;
+   height:60px;
+   z-index: 20;
+}
+#fssNext:hover,.nivo-nextNav-twoo:hover{
+   background: url('/movie/images/images_index_new/arrow_next_1.png') no-repeat;
+}
+#fssPrev,.nivo-prevNav-twoo{
+   display:none;
+   position: absolute;
+   top:50%;
+   margin-top:-30px;
+   left:-1px;
+   background: url('/movie/images/images_index_new/arrow_preview.png') no-repeat;
+   width:26px;
+   height:60px;
+   z-index: 20;
+}
+#fssPrev:hover,.nivo-prevNav-twoo:hover{
+   background: url('/movie/images/images_index_new/arrow_preview_1.png') no-repeat;
+}
+.hot_box:hover .nivo-nextNav-twoo{
+   display:block !important;
+}
+.hot_box:hover .nivo-prevNav-twoo{
+   display:block !important;
+}

@@ -1,0 +1,4 @@
+/target/
+.bower/
+src/main/webapp/bower/
+/node_modules/

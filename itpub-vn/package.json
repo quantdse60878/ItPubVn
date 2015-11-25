@@ -1,0 +1,10 @@
+{
+    "name": "itpub",
+    "version": "0.1.0",
+    "description": "IT Publisher VN",
+    "repository": "vn.edu.fpt.xml",
+    "dependencies": 
+    {
+        "bower": "1.3.4"
+    }
+}

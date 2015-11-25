@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Xml2015?zeroDateTimeBehavior=convertToNull</property>
+		<property name="hibernate.connection.CharSet">utf8</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+		<property name="hibernate.ejb.naming_strategy">vn.edu.fpt.xml.itpub.persistence.HibernateNamingStrategy</property>
+		<!-- List of mapping class -->
+		<mapping class="vn.edu.fpt.xml.itpub.persistence.entity.User" />
+		<mapping class="vn.edu.fpt.xml.itpub.persistence.entity.Role"/>
+		<mapping class="vn.edu.fpt.xml.itpub.persistence.entity.Brand"/>
+		<mapping class="vn.edu.fpt.xml.itpub.persistence.entity.Customer"/>
+		<mapping class="vn.edu.fpt.xml.itpub.persistence.entity.DeviceType"/>
+		<mapping class="vn.edu.fpt.xml.itpub.persistence.entity.ImportSchedule"/>
+		<mapping class="vn.edu.fpt.xml.itpub.persistence.entity.Inventory"/>
+		<mapping class="vn.edu.fpt.xml.itpub.persistence.entity.InventoryTracking"/>
+		<mapping class="vn.edu.fpt.xml.itpub.persistence.entity.Product"/>
+		<mapping class="vn.edu.fpt.xml.itpub.persistence.entity.ProductInfo"/>
+		<mapping class="vn.edu.fpt.xml.itpub.persistence.entity.Order"/>
+		<mapping class="vn.edu.fpt.xml.itpub.persistence.entity.OrderDetail"/>
+	</session-factory>
+</hibernate-configuration>

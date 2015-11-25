@@ -1,0 +1,3541 @@
+/* Reset ================================================================================= */
+/*
+@import url(http://cdn.cellphones.com.vn/font/roboto/regular.css);
+@import url(http://cdn.cellphones.com.vn/font/roboto/light.css);
+@import url(http://cdn.cellphones.com.vn/font/roboto/light-italic.css);
+@import url(http://cdn.cellphones.com.vn/font/roboto/italic.css);
+@import url(http://cdn.cellphones.com.vn/font/roboto/bold.css);
+@import url(http://cdn.cellphones.com.vn/font/roboto/bold-italic.css);
+*/
+ 
+ * { margin:0; padding:0; }
+body { font:13px Roboto, arial, verdana, sans-serif; color:#333; }
+.redcps {color:#D62027;}
+.redcps-bg {background-color:#D62027;}
+.greycps{color: #666666;}
+.greycps-bg{background-color: #666666;}
+.greencps{color: #008000;}
+.greencps-bg{background-color: #008000;}
+.page-popup{background:#fff;}
+img{ border:0; vertical-align:top; }
+a { color:#333; text-decoration:none;cursor:pointer; }
+a:hover{ text-decoration:none; }
+:focus{ outline:0; }
+a:active{outline:none;}
+
+/* Headings */
+h1            { font-size:20px; line-height:1.15; }
+h2            { font-size:18px; font-weight:normal; line-height:1.25; }
+h3            { font-size:16px; font-weight:bold; line-height:1.25; }
+h4            { font-size:14px; font-weight:bold; }
+h5            { font-size:100%; font-weight:bold; }
+h6            { font-size:99%; font-weight:bold; }
+
+/* Forms */
+form          { display:inline; }
+fieldset      { border:0; }
+legend        { display:none; }
+
+/* Table */
+table         { border:0; border-collapse:collapse; border-spacing:0; empty-cells:show; font-size:100%; }
+caption,th,td { padding: 5px; }
+th {text-align: center;background: #F0F0F0;}
+/* Content */
+strong        { font-weight:bold; }
+address       { font-style:normal; }
+cite          { font-style:normal; }
+q,
+blockquote    { quotes:none; }
+q:before,
+q:after       { content:''; }
+small,big     { font-size:1em; }
+sup           { font-size:1em; vertical-align:top; }
+
+/* Lists */
+ul,ol         { list-style:none; }
+
+/* Tools */
+.hidden       { display:block !important; border:0 !important; margin:0 !important; padding:0 !important; font-size:0 !important; line-height:0 !important; width:0 !important; height:0 !important; overflow:hidden !important; }
+.nobr         { white-space:nowrap !important; }
+.wrap         { white-space:normal !important; }
+.a-left       { text-align:left !important; }
+.a-center     { text-align:center !important; }
+.a-right      { text-align:right !important; }
+.v-top        { vertical-align:top; }
+.v-middle     { vertical-align:middle; }
+.f-left,
+.left         { float:left !important; }
+.f-right,
+.right        { float:right !important; }
+.f-none       { float:none !important; }
+.f-fix        { float:left; width:100%; }
+.no-display   { display:none; }
+.no-margin    { margin:0 !important; }
+.no-padding   { padding:0 !important; }
+.no-bg        { background:none !important; }
+/* ======================================================================================= */
+
+
+/* Layout ================================================================================ */
+.wrapper {}
+.page {text-align:left; }
+.page-print { background:#fff; padding:20px; text-align:left; }
+.page-empty { background:#fff; padding:20px; text-align:left; }
+.page-popup { padding:20px; text-align:left; }
+.main-container { width:1050px; margin:0 auto;background:#fff;box-shadow: 0 -5px 5px -5px rgba(0, 0, 0, 0.4);/*box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);*/}
+/*.main-container:before {
+	content: "";
+	position: fixed;
+	top: -10px;
+	left: 0;
+	width: 100%;
+	height: 10px;
+	-webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.4);
+	-moz-box-shadow: 0px 0px 10px rgba(0,0,0,.4);
+	box-shadow: 0px 0px 10px rgba(0,0,0,.4);
+	z-index: 100;
+}*/
+.main {width:1000px;margin:0 auto;}
+
+/* Base Columns */
+.col-left { float:left; width:230px; border:1px solid #ddd; padding:5px 5px 0;background:#fff; }
+.col-main { float:left; width:1000px;}
+.col-right { float:right; width:230px; border:1px solid #ddd; padding:5px 5px 0; margin:20px 20px 0 0; }
+
+/* 1 Column Layout */
+.col1-layout .col-main { float:none; width:1000px;position:relative;margin: auto;}
+
+/* 2 Columns Layout */
+.col2-left-layout .col-main { float:right;background:#fff;padding:20px 10px; }
+.col2-left-layout .page-title{padding:0 0 5px 0;margin:0 0 10px 0;}
+.col2-right-layout .col-main {}
+
+/* 3 Columns Layout */
+.col3-layout .col-main { width:484px; margin-left:10px; }
+.col3-layout .col-wrapper { float:left; width:748px; }
+.col3-layout .col-wrapper .col-main { float:right; }
+
+/* Content Columns */
+.col2-set .col-1 { float:left; width:49%; }
+.col2-set .col-2 { float:right; width:49%; }
+.col2-set .col-narrow { width:33%; }
+.col2-set .col-wide { width:65%; }
+
+.col3-set .col-1 { float:left; width:32%; }
+.col3-set .col-2 { float:left; width:32%; margin-left:2%; }
+.col3-set .col-3 { float:right; width:32%; }
+
+.col4-set .col-1 { float:left; width:23.5%; }
+.col4-set .col-2 { float:left; width:23.5%; margin:0 2%; }
+.col4-set .col-3 { float:left; width:23.5%; }
+.col4-set .col-4 { float:right; width:23.5%; }
+/* ======================================================================================= */
+
+
+/* Global Styles ========================================================================= */
+/* Form Elements */
+input,select,textarea,button {vertical-align:middle; color:#000;font-family: roboto !important; }
+input.input-text,select,textarea { background:#fff; border:1px solid #ddd; }
+input.input-text,textarea { padding:2px; }
+select { padding:1px; }
+select option {/*  padding-right:10px; */ padding:0 5px; }
+select.multiselect option { border-bottom:1px solid #ddd; padding:2px 5px; }
+select.multiselect option:last-child { border-bottom:0; }
+textarea { overflow:auto; }
+input.radio { margin-right:3px; }
+input.checkbox { margin-right:3px; }
+button.button::-moz-focus-inner { padding:0; border:0; } /* FF Fix */
+button.button { -webkit-border-fit:lines; } /* <- Safari & Google Chrome Fix */
+button.button { overflow:visible; width:auto; border:0; padding:0; margin:0; background:transparent; cursor:pointer; }
+button.button span { float:left; height:21px;background:#D71A21;padding:0 0 0 8px; font:bold 12px/21px Arial, Helvetica, sans-serif; text-align:center; white-space:nowrap; color:#fff; }
+button.button span span { background-position:100% 0; padding:0 12px 0 4px; }
+button.disabled {}
+button.disabled span {}
+
+button.btn-checkout span {}
+button.btn-checkout.no-checkout {}
+
+p.control input.checkbox,
+p.control input.radio { margin-right:6px; }
+/* Form Highlight */
+/*input.input-text:focus,select:focus,textarea:focus {}*/
+/*.highlight { background:#efefef; }*/
+
+/* Form lists */
+/* Grouped fields */
+/*.form-list { width:535px; margin:0 auto; overflow:hidden; }*/
+.form-list li { margin:5px 0; }
+.form-list label { float:left; color:#030303; font-weight:bold; position:relative; z-index:0; }
+.form-list label.required {}
+.form-list label.required em { float:right; font-style:normal; color:#eb340a; position:absolute; top:0; right:-8px; }
+.form-list li.control label { float:none; }
+.form-list li.control input.radio,
+.form-list li.control input.checkbox { margin-right:6px; }
+.form-list li.control .input-box { clear:none; display:inline; width:auto; }
+/*.form-list li.fields { margin-right:-15px; }*/
+.form-list .input-box { display:block; clear:both; width:260px; }
+.form-list .field { float:left; width:275px; }
+.form-list input.input-text { width:260px; }
+.form-list textarea { width:254px; height:10em; }
+.form-list select { width:260px; }
+.form-list li.wide .input-box { width:535px; }
+.form-list li.wide input.input-text { width:529px; }
+.form-list li.wide textarea { width:529px; }
+.form-list li.wide select { width:535px; }
+.form-list li.additional-row { border-top:1px solid #ccc; margin-top:10px; padding-top:7px; }
+.form-list li.additional-row .btn-remove { float:right; margin:5px 0 0; }
+.form-list .input-range input.input-text { width:74px; }
+/* Customer */
+.form-list .customer-name-prefix .input-box,
+.form-list .customer-name-suffix .input-box,
+.form-list .customer-name-prefix-suffix .input-box,
+.form-list .customer-name-prefix-middlename .input-box,
+.form-list .customer-name-middlename-suffix .input-box,
+.form-list .customer-name-prefix-middlename-suffix .input-box { width:auto; }
+
+.form-list .name-prefix { width:65px; }
+.form-list .name-prefix select { width:55px; }
+.form-list .name-prefix input.input-text { width:49px; }
+
+.form-list .name-suffix { width:65px; }
+.form-list .name-suffix select { width:55px; }
+.form-list .name-suffix input.input-text { width:49px; }
+
+.form-list .name-middlename { width:70px; }
+.form-list .name-middlename input.input-text { width:49px; }
+
+.form-list .customer-name-prefix-middlename-suffix .name-firstname,
+.form-list .customer-name-prefix-middlename .name-firstname { width:140px; }
+.form-list .customer-name-prefix-middlename-suffix .name-firstname input.input-text,
+.form-list .customer-name-prefix-middlename .name-firstname input.input-text { width:124px; }
+.form-list .customer-name-prefix-middlename-suffix .name-lastname { width:205px; }
+.form-list .customer-name-prefix-middlename-suffix .name-lastname input.input-text { width:189px; }
+
+.form-list .customer-name-prefix-suffix .name-firstname { width:210px; }
+.form-list .customer-name-prefix-suffix .name-lastname { width:205px; }
+.form-list .customer-name-prefix-suffix .name-firstname input.input-text,
+.form-list .customer-name-prefix-suffix .name-lastname input.input-text { width:189px; }
+
+.form-list .customer-name-prefix-suffix .name-firstname { width:210px; }
+.form-list .customer-name-prefix-suffix .name-lastname { width:205px; }
+.form-list .customer-name-prefix-suffix .name-firstname input.input-text,
+.form-list .customer-name-prefix-suffix .name-lastname input.input-text { width:189px; }
+
+.form-list .customer-name-prefix .name-firstname,
+.form-list .customer-name-middlename .name-firstname { width:210px; }
+
+.form-list .customer-name-suffix .name-lastname,
+.form-list .customer-name-middlename .name-firstname,
+.form-list .customer-name-middlename-suffix .name-firstname,
+.form-list .customer-name-middlename-suffix .name-lastname { width:205px; }
+
+.form-list .customer-name-prefix .name-firstname input.input-text,
+.form-list .customer-name-suffix .name-lastname input.input-text,
+.form-list .customer-name-middlename .name-firstname input.input-text,
+.form-list .customer-name-middlename-suffix .name-firstname input.input-text,
+.form-list .customer-name-middlename-suffix .name-lastname input.input-text { width:189px; }
+
+.form-list .customer-dob .dob-month,
+.form-list .customer-dob .dob-day,
+.form-list .customer-dob .dob-year { float:left; width:85px; }
+.form-list .customer-dob input.input-text { display:block; width:74px; }
+.form-list .customer-dob label { font-size:10px; font-weight:normal; color:#888; }
+.form-list .customer-dob .dob-day,
+.form-list .customer-dob .dob-month { width:60px; }
+.form-list .customer-dob .dob-day input.input-text,
+.form-list .customer-dob .dob-month input.input-text { width:46px; }
+.form-list .customer-dob .dob-year { width:140px; }
+.form-list .customer-dob .dob-year input.input-text { width:134px; }
+
+.buttons-set { clear:both; margin:5px 0 0; padding:5px;}
+.buttons-set .back-link { float:left; }
+.back-link{color:#d11921;font-size:15px;font-style:italic;padding-left:65px;padding-top:10px;display:block;width:80px;}
+.buttons-set button.button { float:right; }
+.buttons-set p.required { margin:0 0 5px; }
+
+.buttons-set-order {}
+
+.fieldset {background:#fefefe; padding:22px 5px 12px 33px;}
+.fieldset .legend { float:left; font-weight:bold; font-size:13px; border:1px solid #fefefe; background:#dedede; color:#333; margin:-33px 0 0 -10px; padding:0 8px; position:relative; }
+
+/* Form Validation */
+.validation-advice { clear:both; min-height:13px; margin:3px 0 0; padding-left:17px; font-size:10px; line-height:13px;z-index:99;background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/validation_advice_bg.gif) 2px 1px no-repeat; color:#f00; }
+.validation-failed { border:1px dashed #f00 !important; background:#faebe7 !important; }
+.validation-passed {}
+p.required { font-size:10px; text-align:right; color:#f00; }
+/* Expiration date and CVV number validation fix */
+.v-fix { float:left; }
+.v-fix .validation-advice { display:block; width:12em; margin-right:-12em; position:relative; }
+
+/* Global Messages  */
+.success { color:#3d6611; font-weight:bold; }
+.error { color:#f00; font-weight:bold; }
+.notice { color:#ccc; }
+
+.messages,
+.messages ul { list-style:none !important; margin:0 !important; padding:0 !important; }
+.messages { width:100%; overflow:hidden; }
+.messages li { margin:0 0 10px; }
+.messages li li { margin:0 0 3px; }
+.error-msg,
+.success-msg,
+.note-msg,
+.notice-msg { border-style:solid !important; border-width:1px !important; background-position:10px 9px !important; background-repeat:no-repeat !important; min-height:24px !important; padding:8px 8px 8px 32px !important; font-size:11px !important; font-weight:bold !important; }
+.error-msg { border-color:#f16048; background-color:#faebe7; background-image:url(http://cellphones.com.vn/skin/frontend/default/blank/images/i_msg-error.gif); color:#df280a; }
+.success-msg { border-color:#446423; background-color:#eff5ea; background-image:url(http://cellphones.com.vn/skin/frontend/default/blank/images/i_msg-success.gif); color:#3d6611; }
+.note-msg,
+.notice-msg { border-color:#fcd344; background-color:#fafaec; background-image:url(http://cellphones.com.vn/skin/frontend/default/blank/images/i_msg-note.gif); color:#3d6611; }
+
+/* BreadCrumbs */
+.breadcrumbs { padding:10px; margin:0 0 10px; border:1px solid #ddd; }
+.breadcrumbs li { display:inline; }
+
+/* Page Heading */
+.page-title { padding:20px 0 5px 0; margin:0 20px; }
+/* .page-title h1{padding:0 20px;} */
+.page-title h1,
+.page-title h2 { font-size:18px; color:#000; }
+.page-title .separator { margin:0 3px; }
+.page-title .link-rss { float:right; }
+.title-buttons { text-align:right; }
+.title-buttons h1,
+.title-buttons h2,
+.title-buttons h3,
+.title-buttons h4,
+.title-buttons h5,
+.title-buttons h6 { float:left; }
+
+.subtitle,
+.sub-title { clear:both; }
+
+/* Pager */
+.pager {padding:5px; margin:5px 0; text-align:center; }
+.pager .amount { float:left; }
+.pager .limiter { float:right; }
+.pager .pages { margin:0 135px; }
+.pager .pages ol { display:inline-block;width:100%; }
+.pager .pages li { display:inline;text-align:center;}
+.pager .pages .current {}
+
+/* Sorter */
+.sorter { border:1px solid #ddd; padding:5px; margin:5px 0; }
+.sorter .view-mode { float:left; }
+.sorter .sort-by { float:right; }
+.sorter .link-feed {}
+
+/* Toolbar */
+.toolbar {}
+.toolbar .pager {}
+.toolbar .sorter {}
+.toolbar-bottom {clear:both;padding-top:10px;}
+.toolbar-bottom .toolbar .pager ol li{font-size:12px;margin:0 4px 0 0;padding:4px 8px;border:1px solid #b3b3b3;}
+.toolbar-bottom .toolbar .pager ol li.current{color:#fff;background:#000;border:1px solid #000;}
+.toolbar-bottom .toolbar .pager ol li a{color:#000;}
+.toolbar-bottom .toolbar .pager ol li a.previous,.toolbar-bottom .toolbar .pager ol li a.next{background:none;width:auto;height:auto;}
+.toolbar-bottom .toolbar .pager .amount{display:none;}
+.toolbar-bottom .toolbar .pager .limiter{display:none;}
+.toolbar-bottom .toolbar .sorter{display:none;} 
+/* Pager */
+.pager {text-align:center; }
+.pager .amount { float:left; }
+.pager .limiter { float:right; }
+.pager .pages {text-align:center;}
+.pager .pages ol { display:inline-block;}
+.pager .pages li {}
+.pager .pages .current {}
+
+/* Data Table */
+.data-table { width:100%;border:1px solid #cbcbcb; }
+.data-table th { padding:5px; border-bottom:1px solid #ddd; font-weight:bold; white-space:nowrap; font-weight:normal!important;}
+.cart-price{display:block;margin-top:50px;}
+.cart-qty{margin-top:45px;color:#000;font-size:15px;border:none!important;width:15px;}
+.cart-price .price{font-size:15px;color:#d61921;}
+.data-table td { padding:5px;  }
+.data-table thead {height:35px;font-size:18px;font-style:regular;color:#1a1a1a;text-align:center;font-weight:normal!important;}
+.data-table tbody {}
+.data-table tfoot {}
+#shopping-cart-table td{text-align:center;border-bottom:2px solid #e5e5e5;}
+#shopping-cart-table tr.last td{border-bottom:0 !important;}
+#shopping-cart-table .product-image{display:inline-block;width:66px;height:66px;overflow:hidden;}
+.soluong{border-left:none!important;}
+.cart-product-name{padding-top:10px;}
+.cart-compareproduct{display:block;margin-top:40px;}
+.cart-compareproduct .link-compare{background: url("http://cellphones.com.vn/skin/frontend/default/blank/images/cartsosanh.png") no-repeat scroll left center transparent!important;padding-left:18px;color:#333!important;}
+.cart-links{min-width:150px;}
+.cart-links a{float:left;color: #333 !important;}
+.cart-links .link-chonmua{background: url("http://cellphones.com.vn/skin/frontend/default/blank/images/cartsosanh.png") no-repeat scroll left center transparent !important;padding-left: 18px;margin-left:5px;
+}
+.cart-product-name a{font-size:12px !important;text-transform:uppercase;color:#333333 !important;padding-top:5px;}
+.data-table tr.first {}
+.dongia{background-color:#f1f1f1;}  
+.data-table tr.last {}
+.data-table tr.odd {}
+.data-table tr.even {}
+.action-cartpage{margin-top:7px;float:right;padding-right:35px;}
+.action-cartpage button.button{float:left;}
+.action-cartpage .btn-dathang{margin-right:1px;}
+.action-help{padding-top:10px;min-width:150px;}
+.product-info-help{color:#333333;padding-top:12px;}
+.data-table th .tax-flag { white-space:nowrap; font-weight:normal; }
+.data-table td.label,
+.data-table th.label { font-weight:bold; background-color:#f6f6f6; }
+.data-table td.value {}
+
+/*
+.data-table tbody.odd {}
+.data-table tbody.odd td { border-width:0 1px; }
+.data-table tbody.even { background-color:#f6f6f6; }
+.data-table tbody.even td { border-width:0 1px; }
+.data-table tbody.odd tr.border td,
+.data-table tbody.even tr.border td { border-bottom-width:1px; }
+*/
+.data-table th .tax-flag { white-space:nowrap; font-weight:normal; }
+.data-table td.label,
+.data-table th.label { font-weight:bold; background-color:#f6f6f6; }
+.data-table td.value {}
+
+/* Shopping cart total summary row expandable to details */
+tr.summary-total { cursor:pointer; }
+tr.summary-total td {}
+tr.summary-total .summary-collapse { float:right; text-align:right; padding-left:20px; background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/bkg_collapse.gif) 0 4px no-repeat; cursor:pointer; }
+tr.show-details .summary-collapse { background-position:0 -53px; }
+tr.show-details td {}
+tr.summary-details td { font-size:11px; background-color:#dae1e4; color:#626465; }
+tr.summary-details-first td { border-top:1px solid #d2d8db; }
+tr.summary-details-excluded { font-style:italic; }
+
+/* Shopping cart tax info */
+.cart-tax-info { display:block; }
+.cart-tax-info,
+.cart-tax-info .cart-price { padding-right:20px; }
+.cart-tax-total { display:block; padding-right:20px; background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/bkg_collapse.gif) 100% 4px no-repeat; cursor:pointer; }
+.cart-tax-info .price,
+.cart-tax-total .price { display:inline !important; font-weight:normal !important; }
+.cart-tax-total-expanded { background-position:100% -53px; }
+
+/* Class: std - styles for admin-controlled content */
+.std .subtitle { padding:0; }
+.std ol.ol { list-style:decimal outside; padding-left:1.5em; }
+.std ul.disc { list-style:disc outside; padding-left:18px; margin:0 0 10px; }
+.std dl dt { font-weight:bold; }
+.std dl dd { margin:0 0 10px; }
+.std ul,.std ol,.std dl,.std p,.std address,.std blockquote { margin:0 0 1em; padding:0; }
+.std ul { list-style:disc outside; padding-left:1.5em; }
+.std ol { list-style:decimal outside; padding-left:1.5em; }
+.std ul ul { list-style-type:circle; }
+.std ul ul,
+.std ol ol,
+.std ul ol,
+.std ol ul { margin:.5em 0; }
+.std dt { font-weight:bold; }
+.std dd { padding:0 0 0 1.5em; }
+.std blockquote { font-style:italic; padding:0 0 0 1.5em; }
+.std address { font-style:normal; }
+.std b,
+.std strong { font-weight:bold; }
+.std i,
+.std em { font-style:italic; }
+
+/* Misc */
+.links li { display:inline; }
+.links li.first { padding-left:0 !important; }
+.links li.last { background:none !important; padding-right:0 !important; }
+
+.link-cart { font-weight:bold; color:#f00; }
+.link-wishlist { font-weight:bold; }
+.link-reorder { font-weight:bold; }
+.link-print { background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/i_print.gif) 0 2px no-repeat; padding:2px 0 2px 25px; }
+.link-rss { background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/i_rss.gif) 0 1px no-repeat; padding-left:18px; white-space:nowrap; }
+.btn-remove { display:block; width:11px; height:11px; font-size:0; line-height:0; background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/btn_remove.gif) 0 0 no-repeat; text-indent:-999em; overflow:hidden; }
+.btn-remove2 { background: url("http://cellphones.com.vn/skin/frontend/default/blank/images/deleteproduct.png") no-repeat scroll left center transparent !important;height: 14px;padding-left: 20px;color:#333;}
+.btn-edit    { display:block; width:11px; height:11px; font-size:0; line-height:0; background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/btn_edit.gif) 0 0 no-repeat; text-indent:-999em; overflow:hidden; }
+
+.cards-list dt { margin:5px 0 0; }
+.cards-list .offset { padding:2px 0 2px 20px; }
+
+
+.separator { margin:0 3px; }
+
+/*.divider { clear:both; display:block; font-size:0; line-height:0; height:1px; margin:10px 0; background:#ddd; text-indent:-999em; overflow:hidden; }*/
+
+/* Noscript Notice */
+.noscript { border:1px solid #ddd; border-width:0 0 1px; background:#ffff90; font-size:12px; line-height:1.25; text-align:center; color:#2f2f2f; }
+.noscript .noscript-inner { width:1000px; margin:0 auto; padding:12px 0 12px; background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/i_notice.gif) 20px 50% no-repeat; }
+.noscript p { margin:0; }
+
+/* Demo Notice */
+.demo-notice { margin:0; padding:6px 10px; background:#d75f07; font-size:12px; line-height:1.15; text-align:center; color:#fff; }
+
+/* Cookie Notice */
+.notice-cookie { border-bottom:1px solid #cfcfcf; background:#ffff90; font-size:12px; line-height:1.25; text-align:center; color:#2f2f2f; }
+.notice-cookie .notice-inner { width:870px; margin:0 auto; padding:12px 0 12px 80px; background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/i_notice.gif) 20px 25px no-repeat; text-align:left; }
+.notice-cookie .notice-inner p { margin:0 0 10px; border:1px dotted #cccc73; padding:10px; }
+.notice-cookie .notice-inner .actions { }
+
+/* ======================================================================================= */
+
+/* Header ================================================================================ */
+.header-container {background: none repeat scroll 0 0 #FFFFFF;}
+.header {margin: 0 auto;}
+#topblock {margin: 0 auto;width: 1000px;}
+#login-chosesite {float: left;width: 1000px;}
+#header-left {float: left;padding: 10px;width: 300px;}
+.store-switcher {float: left;height: 32px;position: relative;margin: 0 15px 0 30px;}
+.store-switcher label {float: left;font-size: 12px;font-weight: bold;opacity: 0;padding: 10px 0;width: 100%;}
+.store-switcher .select {background: url("http://cellphones.com.vn/skin/frontend/default/blank/images/tht_arrow.png") no-repeat scroll 105px 15px transparent;border: 1px solid #C6C6C6;float: right;font-size: 13px;height: 32px;line-height: 32px;padding: 0 0 0 10px;text-transform: uppercase;width: 110px;}
+.store-switcher select.styled {display: inline-block;height: 32px;opacity: 0;position: absolute;right: 0;width: 147px;z-index: 5;cursor: pointer;}
+.store-switcher select option {font-size: 12px;font-weight: normal;padding: 5px 0 5px 10px;}
+#loginhome {display: block;float: left;margin: 0 0 10px;min-height: 110px;position: relative;width: 100%;}
+#loginhome h3 {margin-top: 10px;}
+#loginhome h3 a {color: #666666;font-weight: normal;}
+#loginhome h3 .logout {float: right;}
+#loginhome form {float: left;width: 100%;}
+#loginhome form .itemf {float: left;margin: 5px 0 0;width: 100%;}
+#loginhome form .itemf:first-child {padding-top: 5px;}
+#loginhome form .itemf:last-child {padding-bottom: 12px;}
+#loginhome form .itemf label {color: #808080;float: left;font-size: 15px;padding-left: 10px;width: 72px;}
+#loginhome form .itemf input {background: none repeat scroll 0 0 #F5F5F5;border: medium none;border-radius: 1px 1px 1px 1px;float: left;font-size: 15px;padding-left: 10px;width: 205px;}
+.bt-header {background: none repeat scroll 0 0 #FFFFFF;float: right;margin: 5px 0;text-align: center;}
+.bt-header button {background: none repeat scroll 0 0 #E6E6E6;border: medium none;border-radius: 1px 1px 1px 1px;color: #808080;cursor: pointer;font-size: 15px;padding: 2px 5px;}
+.bt-header button:first-child {}
+.bt-header span#sp {color: white;font-size: 12px;font-weight: bold;}
+#loginhome .loginF {float: right;}
+#loginhome .lb-fb {background: url("http://cellphones.com.vn/skin/frontend/default/blank/images/star_fb.png") no-repeat scroll left center transparent;color: #808080;float: right;font-size: 11px;height: 11px;margin: 5px 0;padding-left: 15px;}
+#hotproductcolor {float: right;padding: 10px 0;position: relative;width: 630px;}
+#hotproductcolor img {float: left;width: 620px;}
+#hotproductcolor a {background: none repeat scroll 0 0 #D71A21;bottom: 30px;color: white;font-weight: bold;left: 70px;padding: 5px 10px;position: absolute;text-decoration: none;}
+
+
+.top-page-wrap {/*background: none repeat scroll 0 0 #f0f0f0;*/clear: both;display: block;height: 50px;line-height: 50px;width: 100%;}
+.top-page {display: block;margin: 0 auto;position: relative;width: 1000px;}
+.info-top-page {float: left;}
+.top-page-link {float: left;margin-left: 10px;}
+.top-page-link li {display: inline;padding: 0 10px;}
+.top-page-link li a {}
+.contact-social {float: right;margin-left: 160px;}
+.contact {float: left;letter-spacing: 0.5px;}
+.contact .phone-ct {color: #000000;font-weight: bold;}
+.contact .email-ct {color: #000000;}
+.contact-social .social {float: right;padding: 10px 80px 0 15px;}
+.social li {float: left;margin-right: 10px;}
+
+.flag{float: right;margin: -40px 40px 0 0;}
+.flag .lang{color:#000;font-weight:normal;}
+.flag span{}
+.storeactive{font-weight:bold !important;}
+
+.share-social{position:absolute;top:10px;left:-40px;}
+.share-social li{margin-bottom:5px;}
+#slide-breaking {float: right;font-size: 11px;line-height: 30px;margin: 0 20px 0 10px;}
+.logo-search {background-color: #FFFFFF;height: 75px;margin: 0 auto;padding: 15px 0;width: 1000px;}
+.header .logo {float: left;text-decoration: none !important;}
+.header .region {background: url("http://cellphones.com.vn/skin/frontend/default/blank/images/img-region.png") no-repeat scroll 9px center transparent;border: 1px solid #C6C6C6;float: left;height: 32px;margin: 0 10px 10px 40px;padding: 0 0 0 33px;position: relative;}
+.header .region label:before {background: url("http://cellphones.com.vn/skin/frontend/default/blank/images/arr_select.png") no-repeat scroll left top transparent;content: "";display: block;height: 29px;position: absolute;right: 0;top: 3px;width: 20px;}
+.header .region label:after {}
+.header .region .list-region {-moz-border-bottom-colors: none;-moz-border-left-colors: none;-moz-border-right-colors: none;-moz-border-top-colors: none;border-color: -moz-use-text-color -moz-use-text-color -moz-use-text-color #808080;border-image: none;border-style: none none none solid;border-width: 0 0 0 1px;color: #000000;font-size: 14px;font-weight: bold;height: 29px;margin: 3px 0 0;padding: 0 0 0 8px;}
+.header .logo strong {font-size: 0;height: 0;left: -999em;line-height: 0;overflow: hidden;position: absolute;text-indent: -999em;top: -999em;width: 0;}
+.header h1.logo {margin: 3px 0 0 10px;padding: 0;}
+.header .quick-access {float: left;}
+.header .welcome-msg {font-weight: bold;text-align: right;}
+.header .welcome-msg a {}
+.header .links {float: right;}
+.header .form-search {border: 1px solid #C6C6C6;float: left;height: 32px;position: relative;top: 0;width: 327px;}
+.header .form-search > label {background: url("http://cellphones.com.vn/skin/frontend/default/blank/images/icon_web.png") no-repeat scroll -55px -32px transparent;color: #333333;display: block;font-size: 11px;font-style: italic;margin: 38px 0 5px;padding-left: 10px;position: absolute;text-align: left;}
+.header .form-search > label a {color: #333333;font-size: 11px;font-style: italic;}
+.header .form-search .input-text {border: medium none;float: left;font-style: italic;height: 32px;margin: 0;padding: 0 5px;width: 272px;}
+.header .form-search button.button {border-left: 1px solid #808080;display: block;float: left;height: 28px;margin: 3px 0 1px;position: absolute;right: -3px;top: 0;width: 40px;}
+.header .form-search button.button span {display: none;}
+.header .form-search .search-autocomplete {z-index: 999;}
+.header .form-search .search-autocomplete ul {background-color: #FFFFFF;border: 1px solid #DDDDDD;}
+.header .form-search .search-autocomplete li {border-bottom: 1px solid #DDDDDD;cursor: pointer;padding: 3px;}
+.header .form-search .search-autocomplete li .amount {float: right;font-weight: bold;}
+.header .form-search .search-autocomplete li.selected {}
+.header .form-language {clear: both;text-align: right;}
+.header-container .top-container {clear: both;text-align: right;}
+#results {background: none repeat scroll 0 0 #FFFFFF;position: absolute;left: 0;top:60px;    max-width: 405px;z-index:999;display:inline-block;margin-left:-40px;margin-top:-10px;}
+#results ul {padding:10px 0;border:1px solid #9b9a9a;}
+#results ul li {padding: 2px 20px;display:inline-block;width:363px;}
+#results ul li:hover {background: none repeat scroll 0 0 #E1E1E1;}
+#results ul li a {color: #000000;display: block;margin-bottom: 5px;margin-left: 2px;margin-top: 5px;min-height: 15px;text-align: left;width:100%;height:100%;float:left;text-decoration:none;}
+#results ul li .img-search{margin-right:10px;float:left;}
+#results ul li .name{color:#333;float:left;display:inline-block;clear:right; width:250px;}
+#results ul li .price{font-weight:bold;color:#d71a21;display:inline-block;float:left;width:250px;}
+#results ul li .hotro{float:right;background:#b5b5b5;display:inline-block;text-align:center;font-size:10px;color:#fff;padding:3px 15px;}
+.hover{background: none repeat scroll 0 0 #E1E1E1;}
+.nodisplay {display: none;}
+
+#giohang {border: 1px solid #C6C6C6;cursor: pointer;float: right;height: 32px;position: relative;top: 0;width: 120px;}
+#giohang .mount {border-left: 1px solid #808080;color: #000001;display: block;font-size: 11px;height: 28px;line-height: 29px;margin: 3px 0 1px 35px;padding-left: 8px;text-align: center;}
+/********** < Navigation */
+.nav-container {width:100%;}
+
+#nav {list-style:none;width:1000px;height:35px;background: #000;}
+#nav li {float:left;display:block;text-align:center;position:relative;padding: 3px 10px;margin-right:8px;margin-top:5px;border:none;}
+#nav li:hover {background: #333;-moz-border-radius: 5px 5px 0px 0px;-webkit-border-radius: 5px 5px 0px 0px;border-radius: 5px 5px 0px 0px;}
+#nav li a {font-size:14px; color: #fff;display:block;outline:0;text-decoration:none;text-shadow: 1px 1px 1px #000;}
+#nav li:hover a {color:#fff;}
+#nav li .drop {padding-right:21px;background:url("http://cellphones.com.vn/skin/frontend/default/blank/images/drop.png") no-repeat right 8px;height: 28px;}
+#nav li:hover .drop {background:url("http://cellphones.com.vn/skin/frontend/default/blank/images/drop.png") no-repeat right 7px;}
+
+.btnSubMenu {display:none;}
+.dropdown_column,.dropdown_1column,.dropdown_2columns,.dropdown_3columns,.dropdown_4columns,.dropdown_5columns {margin:2px auto;float:left;position:absolute;left:-999em;text-align:left;padding:10px 5px 10px 5px;border:1px solid #777777;border-top:none;background:#333;-moz-border-radius: 0px 5px 5px 5px;-webkit-border-radius: 0px 5px 5px 5px;border-radius: 0px 5px 5px 5px;z-index:1;}
+.dropdown_1column {width: 140px;}
+.dropdown_2columns {width: 280px;}
+.dropdown_3columns {width: 420px;}
+.dropdown_4columns {width: 500px;}
+.dropdown_5columns {width: 710px;}
+
+#nav li:hover .dropdown_column,#nav li:hover .dropdown_1column, #nav li:hover .dropdown_2columns, #nav li:hover .dropdown_3columns,#nav li:hover .dropdown_4columns,#nav li:hover .dropdown_5columns {left:-1px;top:auto;}
+
+.col_1,.col_2,.col_3,.col_4,.col_5 {display:inline;float: left;position: relative;margin-left: 5px;margin-right: 5px;}
+.col_1 {width:130px;}
+.col_2 {width:270px;}
+.col_3 {width:410px;}
+.col_4 {width:550px;}
+.col_5 {width:690px;}
+
+#nav .menu_right {float:right;margin-right:0px;}
+#nav li .align_right {/* Rounded Corners */-moz-border-radius: 5px 0px 5px 5px;-webkit-border-radius: 5px 0px 5px 5px;border-radius: 5px 0px 5px 5px;}
+#nav li:hover .align_right {left:auto;right:-1px;top:auto;}
+#nav p, #nav h2, #nav h3, #nav ul li {line-height:21px;font-size:12px;text-align:left;text-shadow: 1px 1px 1px #000;}
+#nav h2 {font-size:21px;font-weight:400;letter-spacing:-1px;margin:7px 0 14px 0;padding-bottom:14px;border-bottom:1px solid #666666;}
+#nav h3 {font-size:14px;margin:7px 0 14px 0;padding-bottom:7px;border-bottom:1px solid #888888;color:#fff;font-weight: normal;text-transform: uppercase;}
+#nav p {line-height:18px;margin:0 0 10px 0;}
+#nav li:hover div a {font-size:13px;color:#fff;}
+#nav li:hover div a:hover {color:#fff;}
+.strong {font-weight:bold;}
+.italic {font-style:italic;}
+.imgshadow { background:#FFFFFF;padding:4px;border:1px solid #777777;margin-top:5px;-moz-box-shadow:0px 0px 5px #666666;-webkit-box-shadow:0px 0px 5px #666666;box-shadow:0px 0px 5px #666666;}
+.img_left { width:auto;float:left;margin:5px 15px 5px 5px;}
+#nav li .black_box {background-color:#333333;color: #fff;text-shadow: 1px 1px 1px #000;padding:4px 6px 4px 6px;-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius: 5px;-webkit-box-shadow:inset 0 0 3px #000000;-moz-box-shadow:inset 0 0 3px #000000;box-shadow:inset 0 0 3px #000000;}
+#nav li ul {list-style:none;padding:0;margin:0 0 12px 0;}
+#nav li ul li {font-size:12px;line-height:24px;position:relative;text-shadow: 1px 1px 1px #ffffff;margin:0;float:none;text-align:left;width:150px;padding: 0 0 0 15px;}
+#nav li ul li,#nav li ul li:hover {background: url("http://cellphones.com.vn/skin/frontend/default/blank/images/arrow_right.png") no-repeat scroll 0 6px transparent;}
+#nav li .greybox li {background:#F4F4F4;border:1px solid #bbbbbb;margin:0px 0px 4px 0px;padding:4px 6px 4px 6px;width:116px;-moz-border-radius: 5px;-webkit-border-radius: 5px;-khtml-border-radius: 5px;border-radius: 5px;}
+#nav li .greybox li:hover {background:#ffffff;border:1px solid #aaaaaa;padding:4px 6px 4px 6px;margin:0px 0px 4px 0px;}
+#nav li a span {cursor: pointer;display: block;font-size: 105%;font-weight: normal;text-transform: uppercase;white-space: nowrap;height: 23px;}
+#nav .hangsx{width:230px!important;}
+#nav .hangsx .buy-option-item {float: left;width: 100px;}
+#nav .ds-phukien {width: 340px;}
+#nav .ds-phukien li {float: left;}
+#nav .home {margin-top: -2px;}
+#nav .home:hover { background:transparent;}
+#nav .last {margin-right: 0;}
+/********** Navigation > */
+/* ======================================================================================= */
+
+
+/* Sidebar =============================================================================== */
+
+.block {}
+.block .block-title { padding-left: 25px !important; margin-bottom:0;}
+.block .block-title strong { font-size:14px; font-weight:bold; }
+.block .block-title strong span {}
+.block .block-title a { text-decoration:none !important; }
+.block .block-subtitle { font-size:13px; font-weight:bold; }
+.block .block-content { padding:10px;clear:both; }
+.block .block-content li.item { padding:5px 0; }
+.block .btn-remove,
+.block .btn-edit { float:right;}
+.block .actions { text-align:right; }
+.block .actions a { float:left; }
+.block .empty {}
+
+.block li.odd {}
+.block li.even {  }
+
+/* Mini Products List */
+.mini-products-list li { padding:5px 0; }
+.mini-products-list .product-image { float:left; width:50px; padding:5px; border:1px solid #ddd; }
+.mini-products-list .product-details { margin-left:75px; }
+.mini-products-list .product-details h4 { font-size:1em; font-weight:bold; margin:0; }
+.block-cart .mini-products-list .product-details .product-name,
+.block-cart .mini-products-list .product-details .nobr small { word-wrap:break-word; }
+.block-cart .mini-products-list .product-details .nobr { white-space:normal !important; }
+
+/* Block: Account */
+.block-account {}
+.block-account .block-content ul li a{color:#000;}
+.block-account .block-content ul li a:hover{color:red;}
+/* Block: Currency Switcher */
+.block-currency {}
+.block-currency select { width:100%; border:1px solid #888; }
+
+/* Block: Layered Navigation */
+.block-layered-nav {background:#fff;border-bottom: 3px solid #00152E;border-top:1px solid #00152E;}
+.block-layered-nav dt { font-weight:bold; }
+.block-layered-nav .currently {}
+.block-layered-nav .btn-remove { float:left; margin:2px 3px 0 0; }
+.lcsp{line-height:30px;margin-left:30px;}
+
+/* Block: Cart */
+.block-cart {}
+.block-cart .summary {}
+.block-cart .amount {}
+.block-cart .subtotal { text-align:center; }
+.block-cart .actions .paypal-logo { float:left; width:100%; margin:3px 0 0; text-align:right; }
+.block-cart .actions .paypal-logo .paypal-or { clear:both; display:block; padding:0 55px 5px 0; }
+
+/* Block: Wishlist */
+.block-wishlist {}
+
+/* Block: Related */
+.block-related {}
+.block-related li { padding:5px 0; }
+.block-related input.checkbox { float:left; margin-right:-20px; }
+.block-related .product { margin-left:20px; }
+.block-related .product .product-image { float:left; margin-right:-65px; }
+.block-related .product .product-details { margin-left:65px; }
+
+/* Block: Compare Products */
+.block-compare {}
+.block-compare li { padding:5px 0; }
+
+/* Block: Recently Viewed */
+.block-viewed {float:left;width:100%;}
+
+/* Block: Recently Compared */
+.block-compared {}
+
+/* Block: Poll */
+.block-poll label {}
+.block-poll input.radio { float:left; margin:1px -18px 0 0; }
+.block-poll .label { display:block; margin-left:18px; }
+.block-poll li { padding:3px 9px; }
+.block-poll .actions { margin:5px 0 0; }
+.block-poll .answer { font-weight:bold; }
+.block-poll .votes { float:right; margin-left:10px; }
+
+/* Block: Tags */
+.block-tags ul,
+.block-tags li { display:inline; }
+
+/* Block: Subscribe */
+.block-subscribe {}
+.block-subscribe .block-title{text-align:left;}
+.block-subscribe .block-title strong span{text-transform:uppercase;margin-left:10px;}
+.block-subscribe  .block-content{text-align:left;}
+.block-subscribe  .block-content label{color:#666;font-weight:bold;}
+.block-subscribe  .block-content .input-box{margin-bottom:5px;}
+.block-subscribe  .block-content .actions{margin-top:5px;}
+
+/* Block: Reorder */
+.block-reorder {}
+.block-reorder li { padding:5px 0; }
+.block-reorder input.checkbox { float:left; margin:3px -20px 0 0; }
+.block-reorder .product-name { margin-left:20px; }
+
+/* Block: Banner */
+.block-banner {}
+.block-banner .block-content { text-align:center; }
+
+/* Block: Login */
+.block-login label { font-weight:bold; color:#666; }
+.block-login input.input-text { display:block; width:167px; margin:3px 0; }
+
+/* Paypal */
+.sidebar .paypal-logo { display:block; margin:10px 0; text-align:center; }
+.sidebar .paypal-logo a { float:none; }
+/* ======================================================================================= */
+
+
+/* Category Page ========================================================================= */
+.category-title { border:0; margin:0 0 7px; }
+.category-image { width:100%; overflow:hidden; margin:0 0 10px; text-align:center; }
+.category-image img {}
+.category-description { margin:0 0 10px; }
+.category-products {background:#fff;margin-bottom:3px;}
+
+.tag-cat{padding-bottom:12px;float:left;clear:both;}
+.tag-cat .title{float:left;text-transform:uppercase;font-size:10px;color:#fff;background:#808080;padding:1px 3px;margin-right:2px;}
+.list-tag{float:left;}
+.list-tag li{float:left;}
+.list-tag li.text{}
+.list-tag li.seperate{}
+.list-tag li.text a{padding:0 5px;}
+
+.block-catright{float:right;width:235px;padding-bottom:80px;border-left:1px solid #999;}
+.block-catright .title{font-size:22.26px;color:#1a1a1a;padding-left:14px;}
+
+.block-catright .like-social .title{padding-top:5px;padding-bottom:10px;}
+.box-social{margin-left:15px;}
+
+.block-catright .sforum .title{padding-top:10px;padding-bottom:3px;}
+.list-sforum{}
+.list-sforum li{clear:both;float:left;width:100%;border-bottom:1px dotted #d8d8d8;padding:10px 0;}
+.list-sforum li.last{border-bottom:0 !important;}
+.list-sforum li .image{float:left;margin:0 10px;width:58px;height:48px;border:1px solid #d2d2d1;}
+.list-sforum li .text{color:#a0a5bb;}
+
+/* View Type: Grid */
+.products-grid {position:relative; }
+.products-grid.first { border-bottom:0;background:none; }
+.products-grid li.item { float:left; width:140px;margin:0 12px 0 0; padding:0;text-align:center;}
+.products-grid .product-image { display:inline-block;*display:inline;zoom:1; width:120px; height:120px;}
+.wrap-info {float: left;width: 160px;text-align:left;}
+.products-grid .product-image { display:inline-block;*display:inline;zoom:1; }
+.box-info{text-align:center;padding-top:5px;}
+.box-info .stock-info{}
+.box-info .product-name{/*text-transform:uppercase;letter-spacing:0.1px;*/padding:5px 0;overflow: hidden;height:28px;}
+.box-info .product-name a{}
+.box-info .product-name a span{}
+.box-info .action{}
+
+
+.block-viewed .products-grid li.item { float:left; margin:0 0px 15px 50px;min-height:85px; padding:0 ; text-align:center;width:25%;}
+.block-viewed .products-grid li.item  img{ width:75px;height:75px;margin-right:10px;}
+.block-viewed .products-grid li.item  a.product-image{float:left;width:auto;height:auto;}
+
+/* View Type: List */
+/* .products-list li.item { border-bottom:1px solid #ddd; padding:12px 10px; }
+.products-list li.item.last { border-bottom:0; }
+.products-list .product-image { float:left; width:135px; height:135px; margin:0 0 10px; }
+.products-list .product-shop { margin-left:150px; }
+.products-list .product-name { margin:0 0 5px; font-weight:bold; font-size:13px; }
+.products-list .product-name a {}
+.products-list .price-box { float:left; margin:3px 13px 5px 0; }
+.products-list .availability { float:left; margin:3px 0 0; }
+.products-list .desc { clear:both; padding:6px 0 0; margin:0 0 15px; line-height:1.35; }
+.products-list .desc .link-learn { font-size:11px; }
+.products-list .add-to-links { clear:both; }
+.products-list .add-to-links li { display:inline; }
+.products-list .add-to-links .separator { display:inline; margin:0 2px; } */
+/* ======================================================================================= */
+
+
+/* Product View ========================================================================== */
+/* Rating */
+.no-rating { margin:0; }
+
+.ratings { font-size:11px; line-height:1.25; margin:7px 0; }
+.ratings strong { float:left; margin:1px 3px 0 0; }
+.ratings .rating-links { margin:0; }
+.ratings .rating-links .separator { margin:0 2px; }
+.ratings dt {}
+.ratings dd {}
+.rating-label{margin-bottom:10px;}
+.rating-box { width:69px; height:13px; background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/bkg_rating.gif) 0 0 repeat-x; text-indent:-999em; overflow:hidden;display:inline-block; }
+.rating-box .rating { float:left; height:13px; background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/bkg_rating.gif) 0 100% repeat-x; }
+.ratings .rating-box { float:left; margin-right:3px; }
+.ratings .amount {}
+.ratings .amount a{color:#989898;}
+
+.ratings-table th,
+.ratings-table td {padding:3px 0;}
+.ratings-table th { font-weight:bold;font-size:15px;color:#333; }
+
+/* Availability */
+.availability { margin:0; }
+.availability span { font-weight:bold; }
+.availability.in-stock span {}
+.availability.out-of-stock span { color:#d83820; }
+
+.availability-only { margin:0 0 7px; }
+.availability-only a { background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/i_availability_only_arrow.gif) 100% 0 no-repeat; cursor:pointer; padding-right:15px; }
+.availability-only .expanded { background-position:100% -15px; }
+.availability-only strong {}
+
+.availability-only-details { margin:0 0 7px; }
+.availability-only-details th { background:#f2f2f2; font-size:10px; padding:0 8px; }
+.availability-only-details td { border-bottom:1px solid #ddd; font-size:11px; padding:2px 8px 1px; }
+.availability-only-details tr.odd td.last {}
+
+/* Email to a Friend */
+.email-friend {}
+
+/* Alerts */
+.alert-price {}
+.alert-stock {}
+
+/********** < Product Prices */
+.price { white-space:nowrap !important; }
+
+.price-box { text-align:left;color:#D62027;font-weight:bold;margin-bottom:15px;}
+.price-box .price { font-weight:bold; }
+.price-box .sale-off { position: absolute; right: 0px; top: 0px; background: green; color: #FFF; border-radius: 5px; padding: 5px 2px; }
+
+/* Regular price */
+.regular-price {}
+.regular-price .price { font-weight:bold; }
+
+/* Old price */
+.old-price {color: #999;text-decoration: line-through;}
+.old-price .price-label { white-space:nowrap; }
+.old-price .price { font-weight:bold; text-decoration:line-through; color: #999 !important; }
+
+/* Special price */
+.special-price {}
+.special-price .price-label { font-weight:bold; white-space:nowrap; }
+.special-price .price { font-weight:bold; }
+
+/* Minimal price (as low as) */
+.minimal-price {}
+.minimal-price .price-label { font-weight:bold; white-space:nowrap; }
+
+.minimal-price-link { display:block; }
+.minimal-price-link .label {}
+.minimal-price-link .price { font-weight:normal; }
+
+/* Excluding tax */
+.price-excluding-tax { display:block; }
+.price-excluding-tax .label { white-space:nowrap; }
+.price-excluding-tax .price { font-weight:normal; }
+
+/* Including tax */
+.price-including-tax { display:block; }
+.price-including-tax .label { white-space:nowrap; }
+.price-including-tax .price { font-weight:bold; }
+
+/* Configured price */
+.configured-price {}
+.configured-price .price-label { font-weight:bold; white-space:nowrap; }
+.configured-price .price { font-weight:bold; }
+
+/* FPT */
+.weee { display:block; font-size:11px; color:#444; }
+.weee .price { font-size:11px; font-weight:normal; }
+
+/* Excl tax (for order tables) */
+.price-excl-tax  { display:block; }
+.price-excl-tax .label { display:block; white-space:nowrap; }
+.price-excl-tax .price { display:block; }
+
+/* Incl tax (for order tables) */
+.price-incl-tax { display:block; }
+.price-incl-tax .label { display:block; white-space:nowrap; }
+.price-incl-tax .price { display:block; font-weight:bold; }
+
+/* Price range */
+.price-from {}
+.price-from .price-label { font-weight:bold; white-space:nowrap; }
+
+.price-to {}
+.price-to .price-label { font-weight:bold; white-space:nowrap; }
+
+/* Price notice next to the options */
+.price-notice { padding-left:10px; }
+.price-notice .price { font-weight:bold; }
+
+/* Price as configured */
+.price-as-configured {}
+.price-as-configured .price-label { font-weight:bold; white-space:nowrap; }
+
+.price-box-bundle {}
+/********** Product Prices > */
+
+/* Tier Prices */
+.tier-prices .price { font-weight:bold; }
+.tier-prices .benefit {}
+
+.tier-prices-grouped {}
+
+/* Add to Links */
+.add-to-links .separator { display:none; }
+
+/* Add to Cart */
+.add-to-cart label { float:left; margin-right:5px; }
+.add-to-cart .qty { float:left; }
+.add-to-cart button.button { float:left; margin-left:5px; }
+.add-to-cart .paypal-logo { clear:left; text-align:right; }
+.add-to-cart .paypal-logo .paypal-or { clear:both; display:block; margin:5px 60px 5px 0; }
+.product-view .add-to-cart .paypal-logo { margin:0; }
+
+/* Add to Links + Add to Cart */
+.add-to-box {}
+.add-to-box .add-to-cart { float:left; }
+.add-to-box .or { float:left; margin:0 10px; }
+.add-to-box .add-to-links { float:left; }
+
+
+.product-view {}
+
+.product-essential {background:#ffffff;}
+
+.product-collateral .box-collateral { margin:0 0 15px; }
+
+/* Product Images */
+.product-view .bg-shadow{float:left;/*background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/bg_detail.png) left top repeat-x;*/ width:100%;padding-top: 30px;}
+.product-view .bg-shadow .product-left{float:left;width:355px;}
+.product-view .bg-shadow .product-center{float:left;width:255px;text-align:center;margin-top: 110px;}
+.product-view .bg-shadow .product-right{float:right;width:385px;}
+.product-view .bg-shadow .product-center .product-options  dl{overflow: hidden;}
+.product-view .product-img-box {display:block;width:210px;}
+.col3-layout .product-view .product-img-box { float:none; margin:0 auto; }
+.product-view .product-img-box .product-image { border:1px solid #ddd; }
+.product-view .product-img-box .product-image-zoom { position:relative; width:265px; height:265px; overflow:hidden; z-index:9; }
+.product-view .product-img-box .product-image-zoom img { position:absolute; left:0; top:0; cursor:move; }
+.product-view .product-img-box .zoom-notice { text-align:center; }
+.product-view .product-img-box .zoom { position:relative; z-index:9; height:18px; margin:0 auto 13px; padding:0 28px; background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/slider_bg.gif) 50% 50% no-repeat; cursor:pointer; }
+.product-view .product-img-box .zoom.disabled { -moz-opacity:.3; -webkit-opacity:.3; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";/*IE8*/ opacity:.3; }
+.product-view .product-img-box .zoom #track { position:relative; height:18px; }
+.product-view .product-img-box .zoom #handle { position:absolute; left:0; top:-1px; width:9px; height:22px; background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/magnifier_handle.gif) 0 0 no-repeat;  }
+.product-view .product-img-box .zoom .btn-zoom-out { position:absolute; left:2px; top:0; }
+.product-view .product-img-box .zoom .btn-zoom-in { position:absolute; right:2px; top:0; }
+.product-view .product-img-box .more-views{margin-left:-355px;width:355px;float:left;}
+.product-view .product-img-box .more-views ul {float:right;}
+.product-view .product-img-box .more-views li { float:left; padding:1px; margin:0 0 8px 4px ; }
+.product-view .product-img-box a{}
+.product-view .product-options p.required{text-align:center;color:#333;font-size:12px;}
+
+.diachi-muahang{clear: both;padding: 10px;margin-top: 10px;border: 1px solid #D9E5EC;}
+.diachi-muahang .title-w {}
+.diachi-muahang .title{font-size:15px;/*background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/right-footer.png) no-repeat scroll 6px 12px transparent;*/cursor: pointer;position: relative;}
+.diachi-muahang .title .arrow-text-270deg {font-size: 20px;height: 1px;width: 1px;position: absolute;right: 13%;top: 5px;}
+.diachi-muahang .info {display: none;margin-top: 10px;}
+.diachi-muahang ul{padding-left:0;}
+.diachi-muahang ul li{color:#333;list-style:inside disc;padding-left:0;line-height:1.8em;}
+.diachi-muahang ul li span{font-weight:bold;}
+
+.bx-bottom-shop{margin-top:7px;}
+.wrap-bx-hotro{float:left;padding:25px 20px;background: -webkit-gradient(linear, left top, right top, from(#dadbda), to(#fff));background: -webkit-linear-gradient(left, #dadbda, #fff); background: -moz-linear-gradient(left, #dadbda, #fff);background: -ms-linear-gradient(left, #dadbda, #fff);background: -o-linear-gradient(left, #dadbda, #fff);
+}
+.bx-bottom-shop .bx-hotro{float:left;background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/bg_hotro.png) left center no-repeat;padding-left:20px;}
+.bx-bottom-shop .bx-hotro span{font-weight:bold;}
+
+.bx-bottom-shop .bx-listlink{float:right;}
+.bx-bottom-shop .bx-listlink ul{}
+.bx-bottom-shop .bx-listlink ul li{float:left;padding:0 10px;}
+.bx-bottom-shop .bx-listlink ul li a{display:block;background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/bg_listmua.png) no-repeat;padding-top:45px;font-size:12px;color:#333;}
+.bx-bottom-shop .bx-listlink ul li a.mua-ol{background-position:10px 0;}
+.bx-bottom-shop .bx-listlink ul li a.mua-taishop{background-position:-73px 0;}
+.bx-bottom-shop .bx-listlink ul li a.mua-quaphone{background-position:-143px 0;}
+.bx-bottom-shop .bx-listlink ul li a.mua-tuxa{background-position:-225px 0;}
+.bx-bottom-shop .bx-listlink ul li a.hotrodung{background-position:-298px 0;}
+
+.product-image-popup { margin:0 auto; }
+.product-image-popup .buttons-set { float:right; clear:none; border:0; margin:0; padding:0; }
+.product-image-popup .nav { margin:0 100px; text-align:center; }
+.product-image-popup .image { display:block; }
+.product-image-popup .image-label {}
+
+/* Product Shop */
+.product-view .product-shop { float:right; width:445px;display:none;}
+.col1-layout .product-view .product-shop { float:right; width:350px;margin-right:20px;padding-bottom:15px; }
+.product-right .action{width:100%;}
+.social-likebox{float: left; margin-top: 10px;}
+.fb-like{float:left;padding-left:2px;}
+.google-like{float:left;margin-left:10px;}
+.col3-layout .product-view .product-shop { float:none; width:auto; }
+.product-view .product-name { font-weight: bold;line-height: 2em; margin-top:10px ;text-align: left;color:#333;font-size:12px;}
+.product-view .product-name h1{font-size:25px;font-weight:normal;}
+.product-view .price{font-size:23px;font-weight: normal;}
+.product-view #stock{font-style:italic;font-weight:normal;}
+.warranty, .tinhtrang{padding:10px 0 5px 0;position:relative;clear: both;}
+.warranty h3, .tinhtrang h3 {font-size:100%;padding-bottom:5px;}
+.warranty .xemthem{color:#008000;}
+.vanchuyen {color:#333;padding:5px 0 10px 20px;}
+.vanchuyen h3{font-size:12px;padding-bottom:5px;}
+.tinhtrang h3{/*text-transform:uppercase;padding:5px 0 5px 20px;font-size:12px;background: -webkit-gradient(linear, left top, right top, from(#dddddd), to(#fff));background: -webkit-linear-gradient(left, #dddddd, #fff); background: -moz-linear-gradient(left, #dddddd, #fff);background: -ms-linear-gradient(left, #dddddd, #fff);background: -o-linear-gradient(left, #dddddd, #fff);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#dddddd', endColorstr='#ffffff', gradientType='1')";*/
+}
+.tinhtrang .tinhtrang-info{/*padding:10px 0 10px 20px;*/}
+.product-view .bg-shadow .product-right .right-title{padding:10px 0 0;}
+.product-view .bg-shadow .product-right h3{font-size:22px;font-weight:normal;background: #D62027;line-height: 35px;padding: 0 10px;color: #FFF;}
+.product-view .bg-shadow .product-right .right-panel-boder {/*border-bottom: 1px solid #D9E5EC;border-left: 1px solid #D9E5EC;border-right: 1px solid #D9E5EC;*/padding: 10px;overflow: hidden;}
+.product-left .question{display:block;color:#D62027;font-size:100%;font-style:italic;padding:10px 0;}
+
+.product-view .product-name span.price{display:block;color:#d61921;font-size:18px;}
+.product-view .product-shop .bt-like{font-size:12px;}
+.product-view .product-shop .total{font-size:12px;}
+.product-view .product-shop .link-compare{font-size:12px;}
+.product-view .product-shop .bt-dk{font-size:12px;}
+.panel{background:#fff;}
+.productstate{display:inline-block;width:100%;}
+.productstate .shop-title{background:url("http://cellphones.com.vn/skin/frontend/default/blank/images/product-consult-bgr.png") no-repeat scroll 0 90% transparent;float:left;width:100%;text-transform:uppercase;}
+.odd .shop-title{}
+.even .shop-title{}
+.productstate .shop-title #stock{height:15px;font-size:11px;color:#39b54a;float:left;line-height:20px;text-align:center;padding:0 5px;margin-left:-1px;text-transform:none;}
+.productstate .shop-title .stock-left{float:left;background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/tinhtrang_left.png) no-repeat;width:6px;height:15px;margin-left:-4px;}
+.productstate .shop-title .stock-right{float:left;background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/bg_tingtrangright.png) no-repeat;width:6px;height:15px;}
+.stockAvailable43{color:#989898!important;}
+.productstate .shop-title-tt{}  
+.productstate .shop-title .titles{height:25px;float:left;padding-left:10px;line-height:20px;text-align:center;font-size:12px;font-weight:bold;color:#D61921;}
+.productstate  .items{float:left;margin: 5px 0 5px 10px;color:#333;background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/bg_span.png) no-repeat center left;padding-left:8px;}
+.productstate .more{float:right;color:#b2b2b2;font-weight:normal;font-size:10px;text-transform:lowercase;margin-right:10px;line-height:15px;}
+
+.nhantin{float:left;background:#fff;padding:1px;margin-top:20px;font-size:11px;}
+.nhantin .title-newletter{background:#637bad;cursor:pointerfont-weight:bold;color:#fff;text-transform:uppercase;display:inline-block;padding:5px 10px;}
+.nhantin #txtemail{background:transparent;border:none;padding:2px 0 2px 10px;color:#7f7e7e;font-size:11px;width:170px;}
+
+.product-shop #add{float:left;text-align:right;margin-left:5px;}
+.addToBasket{font-size:13px;color:#fff;background:#008000;float:left;height:23px;line-height:23px;border:1px solid #abd18b;margin: 0 2px;}
+.addToBasket span{padding:0 10px;}
+.khuyenmai{width:100%;margin-bottom: 7px;}
+.khuyenmai .khuyenmai-title{background:#ff931e;color:#fff;font-weight:bold;text-transform:uppercase;padding:0 10px;height:30px;line-height:30px;}
+.khuyenmai .khuyenmai-info{min-height:120px;line-height:20px;color: #333;}
+.khuyenmai .khuyenmai-info a, .khuyenmai .khuyenmai-info a span {color: #008000 !important;}
+.khuyenmai .khuyenmai-info span {font-size: 100% !important;}
+.action-shop{float:left;width:100%;margin:20px 0;}
+.action-shop .link-compare{margin:0 20px;}
+.hotro-shop{float:left;width:100%;color:#808080;margin-top:-10px;}
+.info-hotro{}
+.info-hotro span.phone{font-weight:bold;}
+
+/* Product Options */
+.product-options { margin:10px 0 0;width:255px;}
+.product-options dt label { font-weight:bold; }
+.product-options dt .qty-holder { float:right; }
+.product-options dt .qty-holder label { vertical-align:middle; }
+.product-options dt .qty-disabled { background:none; border:0; padding:3px; color:#000; }
+.product-options dd { margin:10px 0; }
+.product-options dl.last dd.last {}
+.product-options dd input.input-text { width:98%; }
+.product-options dd input.datetime-picker { width:150px; }
+.product-options dd .time-picker { display:-moz-inline-box; display:inline-block; padding:2px 0; vertical-align:middle; }
+.product-options dd textarea { width:98%; height:8em; }
+.product-options dd select { width:100%; }
+.product-options .options-list {}
+.product-options .options-list input.radio { float:left; margin:3px -18px 0 0; }
+.product-options .options-list input.checkbox { float:left; margin:3px -20px 0 0; }
+.product-options .options-list .label { display:block; margin-left:20px; }
+.product-options ul.validation-failed { padding:0 7px; }
+.product-options p.required { padding:5px 0 0; }
+.product-color{font-size:13px;color:#D61921;}
+.product-options-bottom { padding:10px; border:1px solid #ddd; border-top:0; }
+.product-options-bottom .price-box { margin:10px 0; }
+
+/* Grouped Product */
+.product-view .grouped-items-table {}
+
+/* Block: Description */
+.product-view .box-description {}
+
+/* Block: Additional */
+.product-view .box-additional {}
+
+/* Block: Upsell */
+.product-view .box-up-sell {}
+.product-view .box-up-sell .products-grid td { width:25%; }
+
+/* Block: Tags */
+.product-view .box-tags {}
+.product-view .box-tags .form-add label { float:left; }
+.product-view .box-tags .form-add .input-box { float:left; width:260px; margin:0 5px; }
+.product-view .box-tags .form-add input.input-text { width:254px; }
+.product-view .box-tags .form-add p { clear:both; }
+
+/* Block: Reviews */
+.product-view .box-reviews {}
+.product-view .box-reviews .form-add {}
+
+/* Send a Friend */
+.send-friend {}
+/* ======================================================================================= */
+
+
+/* Content Styles ================================================================= */
+.product-name { font-size:1em; font-weight:normal; }
+.product-name a {}
+
+/* Product Tags */
+.tags-list li { display:inline; }
+
+/* Advanced Search */
+.advanced-search {}
+.advanced-search-amount {}
+.advanced-search-summary {}
+
+/* CMS Home Page */
+.cms-home .subtitle {}
+.cms-index-index .subtitle {}
+
+/* Sitemap */
+.page-sitemap .links { text-align:right; margin:0 8px -22px 0; }
+.page-sitemap .links a { text-decoration:none; position:relative; }
+.page-sitemap .links a:hover { text-decoration:underline; }
+.page-sitemap .sitemap { margin:12px; }
+.page-sitemap .sitemap a {}
+.page-sitemap .sitemap li { margin:3px 0; }
+.page-sitemap .sitemap li.level-0 { margin:10px 0 0; font-weight:bold; }
+.page-sitemap .sitemap li.level-0 a {}
+
+/* RSS */
+.rss-title h1 { background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/i_rss-big.png) 0 4px no-repeat; padding-left:27px; }
+.rss-table .link-rss { display:block; line-height:1.35; background-position:0 2px; }
+/* ======================================================================================= */
+
+
+/* Shopping Cart ========================================================================= */
+.page-title-checkout{padding:0 0 0 40px;}
+.page-title-checkout h1, .page-title-checkout h2 {background: url("http://cellphones.com.vn/skin/frontend/default/blank/images/title_bg.png") no-repeat scroll 100% 100% transparent;font-size: 28px;font-weight: normal;letter-spacing: -2px;line-height: 35px;margin: 0;}
+
+.firecheckout-login-wrapper{margin: 10px 0;}
+.firecheckout-login-wrapper a{color: #000000;font: 13px/1.2em verdana,sans-serif;}
+.firecheckout-index-index {}
+.firecheckout-index-index .page-title {margin-bottom: 10px;}
+.firecheckout-login-wrapper {margin: 10px 0;}
+.firecheckout-set{margin:20px;}
+.firecheckout-set .form-list .input-box {width: 263px;}
+.firecheckout-set .form-list select {width: 225px;}
+.col-left-firecheckout {border: 1px solid #A0A0A0;float: left;width: 540px;}
+.firecheckout-set .col-1 {border-right: 1px solid #F4F4F4;}
+.firecheckout-set .col-1 .form-list {padding: 0 0 0 10px !important;}
+.firecheckout-set .col-1 .form-list .fields .customer-name .field {width: 100px;}
+.firecheckout-set .col-1 .form-list .fields .customer-name .field input.input-text {width: 100px;}
+.firecheckout-set .col-1 .form-list .fields .customer-name .name-firstname {float: left;margin-right: 20px;}
+.firecheckout-set .col-1 .form-list .field, .firecheckout-set .col-1 .form-list .input-box {width: 135px;}
+.firecheckout-set .col-1 .form-list input.input-text {width: 120px;}
+.firecheckout-set .col-1 .form-list select {width: 130px;}
+.firecheckout-set .col-1 .form-list li.wide .input-box {width: 260px;}
+.firecheckout-set .col-1 .form-list li.wide input.input-text {width: 220px;}
+.firecheckout-set .col-1 .form-list li.wide select {width: 220px;}
+.firecheckout-set .col-2 {margin-left: 5px;}
+.firecheckout-set .col-2 .form-list li.wide .input-box {width: 275px;}
+.firecheckout-set .col-2 .form-list li.wide textarea {height: 50px;width: 254px;}
+.firecheckout-set .col-3 {width: 410px;}
+.firecheckout-set .col-3 .data-table tr th {background: none repeat scroll 0 0 #5F6160;border: 0 none !important;color: #FFFFFF;}
+.firecheckout-set .col-3 .data-table tr td {border-bottom: 1px dotted #A0A0A0;border-right: 0 none !important;border-left: 0 none !important;border-top: 0 none !important;}
+.firecheckout-set .col-3 .data-table tr.last th,.firecheckout-set .col-3 .data-table tr.last td {padding: 10px;width: 225px !important;}
+.firecheckout-set .col-3 .form-list li.wide .input-box {width: 275px;}
+.firecheckout-set .col-3 .form-list li.wide textarea {height: 60px;width: 274px;}
+#firecheckout-form .col3-set .col-2, #firecheckout-form .col3-set .col-1 {min-height: 450px;padding: 0 10px;width: 245px;}
+#firecheckout-form .discount-form .messages {width: 97%;}
+#payment-method {}
+.firecheckout-set .gift-messages-form .item .details .form-list .field, .firecheckout-set .gift-messages-form .item .details .form-list .input-box, .firecheckout-set .gift-messages-form .item .details .form-list li.wide .input-box {width: 186px;}
+.firecheckout-set .gift-messages-form .item .details .form-list input.input-text, .firecheckout-set .gift-messages-form .item .details .form-list li.wide textarea {width: 165px;}
+.firecheckout-set .sp-methods {margin: 0;padding: 0;}
+.firecheckout-set .sp-methods .form-list {padding-left:20px;}
+.firecheckout-set .sp-methods dt {margin: 0 0 5px;}
+.firecheckout-set .sp-methods dd {margin: 0 0 6px;}
+.firecheckout-set .sp-methods select.month {width: 120px;}
+.firecheckout-set .sp-methods select.year {width: 99px;}
+.firecheckout-set .sp-methods .info-payment {display: block;float: left;padding-left: 5px;width: 100%;}
+.firecheckout-set #advice-required-entry-ccsave_expiration_yr {width: 8em;}
+.firecheckout-set .discount-form {padding: 0 0 8px 10px;}
+.firecheckout-set #checkout-review-submit {margin: 30px 0 0;padding: 0 10px;}
+.firecheckout-set #checkout-review-submit .form-list {padding: 0;}
+.firecheckout-set .checkout-agreements li {margin: 0 0 30px;}
+.firecheckout-set #shipping-wrapper {margin: 20px 0 0;}
+.firecheckout-set .loading {background: url("http://cellphones.com.vn/skin/frontend/default/blank/images/spinner.gif") no-repeat scroll 50% 50% transparent;}
+.firecheckout-set #checkout-shipping-method-load, .firecheckout-set #checkout-payment-method-load, .firecheckout-set #checkout-review-load {min-height: 50px;}
+.firecheckout-set #checkout-shipping-method-load, .firecheckout-set #checkout-payment-method-load {margin: 10px 0;padding: 0 10px;}
+.firecheckout-set .newsletter {margin: 0 0 10px;padding: 0;}
+.firecheckout-set .buttons-set {margin: 1em 0 0;}
+.firecheckout-set .checkout-agreements {padding: 0;}
+.firecheckout-set .checkout-agreements .agree {padding: 10px 0;}
+.firecheckout-set .checkout-agreements .last {margin: 0;}
+.firecheckout-set .checkout-agreements .agreement-content {}
+.firecheckout-section {}
+.firecheckout-section .form-list, .firecheckout-section .gift-messages, .firecheckout-section .gift-messages-form {padding: 0 0 0 10px;}
+.firecheckout-section .gift-messages-form .form-list {padding: 0;}
+.firecheckout-section .block-title {border-bottom: 1px solid #A0A0A0;border-radius: 6px 6px 0 0;color: #333333;font-size: 12px;font-weight: bold;height: 19px;margin: 0 10px;padding: 8px 0 5px;text-transform: uppercase;}
+.firecheckout-section .block-title .num {background: none repeat scroll 0 0 #CCCCCC;border: 1px solid #888888;border-radius: 4px 4px 4px 4px;display: none;margin: 0 5px 0 0;padding: 1px 5px;}
+#checkout-review {}
+.firecheckout-set #checkout-review .block-title {margin: 0 !important;}
+.firecheckout-set #checkout-review #checkout-review-table {border: 0 none !important;}
+.firecheckout-set #review-buttons-container a.save-checkout {background: url("http://cellphones.com.vn/skin/frontend/default/blank/images/menu-bg.gif") repeat-x scroll 0 0 #F9F9F9; border: 1px solid transparent;border-radius: 8px 8px 8px 8px;display: block;float: right;font-size: 110%;font-weight: bold;padding: 10px;cursor:pointer;}
+.firecheckout-set #review-buttons-container a {color: #FFFFFF;text-decoration: none;}
+.firecheckout-set input.input-text {-moz-border-bottom-colors: none;-moz-border-image: none;-moz-border-left-colors: none;-moz-border-right-colors: none;-moz-border-top-colors: none;border-color: #AAAAAA #CCCCCC #CCCCCC;border-radius: 4px 4px 4px 4px;border-style: solid;border-width: 1px;padding: 4px;}
+.firecheckout-set select, .firecheckout-set textarea {-moz-border-bottom-colors: none;-moz-border-image: none;-moz-border-left-colors: none;-moz-border-right-colors: none;-moz-border-top-colors: none;border-color: #AAAAAA #CCCCCC #CCCCCC;border-radius: 4px 4px 4px 4px;border-style: solid;border-width: 1px;padding: 4px;}
+.firecheckout-window {background: none repeat scroll 0 0 #FFFFFF;border: medium none;position: absolute;text-align: left;z-index: 999;}
+.firecheckout-window .page-title span {color: #0A263C;font-size: 20px;margin: 0;}
+.firecheckout-window .content {overflow: auto;padding: 7px;}
+.firecheckout-window .close {background: url("http://cellphones.com.vn/skin/frontend/default/blank/images/cancel_round.png") no-repeat scroll 50% 50% transparent;height: 16px;position: absolute;right: -16px;top: -15px;width: 16px;}
+.firecheckout-window .buttons-set {margin: 1em 0 0;}
+.d-shadow {left: 20%;position: absolute;top: 10%;width: 30%;}
+.d-shadow-wrap {margin: -15px -21px 0;overflow: hidden;padding: 15px 21px 0;position: relative;width: 100%;}
+.d-sh-cn {background: url("http://cellphones.com.vn/skin/frontend/default/blank/images/firecheckout/shd-medium.png") no-repeat scroll 0 0 transparent;left: -25px;position: absolute;z-index: -1;}
+.d-sh-tl, .d-sh-tr {height: 500px;top: -28px;}
+.d-sh-tl, .d-sh-bl {width: 100%;}
+.d-sh-tr, .d-sh-br {margin-left: 100%;width: 25px;}
+.d-sh-bl, .d-sh-br {height: 28px;}
+.d-sh-bl {clip: rect(auto, auto, auto, 25px);left: -46px;padding-right: 42px;}
+.d-sh-br {left: -4px;}
+#firecheckout-form .form-list label {color: #666666;font-weight: bold; margin: 10px 0 5px;position: relative;z-index: 0;}
+.sp-methods label { color: #666666;font-weight: normal;margin: 5px 0;}
+
+.cart {padding:0;}
+.cart-empty{margin:20px;}
+.cart .page-title{margin:0;padding:0;}
+
+/* Checkout Types */
+.cart .checkout-types { float:right; text-align:right; }
+.cart .title-buttons .checkout-types li { float:left; margin:0 0 5px 5px; }
+.cart .checkout-types .paypal-or { margin:0 8px; line-height:2.3; }
+.cart .totals .checkout-types .paypal-or { clear:both; display:block; padding:3px 55px 8px 0; line-height:1.0; font-size:11px; }
+
+/* Shopping Cart Table */
+.cart-table .item-msg { font-size:10px; }
+
+/* Shopping Cart Collateral boxes */
+.cart .cart-collaterals {float:right;margin-top:25px;padding-bottom: 0;padding-right: 0; width: 300px;}
+.cart .cart-collaterals .col2-set { float:left; width:700px; }
+
+.cart .crosssell {}
+.cart .crosssell h2 { font-size:13px; font-weight:bold; }
+.cart .crosssell .product-image { float:left; width:75px; height:75px; border:1px solid #ddd; }
+.cart .crosssell .product-details { margin-left:90px; }
+.cart .crosssell li.item { margin:12px 0; }
+
+/* Discount Codes & Estimate Shipping and Tax Boxes */
+.cart .discount,
+.cart .shipping {}
+
+/* Shopping Cart Totals */
+.cart .totals { float:right; }
+.cart .totals table { width:100%; }
+.cart .totals table th,
+.cart .totals table td { padding:5px; }
+.cart .totals table th { font-weight:bold; }
+.cart .totals table tfoot th {}
+
+/* Options Tool Tip */
+.item-options dt { font-weight:bold; font-style:italic; }
+.item-options dd { padding-left:10px; }
+.truncated { cursor:help; }
+.truncated a.dots { cursor:help; }
+.truncated a.details { cursor:help; }
+.truncated .truncated_full_value { position:relative; z-index:999; }
+.truncated .truncated_full_value .item-options { position:absolute; top:-99999em; left:-99999em; z-index:999; width:250px; padding:8px; border:1px solid #ddd; background-color:#f6f6f6; }
+.truncated .truncated_full_value .item-options > p { font-weight:bold; text-transform:uppercase; }
+.truncated .show .item-options { top:-20px; left:50%; }
+.col-left .truncated .show .item-options { left:30px; top:7px; }
+.col-right .truncated .show .item-options  { left:-240px; top:7px; }
+
+.cart-top{margin-top:9px;border-top:1px solid #999;padding-top:9px;margin-right:-10px;}
+.cart-top a{float:left;font-size:12px;font-weight:bold;border:1px solid #999;min-width:130px;text-align:center;padding:5px 10px;margin-right:11px}
+.cart-top .gioithieu{background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/cart_gioithieu.png) 11px center no-repeat;}
+.cart-top .tt-muahang{background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/cart_muahang.png) 6px center no-repeat;padding-left:45px;}
+.cart-top .baohanh{background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/cart_baohanh.png) 10px center no-repeat;}
+.cart-top .tt-chuyenhang{background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/cart_vanchuyen.png) 12px center no-repeat;padding-left:40px;margin-right:0;}
+
+.cart-left{float:left;width:754px;padding-right:10px;}
+.cart-left .data-table thead{font-size:13px;font-weight;normal;height:30px;}
+.cart-left .data-table th{border-bottom:2px solid #e5e5e5;}
+
+.block-catright{float:right;width:235px;padding-bottom:80px;border-left:1px solid #999;}
+.block-catright .title{font-size:22.26px;color:#1a1a1a;padding-left:14px;}
+
+.block-catright .sforum .title{padding-top:10px;padding-bottom:3px;}
+.list-sforum{}
+.list-sforum li{clear:both;float:left;width:100%;border-bottom:1px dotted #d8d8d8;padding:10px 0;}
+.list-sforum li.last{border-bottom:0 !important;}
+.list-sforum li .image{float:left;margin:0 10px;width:58px;height:48px;border:1px solid #d2d2d1;}
+.list-sforum li .text{color:#a0a5bb;}
+
+/* ======================================================================================= */
+
+
+/* Checkout ============================================================================== */
+/********** < Common Checkout Styles */
+/* Checkout success */
+.content-checkout-success{margin:20px;}
+/* Shipping and Payment methods */
+.sp-methods dt { font-weight:bold; }
+.sp-methods .price { font-weight:bold; }
+.sp-methods .form-list { padding-left:20px; }
+.sp-methods select.month { width:150px; margin-right:10px; }
+.sp-methods select.year { width:96px; }
+.sp-methods input.cvv { width:3em !important; }
+
+.sp-methods .checkmo-list li { margin:0 0 5px; }
+.sp-methods .checkmo-list label { width:135px; padding-right:10px; text-align:right; }
+.sp-methods .checkmo-list address { float:left; }
+
+.sp-methods .centinel-logos a { margin-right:3px; }
+.sp-methods .centinel-logos img { vertical-align:middle; }
+
+.sp-methods .release-amounts { margin:0.5em 0 1em; }
+.sp-methods .release-amounts button { float:left; margin:5px 10px 0 0; }
+
+.please-wait { float:right; margin-right:5px; }
+.please-wait img { vertical-align:middle; }
+.cvv-what-is-this { cursor:help; margin-left:5px; }
+
+/* Tooltip */
+.tool-tip { border:1px solid #ddd; background-color:#f6f6f6; padding:5px; position:absolute; z-index:9999; }
+.tool-tip .btn-close { text-align:right; }
+.tool-tip .btn-close a { display:block; margin:0 0 0 auto; width:15px; height:15px; background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/btn_window_close.gif) 100% 0 no-repeat; text-align:left; text-indent:-999em; overflow:hidden; }
+.tool-tip .tool-tip-content { padding:5px; }
+
+/* Gift Messages */
+.gift-messages {}
+.gift-messages-form { border:1px solid #ddd; background-color:#f5f5f5; }
+.gift-messages-form { position:relative; }
+.gift-messages-form label { float:none !important; position:static !important; }
+.gift-messages-form h4 {}
+.gift-messages-form .whole-order {}
+.gift-messages-form .item { margin:0 0 10px; }
+.gift-messages-form .item .product-img-box { float:left; width:75px; }
+.gift-messages-form .item .product-image { margin:0 0 7px; }
+.gift-messages-form .item .number { margin:0; font-weight:bold; text-align:center; }
+.gift-messages-form .item .details { margin-left:90px; }
+.gift-messages-form .item .details .product-name {}
+
+.gift-message-link { display:block; background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/bkg_collapse.gif) 0 4px no-repeat; padding-left:20px; }
+.gift-message-link.expanded { background-position:0 -53px; }
+.gift-message-row {}
+.gift-message-row .btn-close { float:right; }
+.gift-message dt strong { font-weight:bold; }
+
+/* Checkout Agreements */
+.checkout-agreements {}
+.checkout-agreements li { margin:10px 0; }
+.checkout-agreements .agreement-content { border:1px solid #ddd; background-color:#f6f6f6; padding:5px; height:10em; overflow:auto; }
+.checkout-agreements .agree { padding:6px; }
+
+/* Centinel */
+.centinel {}
+.centinel .authentication { border:1px solid #ddd; background:#fff; }
+.centinel .authentication iframe { width:99%; height:400px; background:transparent !important; margin:0 !important; padding:0 !important; border:0 !important; }
+
+/* Generic Info Set */
+.info-set {}
+/********** Common Checkout Styles > */
+
+/* One Page Checkout */
+.block-progress {}
+.block-progress dt { font-weight:bold; }
+.block-progress dt.complete,
+.block-progress dd.complete { background-color:#f6f6f6; }
+
+.opc { border-bottom:1px solid #ddd; position:relative;margin:20px; }
+.opc li.section { border:1px solid #ddd; border-bottom:0; }
+
+.opc .buttons-set.disabled button.button { display:none; }
+.opc .buttons-set .please-wait { height:21px; line-height:21px; }
+
+.opc .step-title { background-color:#f6f6f6; padding:0 5px; text-align:right; }
+.opc .step-title .number { float:left; line-height:22px; margin-right:5px; }
+.opc .step-title h2 { float:left; }
+.opc .step-title a { display:none; float:right; }
+
+.opc .allow .step-title { cursor:pointer; }
+/*.opc .allow .step-title a { display:block; }*/
+
+.opc .active {}
+.opc .active .step-title { background-color:#ccc; cursor:default; }
+/*.opc .active .step-title a { display:none; }*/
+
+.opc .step { border-top:1px solid #ddd; padding:10px; position:relative; }
+.opc .step .tool-tip { right:10px; }
+
+.opc .order-review {}
+.opc .order-review .authentication {}
+.opc .order-review .warning-message {}
+
+/* Multiple Addresses Checkout */
+.checkout-progress { padding:0 50px; margin:10px 0; }
+.checkout-progress li { float:left; width:20%; border-top:5px solid #ccc; text-align:center; color:#ccc; }
+.checkout-progress li.active { border-top-color:#000; color:#000; }
+
+.multiple-checkout { position:relative; }
+.multiple-checkout .tool-tip { top:50%; margin-top:-120px; right:10px; }
+.multiple-checkout .grand-total { font-size:1.5em; text-align:right; }
+.multiple-checkout .grand-total big {}
+.multiple-checkout .grand-total .price {}
+/* ======================================================================================= */
+
+/*page logout*/
+.customer-logut{margin:20px;font-size:13px;}
+
+
+/* Account Login/Create Pages ============================================================ */
+.register-content{width:100%;border-bottom:1px solid #ddd;border-top:1px solid #ddd;height:400px;}
+.account-login {padding:20px;}
+.account-login .new-users {}
+.account-login .registered-users {}
+.account-login .page-title{padding:0 0 5px 0;margin:0 0 10px 0;}
+
+.account-create {width:100%;float:left;height:625px;}
+.account-create .page-title{padding:0 0 5px 0;margin:0 0 5px 0;height:60px;background: url("http://cellphones.com.vn/skin/frontend/default/blank/images/taotaikhoan.png") repeat scroll 0 0 transparent;}
+.create-account-title{font-size:20px!important;font-weight:bold;text-transform:uppercase;color:#333333;padding-left:65px;padding-top:20px;}
+.benefit{float:left;width:525px;height:360px;border-right:1px solid #ddd;padding-top:40px;}
+.benefit .content-benefit{font-size:15px;font-style:italic;line-height:1.9em;padding-left:65px;padding-right:105px;}
+.minilog{margin-top:8px;}
+.form-register{width:450px;height:400px;border-right:1px solid #ddd;float:left;}
+/* .account-create .fieldset{float:left;}
+.account-create .fieldset .form-list li{display:block;} */
+/* Account Login/Create Pages ============================================================ */
+
+/* Captcha */
+.captcha-note  {}
+.captcha-image { float:left; position:relative; }
+.captcha-img { border:1px solid #ccc; }
+.registered-users .captcha-image    {}
+#checkout-step-login .captcha-image {}
+.captcha-reload { position:absolute; top:2px; right:2px;}
+.captcha-reload.refreshing  { animation:rotate 1.5s infinite linear; -webkit-animation:rotate 1.5s infinite linear; -moz-animation:rotate 1.5s infinite linear; }
+
+@-webkit-keyframes rotate {0% { -webkit-transform:rotate(0); }0% { -webkit-transform:rotate(-360deg); }}
+@-moz-keyframes rotate {0% { -moz-transform:rotate(0); }0% { -moz-transform:rotate(-360deg); }}
+@keyframes rotate {0% { transform:rotate(0); }0% { transform:rotate(-360deg); }}
+
+/* Remember Me Popup ===================================================================== */
+.window-overlay { background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/window_overlay.png) repeat; background:rgba(0, 0, 0, 0.35); position:absolute; top:0; left:0; height:100%; width:100%; z-index:990; }
+
+.remember-me label {}
+.remember-me-popup {}
+.remember-me-popup h3 {}
+.remember-me-popup .remember-me-popup-head {}
+.remember-me-popup .remember-me-popup-head .remember-me-popup-close {}
+.remember-me-popup .remember-me-popup-body {}
+.remember-me-popup .remember-me-popup-body a {}
+/* Remember Me Popup ===================================================================== */
+
+
+/* My Account ============================================================================= */
+.my-account .title-buttons .link-rss { float:none; margin:0; }
+
+/********** < Dashboard */
+.dashboard {}
+.dashboard .welcome-msg {}
+
+/* Block: Recent Orders */
+.dashboard .box-recent { margin:10px 0; }
+
+/* Block: Account Information */
+.dashboard .box-info {}
+
+/* Block: Reviews */
+.dashboard .box-reviews .number { float:left; font-size:10px; font-weight:bold; line-height:1; color:#fff; margin:3px -20px 0 0; padding:2px 3px; background:#ddd; }
+.dashboard .box-reviews .details { margin-left:20px; }
+
+/* Block: Tags */
+.dashboard .box-tags .number { float:left; font-size:10px; font-weight:bold; line-height:1; color:#fff; margin:3px -20px 0 0; padding:2px 3px; background:#ddd; }
+.dashboard .box-tags .details { margin-left:20px; }
+/********** Dashboard > */
+
+/* Address Book */
+.addresses-list {}
+.addresses-list-additional li.item {}
+
+/* Order View */
+.order-info { border:1px solid #ddd; padding:5px; }
+.order-info dt,
+.order-info dd,
+.order-info ul,
+.order-info li { display:inline; }
+.order-info dt { font-weight:bold; }
+
+.order-date { margin:10px 0; }
+
+.order-info-box {}
+
+.order-items { width:100%; overflow-x:auto; }
+
+.order-additional { margin:15px 0; }
+/* Order Gift Message */
+.gift-message dt strong { color:#666; }
+.gift-message dd { font-size:13px; margin:5px 0 0; }
+/* Order Comments */
+.order-about dt { font-weight:bold; }
+.order-about dd { font-size:13px; margin:0 0 7px; }
+
+.tracking-table { margin:0 0 15px; }
+.tracking-table th { font-weight:bold; white-space:nowrap; }
+
+.tracking-table-popup { width:100%; }
+.tracking-table-popup th { font-weight:bold; white-space:nowrap; }
+.tracking-table-popup th,
+.tracking-table-popup td { padding:1px 8px; }
+
+/* Order Print Pages */
+.page-print .print-head {}
+.page-print .print-head img { float:left; }
+.page-print .print-head address { float:left; margin-left:15px; }
+/* Price Rewrites */
+.page-print .gift-message-link { display:none; }
+.page-print .price-excl-tax,
+.page-print .price-incl-tax { display:block; white-space:nowrap; }
+.page-print .cart-price,
+.page-print .price-excl-tax .label,
+.page-print .price-incl-tax .label,
+.page-print .price-excl-tax .price,
+.page-print .price-incl-tax .price { display:inline; }
+
+/* My Reviews */
+
+.product-review .product-img-box { float:left; width:140px;  }
+.product-review .product-img-box .product-image { display:block; width:125px; height:125px; }
+.product-review .product-img-box .label { font-size:11px; margin:0 0 3px; }
+.product-review .product-img-box .ratings .rating-box { float:none; display:block; margin:0 0 3px; }
+.product-review .product-details { margin-left:150px; }
+.product-review .product-name { font-size:16px; font-weight:bold; margin:0 0 10px; }
+.product-review h3 {}
+.product-review .ratings-table { margin:0 0 10px; }
+.product-review dt { font-weight:bold; }
+.product-review dd { font-size:13px; margin:5px 0 0; }
+/* ======================================================================================= */
+
+
+/* Footer ================================================================================ */
+.footer-wrap{clear:both;float:left;width:100%;}
+.footer-wrap:after {clear: both;content: " ";display: block;font-size: 0;height: 0;visibility: hidden; width:100%;padding-bottom:30px;}
+.footer {margin:0 auto;width: 1000px;display:block;background:#fff;/*border:1px solid #DEDFE3;*/}
+.footer .col {float: left;width:310px;}
+.footer .cell2 {margin: 0 10px;width: 360px;}
+.footer .col .content{display:block;padding:11px 0 0 15px;}
+.footer .col .sign-up{clear:both;}
+.footer .col .sign-up .sign-up-click{background:url("http://cellphones.com.vn/skin/frontend/default/blank/images/sign-up.png") no-repeat scroll 0 0 transparent;height:50px;text-indent:-99;}
+.footer .col .sign-up .coppyright{color:#333;padding:0px 20px;font-size:10px;}
+.footer .col .content .listct{margin-bottom:10px;}
+.footer-title {display: block; height: 30px;width: 100%;text-align:center;}
+.footer-title h2{font-weight:bold;font-size:18px;color:#fff;padding:5px 0px;letter-spacing:0.5px;background: #a4acaf; /* Old browsers */
+background: -moz-linear-gradient(45deg, #a4acaf 0%, #a4abb0 54%, #a4acaf 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#a4acaf), color-stop(54%,#a4abb0), color-stop(100%,#a4acaf)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(45deg, #a4acaf 0%,#a4abb0 54%,#a4acaf 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(45deg, #a4acaf 0%,#a4abb0 54%,#a4acaf 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(45deg, #a4acaf 0%,#a4abb0 54%,#a4acaf 100%); /* IE10+ */
+background: linear-gradient(45deg, #a4acaf 0%,#a4abb0 54%,#a4acaf 100%); /* W3C */}
+
+.footer ul {list-style: none outside none;padding: 0;margin:0;}
+.footer ul.link-first{width:100px;padding-right:25px;}
+.footer ul.footerlink li{margin:0 0 10px 0;}
+.footer ul .link1{width:150px;}
+.footer ul li{margin:10px 0;}
+.footer ul.footerlink li a{color:#333333;}
+.footer .box-phone{clear:both;}
+.footer .box-phone .phone{padding:10px 0px;display:block;font-size:11 px;}
+.footer .support-number li{padding-bottom:1px;margin:0;list-style:square;text-indent:-5px;}
+.footer .support-number{margin:10px 0;font-size:11 px;font-style:italic;padding-left:15px;}
+.footer .cell1 .ttht{width:100px;}
+.footer .content .title{color:#c1272d;font-weight:normal;letter-spacing:0.5px;padding-bottom:5px;}
+.footer .content  .listct ul{padding-left:10px;display:block;list-style:square;}
+.footer .content  .listct ul li{letter-spacing:0.5px;margin:0;padding:2px 0;}
+.footer .content .social li{float:left;margin-right:10px;}
+.footer .content .showroom{margin-left:10px;}
+.footer .content .showroom li{margin:0;padding-bottom:10px;list-style: square;}
+.footer .content .showroom li.last{background:none;list-style: none;}
+.footer .cell3 p{margin:3px 0;}
+.link-first{width:10px;}
+.footerlink {float: left;display:block;}
+.footerlink a{color:#333;}
+/* .footerlink .fb{background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/fb.png) center left no-repeat;padding-left:20px;}
+.footerlink .hotro{background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/hotro.png) center left no-repeat;padding-left:20px;}
+.footerlink .tube{background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/tube.png) center left no-repeat;padding-left:20px;} */
+.footerlink .tube a{}
+.footerlink .address{background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/diachi.png) center left no-repeat;padding-left:20px;}
+.link1{margin-left:50px;}
+.address{width:260px;}
+.phone-number{clear: both;display: block;float: left;line-height: 18px;margin-top: -120px;padding: 10px 0;}
+.open-time{}
+.phone-number .phone,.open-time .time{font-weight:bold;}
+.cright{color:#7b7c7e;font-size:12px;/* margin-left:20px; */}
+.noi-mua{background:#e3e3e3;font-weight:bold;color:#100404;padding:10px 15px;border-radius:3px 3px 0 0;float:right;margin-top:20px;cursor:pointer;}
+
+/* ======================================================================================= */
+
+
+
+/* Clears ================================================================================ */
+.clearer:after,
+.header-container:after,
+.header-container .top-container:after,
+.header:after,
+.header .quick-access:after,
+#nav:after,
+.main:after,
+.footer:after,
+.footer-container .bottom-container:after,
+.col-main:after,
+.col2-set:after,
+.col3-set:after,
+.col4-set:after,
+.search-autocomplete li:after,
+.block .block-content:after,
+.block .actions:after,
+.block li.item:after,
+.block-poll li:after,
+.block-layered-nav .currently li:after,
+.page-title:after,
+.products-grid:after,
+.products-list li.item:after,
+.box-account .box-head:after,
+.dashboard .box .box-title:after,
+.box-reviews li.item:after,
+.box-tags li.item:after,
+.pager:after,
+.sorter:after,
+.ratings:after,
+.add-to-box:after,
+.add-to-cart:after,
+.product-essential:after,
+.product-collateral:after,
+.product-view .product-img-box .more-views ul:after,
+.product-view .product-shop .short-description:after,
+.product-view .box-description:after,
+.product-view .box-tags .form-add:after,
+.product-options .options-list li:after,
+.product-options-bottom:after,
+.product-review:after,
+.cart:after,
+.cart-collaterals:after,
+.cart .crosssell li.item:after,
+.opc .step-title:after,
+.checkout-progress:after,
+.multiple-checkout .place-order:after,
+.group-select li:after,
+.form-list li:after,
+.form-list .field:after,
+.buttons-set:after,
+.page-print .print-head:after,
+.advanced-search-summary:after,
+.gift-messages-form .item:after,
+.send-friend .form-list li p:after { display:block; content:"."; clear:both; font-size:0; line-height:0; height:0; overflow:hidden; }
+/* ======================================================================================= */
+
+
+/* my ibanner */
+.pikachoose {float: left;}
+.pikachoose .pika-wrap { margin: 0 auto;}
+
+.pikachoose .pika-image {position: relative; background: #fafafa; border: 1px solid #e5e5e5; padding: 10px;}
+/*position image holders */
+.pikachoose .pika-image .animation, .pika-image .main-image {position: absolute; top: 10px; left: 10px;}
+.pikachoose .pika-image .animation {display: none;z-index:2;}
+.pikachoose .pika-image img {border:0;}
+
+/*.pika-image .caption {position: absolute; background: url(http://cellphones.com.vn/skin/frontend/default/blank/images/75-black.png);  border: 1px solid #141414; font-size: 11px; color: #fafafa; padding: 10px; text-align: justify; bottom: 35px; left: 30px;}*/
+.pikachoose .pika-image .caption {position: absolute; font-size: 11px; color: #fafafa; padding: 10px; bottom: 25px; left: 20px;}
+.pikachoose .pika-image .caption p {padding: 0; margin: 0; line-height: 14px; background: url(http://cellphones.com.vn/skin/frontend/default/blank/images/75-black.png);  border: 1px solid #141414;}
+
+.pikachoose .pika-imgnav a {position: absolute; text-indent: -5000px; display: block;z-index:3;}
+.pikachoose .pika-imgnav a.previous {display: none; background: url(http://cellphones.com.vn/skin/frontend/default/blank/images/rewind.png) no-repeat left 50%; height: 100px; width: 50px; top: 0; left: 10px;cursor:pointer;}
+.pikachoose .pika-imgnav a.next {display: none; background: url(http://cellphones.com.vn/skin/frontend/default/blank/images/fastf.png) no-repeat right 50%; height: 100px; width: 50px; top: 0; right: 10px;cursor:pointer;}
+.pikachoose .pika-imgnav a.play {background: url(http://cellphones.com.vn/skin/frontend/default/blank/images/play.png) no-repeat 50% 50%; height: 100px; width: 40px;top:0;left:50%;display: none;cursor:pointer;}
+.pikachoose .pika-imgnav a.pause {background: url(http://cellphones.com.vn/skin/frontend/default/blank/images/pause.png) no-repeat 50% 50%; height: 100px; width: 40px;top:0;left:50%;display:none;cursor:pointer;}
+
+.pikachoose .pika-textnav {display: none; overflow: hidden; margin: 10px 0 0 0;}
+.pikachoose .pika-textnav a {font-size: 12px; text-decoration: none; color: #333; padding: 4px;}
+.pikachoose .pika-textnav a:hover {background: #e5e5e5; color: #0065B2;}
+.pikachoose .pika-textnav a.previous {float: left; width: auto; display: block;}
+.pikachoose .pika-textnav a.next {float: right; width: auto; display: block;}
+.pikachoose {width: auto;}
+
+.pikachoose .pika-thumbs {margin: 10px 0 0 0; padding: 0; overflow: hidden; }
+.pikachoose .pika-thumbs li {float: left; list-style-type: none; width: 74px; padding: 3px; margin: 0 2px; background: #fafafa; border: 1px solid #e5e5e5; cursor: pointer;}
+.pikachoose .pika-thumbs li:last {margin: 0;}
+.pikachoose .pika-thumbs li .clip {width: 74px; height: 74px; text-align: center; vertical-align: center; overflow: hidden;position:relative;}
+
+.pikachoose .pika-image .caption label {background: url(http://cellphones.com.vn/skin/frontend/default/blank/images/75-black.png);  border: 1px solid #141414;color:#FFFFFF;font-size:38px;font-weight:normal;line-height:1.43em;text-transform:uppercase;}
+
+button.btn.next {background-image: url("http://cellphones.com.vn/skin/frontend/default/blank/images/carousel_next_horizontal.png");right: 0;}
+
+button.btn.prev {background-image: url("http://cellphones.com.vn/skin/frontend/default/blank/images/carousel_prev_horizontal.png");left: 0;}
+
+button.btn.next,button.btn.prev {cursor: pointer;height: 30px;margin-top: -15px;position: absolute;top: 50%;width: 30px;z-index: 99;background-color: transparent;background-repeat: no-repeat;border: medium none;cursor: pointer;margin: 0;padding: 0;opacity:0;}
+
+button.btn.next:hover,button.btn.prev:hover{background-position:-30px 0}
+
+.carousel-slideshow{//position:relative;width:485px;height:390px;}
+.carousel-slideshow-nav{right: 5px;bottom:5px;position:absolute;z-index:99;width:98%;text-align:center;}
+#carousel-slideshow-nav1{display:inline-block;margin:0 auto;}
+.carousel-slideshow-nav ul li{background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/bg_slider.png) no-repeat;font-size: 9px;cursor: default;width: 7px;height:8px;text-align: center;float:none;display:inline-block;margin:5px}
+.carousel-slideshow-nav ul li.activeSlide{background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/bg_slider_active.png) no-repeat;}
+.carousel-slideshow-nav ul li a{opacity:0;text-indent:-99999px;}
+#spotlight {position:relative;height:384px;margin:0 0 0px;xbackground:rgba(0,0,0,.07); width:480px; float:left;}
+#spotlight img {display:block}
+#spotlight a {color:#000;text-decoration:none}
+#spotlight .spot {position:absolute;background:#fff}
+#spotlight .p1 {top:0;left:0;width:482px;height:384px}
+#spotlight .p2 {top:0;left:498px;width:233px;height:184px}
+#spotlight .p3 {top:0;left:747px;width:233px;height:184px}
+#spotlight .p4 {top:200px;left:498px;width:233px;height:184px}
+#spotlight .p5 {top:200px;left:747px;width:233px;height:184px}
+/* .product-like{cursor:pointer;color:#FFF;float:left;text-align:center;text-transform:uppercase;margin-top:20px;padding:4px 10px;border:1px solid #fff;}
+.product-like .like{font-weight:bold;} */
+/*forum links*/
+.product-like{background: url("http://cellphones.com.vn/skin/frontend/default/blank/images/btn-like.png") repeat scroll 0 0 transparent;display: block;float: left;height: 23px;width: 94px;}
+.top-home{width:100%;display: inline-block;}
+#linkforum { width:208px;float:left;background:#e3e3e3;margin-left:5px;}
+.linkforum-title{border-bottom:2px solid #878787;padding:5px 10px;}
+.linkforum-title h3{text-transform:uppercase;font-size:14px;}
+.content-linkforum{padding:0 10px;}
+.content-linkforum li{padding:6px 3px;border-bottom:1px solid #fff;background: url("http://cellphones.com.vn/skin/frontend/default/blank/images/linkforum.png") no-repeat scroll right 90% transparent;}
+.content-linkforum li:last{border:none !important;}
+.content-linkforum li a{color:#333;font-size:11px;}
+.box-sukien{float:right;}
+.box-sukien h3{background:#e3e3e3;padding:5px 10px;text-transform:uppercase;font-weight:bold;font-size:13px;}
+
+
+/* .title-blocks-left{background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/bg_lefthome.png) no-repeat;width:31px;height:35px;float:left;margin-left:-33px;} */
+.title-blocks{float: left;font-weight: bold;height: 50px;width: 100%;}
+.title-blocks span{color:#fff;display:inline-block;}
+.title-blocks span.ucase{text-transform:uppercase;font-size:22px;color:#000000!important;padding-top:5px;}
+/*block san pham khuyen mai*/
+.block-khuyenmai{background:#fff;margin-top:-6px;}
+.title-block{/* background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/bg_title.png) top left no-repeat;height:37px;margin-left:-8px; */}
+.title-block .befirst{background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/befirst_text.png) center center no-repeat;display:inline-block;width:126px;height:34px;float:left;text-indent:-9999px;}
+.title-block .productex{float:left;width:370px;height:33px;text-align:center;}
+.title-block .productex .productex-img{margin-left:40px;width:30px;height:30px;margin-top:10px;}
+.title-block .productex .productex-name{color:#cb2528;padding-top:5px;font-size:26px;font-weight:normal;line-height:40px;}
+.demnguoc{float:left;margin-top:5px;text-align:center;width:170px;}
+.demnguoc .text{font-size:16px;display:block;color:#333!important;}
+.demnguoc .date{font-size:12px;display:block;color:#333!important;}
+.dathang{display:inline-block;background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/bgr-dathangngay.png) no-repeat;width:190px;height:35px;margin-top:5px;cursor:pointer;}
+.dathang span{display:block;text-align:center;color:#fff;font-weight:bold;font-size:13px;line-height:25px;}
+.seemore{font-size:10px;color:#b2b2b2;font-weight:normal;margin-left:10px;}
+
+#sanphamkhuyenmai{display:inline-block;width:100%;}
+.box-product{float:left;position:relative;padding:25px 0 0 25px;margin:10px 12px;}
+/* .box-product:hover{box-shadow:0 0 5px #cbcbcb;} */
+.box-product .sales-title{position:absolute;top:0;left:0;font-size:27px;color:#fff;line-height:49px;text-align:center;}
+.box-product .kmpk{background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/bg_kmpk.png) no-repeat;width:106px;height:49px;}
+.box-product .kmpk .phukien-pt{display:inline-block;}
+.box-product .kmpk .phantram{font-size:13px;display:inline-block;line-height:35px;float:left;}
+.box-product .kmpk span.phukien{text-transform:uppercase;font-weight:bold;font-size:11px;display:inline-block;line-height:15px;width:30px;}
+.box-product  .kmsp{background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/bg_kmsp.png) no-repeat;width:106px;height:49px;}
+.box-product .image{display:block;}
+.box-product .name{color:#333;font-weight:bold;display:block;margin:5px 0 0 0;text-transform:uppercase;}
+.addition{font-weight:normal;text-transform:lowercase;}
+.box-product .action .price{color:red;font-weight:bold;margin-bottom:5px;font-size:100%;}
+.box-product .action label{font-size:11px;}
+/*block san pham cu*/
+.sanphamcu{}
+.sanphamcu .title-sanphamcu {background: -webkit-gradient(linear, left top, right top, from(#dddddd), to(#fff));background: -webkit-linear-gradient(left, #dddddd, #fff); background: -moz-linear-gradient(left, #dddddd, #fff);background: -ms-linear-gradient(left, #dddddd, #fff);background: -o-linear-gradient(left, #dddddd, #fff);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#dddddd', endColorstr='#ffffff', gradientType='1')";font-size: 12px;padding: 5px 0 5px 20px;text-transform: uppercase;font-weight: bold;line-height: 1.25;}
+.sanphamcu .product-name {font-size: 12px;line-height: 1.5em;text-align: left;font-weight: normal;}
+.sanphamcu ul li {width: 270px;padding: 10px 10px 10px 45px;float: left;}
+.wrap-info-sanphamcu {float: right;width: 170px;}
+.sanphamcu .price {font-size: 16px;}
+/*block san pham sap ve*/
+.block-spsapve{float:left;width:702px;height:auto;background:#fff;display:block;}
+.block-spsapve .title-blocks .amount{background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/spsapve.png) no-repeat;width:127px;height:23px;text-align:center;font-size:11px;line-height:23px;color:#ffffff;font-weight:normal;}
+.block-spsapve .box-product .date{position:absolute;top:0;right:0;background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/bg_lich.png) no-repeat;width:58px;height:55px;text-align:center;line-height:55px;font-weight:bold;font-size:24px;color:#fff;}
+.block-spsapve .title-blocks{text-align:center;}
+.block-spsapve .title-blocks .sanphamsapve{line-height:45px;margin-right:30px;font-size:13px;color:#333333;font-size:20px;font-weight:normal;}
+.spsapve{width:100%;padding:10px 0;float:left;display:block;}
+.spsapve .box-product{padding:10px;margin:10px;} 
+
+.bt-dk{background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/dangki.png) center left no-repeat;cursor:pointer;padding-left:20px;color:#989898;font-size:11px;margin-top:10px;}
+.bt-product-dk{background: url("http://cellphones.com.vn/skin/frontend/default/blank/images/dangky-nhantin.png") no-repeat scroll left center transparent;color: #989898;cursor: pointer;display: block;float: left;font-size: 11px;height: 23px;margin-left: 10px;padding-left: 20px;width: 120px;}
+.bt-product-dk span{color: #FFFFFF;line-height: 20px;padding-left: 5px;}
+/*block trai nghiem san pham*/
+.block-trainghiemsp{float:right;width:297px;height:735px;/* border-bottom: 3px solid #00152E; */border-left:1px solid #e5e5e5;}
+.block-trainghiemsp .box-tn{background:#fff;height:356px;}
+.block-trainghiemsp .cuslist{}
+.cuslist a{line-height:35px;font-weight:normal;padding-left:30px;cursor:pointer;}
+.proname:hover{color:#CB2528}
+.proname{cursor:pointer;color:#CB2528}
+.block-trainghiemsp .even{border-bottom:1px solid #ccc;height:35px;}
+.block-trainghiemsp .odd{border-bottom:1px solid #ccc;height:35px;}
+.cuslist a label{color:#333;font-size:12px;}
+.cuslist .proname{display:inline-block;width:160px;}
+.review-las{border-bottom:none!important;}
+.cuslist .image{display:inline-block;margin-right:10px;width:30px;height:30px;color:#CB2528;}
+.cuslist .cusname{font-size:12px;font-weight:normal;}
+.title-block-tn{background:#f2f2f2;font-size:20px;color:#333333;padding-left:20px;height:56px;line-height:46px;}
+#subscribe-form{background:#f1f1f1;height:45px;padding:3px 0;border-top:1px solid #E6B4B5;}
+#subscribe-form form{background:#fff;border-radius:3px;margin:5px auto;width:260px;height:30px;display:block;position:relative;}
+#newsletter{border:none;background:transparent;font-size:12px;color:#989898;height:24px;width:130px;padding-left:10px;font-style:italic;}
+#subscribe-form .button{float:right;background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/nhanthongtin.png) no-repeat;position:absolute;width:106px;height:23px;text-align:center;top:4px;right:3px;}
+#subscribe-form .button span{background:transparent;}
+#subscribe-form .button span span{font-weight:bold;}
+.fb-like-box{background:#fff;width:240px;}
+.fb-like-box div.fbConnectWidgetHeaderTitle{display:none !important;}
+/*----------------------------------------------------------------------------------------------------*/
+/*trang san pham*/
+.block-featured{display:inline-block;width:100%;padding:20px 0;background:#fff;}
+.block-featured .f-cat{float:left;margin:0 10px;display:block;width:305px;}
+.block-featured .f-cat .image{display:block;border:1px solid #e6e6e6;padding:5px;width:300px;height:226px;margin-left:10px;}
+.f-cat .action{margin:10px 0 0 10px;}
+.action .action-left{float:left;width:190px;}
+.action .action-left .name{display:block;font-weight:bold;font-size:13px;color:#333;text-transform:uppercase;}
+.action .action-left .price{display:block;color:#d61921;font-weight:bold;margin-top:3px;font-size:13px;}
+.action .action-right{float:right;width:85px;}
+.action .action-right .like{display:block;}
+.action .action-right .link-compare{display:block;margin-top:3px;}
+
+/* list compare */
+#list-compare{background:#000;width:90px;z-index:99999;}
+#close-compre{background: url("http://cellphones.com.vn/skin/frontend/default/blank/images/closecompare.png") no-repeat scroll 15% center transparent; color:#fff;font-weight:bold;font-style:italic;text-transform:uppercase;text-align:center;border-bottom:1px solid #fff;padding:5px 0;cursor:pointer;}
+.compare-content{margin:5px 10px;}
+.compare-content .product-compare{position:relative;margin:5px 0;}
+.compare-content .product-compare .delete-compare{position:absolute;top:0;right:0;background:#000 url(http://cellphones.com.vn/skin/frontend/default/blank/images/delcompare.png) no-repeat;display:inline-block;width:13px;height:13px;cursor:pointer;}
+.compare-content .product-compare a span{display:block;color:#fff;font-size:10px;margin-top:5px;}
+#goto-compare{background: url("http://cellphones.com.vn/skin/frontend/default/blank/images/gocompare.png") no-repeat scroll 15% center transparent;color:#fff;font-weight:bold;font-style:italic;text-transform:uppercase;text-align:center;border-top:1px solid #fff;cursor:pointer;}
+
+
+/*like products*/
+.action{}
+.action > span, .action > a{display:block;margin:2px 0;}
+.like-btn{color:#ffffff!important;margin-left:3px;background:url("http://cellphones.com.vn/skin/frontend/default/blank/images/not-like.png") no-repeat scroll left center transparent!important;}
+.like-btn-active{color:#ffffff!important;margin-left:3px;background:url("http://cellphones.com.vn/skin/frontend/default/blank/images/like-btn-active.png") no-repeat scroll left center transparent!important;}
+.like .bt-like{background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/like.png) center left no-repeat;font-size:11px;color:#989898;padding:0 10px 0 20px;height:14px;}
+.like .bt-like-active{background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/liked.png) center left no-repeat;font-size:11px;color:#989898;padding:0 10px 0 20px;height:14px;}
+.like .total{display:inline-block;color:#FFFFFF;border-left:1px solid #FFFFFF;padding:4px 5px;}
+.link-compare{background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/sosanh.png) center left no-repeat;padding-left:20px;color:#989898;font-size:11px;height:14px;}
+.mua-hang{background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/muahang.png) center left no-repeat;padding-left:20px;color:#989898;font-size:11px;height:14px;}
+
+
+/*lua chon san pham*/
+#narrow-by-list .list-shopby{float:left;margin:0 10px;max-width:300px;}
+#narrow-by-list .special-shopby dd ol li{display:inline-block;width:120px;margin:0 5px;}
+#narrow-by-list dt{padding:0 0 0 25px;width:100px;font-size:12px;color:#333;height:21px;line-height:21px;}
+#narrow-by-list dd{}
+#narrow-by-list dd ol{margin-left:20px;}
+#narrow-by-list dd ol li{padding:3px 0;border-bottom:1px dotted #bdbdbd;}
+#narrow-by-list dd ol li:last-child{border-bottom:none !important;} 
+#narrow-by-list dd ol li a{color:#808080;font-size: 12px;font-weight: normal;line-height:23px;}
+
+/*trang chi tiet san pham*/
+span.title{font-size:18px;color:#333333;text-transform:uppercase;width:305px;height:35px;line-height:35px;display:inline-block;}
+
+.listitem a.image{float:left;margin-right:10px;display:inline-block;width:65px;height:65px;}
+.listitem li{float:left;width:90%;border-bottom:1px solid #e5e5e5;padding:13px 0 13px;}
+.listitem li:last-child{border-bottom:none;}
+.listitem li .child-title{color:#666;font-weight:bold;margin:5px 0;}
+.listitem li .short-content{color:#93958f;float:left;width:360px;}
+.xemthem{float:left;color:#989898;}
+
+
+/*block list brands*/
+#listbrand{background:#fff;padding:10px 0;border-top:2px solid #c0272d;border-bottom:2px solid #c0272d;margin-top:10px;}
+.wrap-video{float:left;width:100%;}
+.wrap-video .bx-select-video{background:#f2f2f2;padding:6px 0;height:22px;margin-bottom:10px;}
+.wrap-video .bx-select-video label{float:left;font-size:12px;color:#333;padding:4px 25px;}
+
+.wrap-video .bx-select-video a{float:left;color:#fff;margin-right:1px;}
+.wrap-video .bx-select-video a.item{background:#999;padding:4px 15px;}
+.wrap-video .bx-select-video a.all{background:#d61921;padding:4px 5px;}
+.wrap-video .fancybox-wrap {width: 193px; height: auto; display: block;margin:0 30px 0px 0; float:left;}
+.wrap-video .fancybox-content{border-width: 0px; width: 193px; height: 113px;}
+.wrap-video .fancybox-outer .fancybox-close{display: inline;color:#333333;line-height:2em;}
+.wrap-video .fancybox-item{width: 193px; height: 113px; overflow: hidden; position: relative;}
+#videos{float:left;width:100%;}
+#videos .bx-wrapper{padding:0 40px;}
+#videos li{float:left;margin:8px 42px 0 0;width:208px;min-height:190px;}
+.title-video{padding-top:5px;color:#333;}
+#videos li a:hover{text-decoration:underline;}
+#videos li a img{}
+.video-info{float:left;font-style:italic;color:#666;padding:10px 0 30px 0;}
+.video-info a{color:#c1272d;}
+.brands .item-brand{display:inline-block;margin:0 5px;width:85px;}
+.brands .item-brand a{border:1px solid #bcbcbc;padding:3px;display:inline-block;}
+.bg-shadow-gallery{background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/bg_gallery.png) bottom left no-repeat;width:85px;height:5px;float:left;}
+.bg-shadow-gallery span{display:none;}
+.simplemodal-wrap{background:#fff;padding:10px;}
+
+.block-general{background:#fff;padding:0px 0 0px 0;float:left;width:100%;}
+.title-thongsokythuat{display:inline-block;width:100%;height:50px;}
+.title-thongsokythuat span.title{background:transparent;font-size:23.5px;color:#000;padding-top:10px;padding-left:50px;}
+#rating-detail{width:752px;height:50px;float:right;display:block;margin-top:-45px;}
+#rating-detail .ratings-div{text-align:center;margin-left:80px;float:right;}
+.ratings-div .lb-ratings{font-size:15px;font-weight:bold;color:#4d4d4d;margin-right:10px;display:inline-block;float:left;padding-top:18px;}
+.ratings-div .span-ratings{margin-right:30px;display:inline-block;float:left;font-size:15px;height:30px;text-align:center;padding-top:18px;}
+
+.box-ctitle{background:#e5e5e5;height:28px;line-height:28px;text-align:center;}
+.box-ctitle .text-ctitle{font-size:15px;font-weight:bold;color:#808080;}
+.box-ctitle-bottom{/* display:block;width:100%;background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/box-ctitle-muiten.png) top center no-repeat;height:6px; */}
+/*block thong so ki thuat*/
+#thongsokythuat{float:left;background:#fff;width:660px;display:block;}
+#thongsokythuat-content {	margin:10px 0;width:660px;background:white;}
+
+#thongsokythuat-content ul{}
+#thongsokythuat-content h1{color:#CF3500;}
+#thongsokythuat-content h2{color:#EF3E00;}
+#thongsokythuat-content ul li{margin-bottom:5px;display:inline-block;width:300px;padding-left:20px;font-size:13px;list-style:none;float:left;}
+#thongsokythuat-content ul li strong{color:#666666;/* background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/bg_tskt.png) center left no-repeat; padding-left:9px;*/}
+#thongsokythuat-content ul li span{font-weight:bold;}
+#combosanpham{float:left;width:100%;}
+.combo-item{clear:both;float:left;width:100%;margin-bottom:20px;padding-bottom: 10px;border-bottom: 1px dotted #A4ACAF;}
+.list-productcombo{float:right;}
+.list-productcombo .price-combo{float:right;font-size:20px;font-weight:bold;color:#c1272d;letter-spacing:1px;background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/equal.png) left 70% no-repeat;padding-left:28px;margin-top:30px;margin-left:15px;}
+.list-productcombo .price-combo sup{font-weight:normal;}
+.list-productcombo .item-product-combo{float:left;background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/add_combo.png) left center no-repeat;padding-left:30px;width: 140px;text-align: center;}
+.list-productcombo div.first{background:none !important;padding-left:0;}
+.list-productcombo .item-product-combo a{display:block;}
+.list-productcombo .item-product-combo span{display:block;}
+.list-productcombo .item-product-combo .item-combo-name{color:#333;}
+.list-productcombo .item-product-combo .price-item-combo{color:#c0272d;}
+.list-productcombo img{}
+.combo-list {float:left;width:100%;}
+.combo-list .save-info{background:#56a317;color:#fff;font-weight:bold; padding:7px 5px;text-align:center;font-size:11.31 px;margin-top:25px;}
+.combo-list .km-info {color: #333;}
+.combo-list-content{float:left;}
+.combo-item .buycombo{float:right;width:100%;text-align:right;margin-top:-25px;padding-right:25px;}
+.combo-item .buycombo a{background:#56a317;color:#fff;font-size:14px;padding:5px;text-align:center;}
+
+.combo-item-title{float:left;background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/bg_combo.png) top left no-repeat;font-weight:bolg;font-size:40px;font-weight:bold;color:#fff;text-shadow:1px 1px #000;margin-right:10px;width:100px;height:100px;text-align:center;padding-top:10px;}
+.combo-item-content{float:left;width: 200px;}
+.block-title-detail{background:#e6e6e6;border-top:2px solid #c0272d;margin-bottom:20px;}
+/*block list review*/
+.reviewblock{float:right;width:30%;}
+.reviewblock .bx-title{background:#e6e6e6;font-size:19px;color:#333;text-transform:uppercase;height:34px;line-height:34px;}
+.reviewblock .danhgia{}
+.reviewblock .danhgia a{padding:0 20px 0 0;margin:10px 0;float:left;background: url("http://cellphones.com.vn/skin/frontend/default/blank/images/danhgia-xemthem.png") no-repeat scroll 100% 100% transparent;}
+.reviewblock .danhgia a span{color:#1a1a1a;font-size:15px;font-style:italic;padding-top:5px;display:block;}
+.reviewblock .image-consult{float:left;}
+.reviewblock .item-consult{min-height:110px;}
+.reviewblock .content-consult{margin-left:80px;}
+.reviewblock .title-consult{margin-bottom:5px;}
+#listreview{}
+#listreview div{padding-top:5px;}
+#englobelistreview > div{margin:3px 0;}
+#englobelistreview > div p{color:#93958f;}  
+#englobelistreview > div p strong{color:#030303;}
+/*block tu van chuyen gia*/
+#productconsult{right:0;top:30px;width:357px;background:#fff;max-height:300px;position: absolute;}
+#productconsult .box-ctitle{margin-left:-3px;}
+#productconsult .consult-content{}
+.list-consult{padding:10px 10px 10px 20px;}
+.list-consult .item-consult{margin:0px 0;padding:0px;display:inline-block;}
+.list-consult .item-consult a{}
+.list-consult .item-consult a img{width:55px;height:55px;float:left;border:1px solid #ddd;margin-right:10px;}
+.list-consult .item-consult a label{font-weight:bold;font-size:12px;color:#0d0d0f;display:block;margin-bottom:5px;}
+.list-consult .item-consult a label .consult_bao{color:#93958f;}
+.list-consult .item-consult a .consult_ct{color:#4d4d4d;font-size:14px;padding-top:5px;}
+/*block thong tin bao chi*/
+#productnews{width:500px;float:left;background:#fff;padding-bottom:35px;}
+.newstitle{float:left;width:100%;height:35px;display:block;}
+.newstitle span,.combo-title span{padding-left:25px!important;}
+.newscontent{float:left;width:490px;}
+.newstitle span.title{}
+.listitem a.image-news{display:inline-block;width:66px;height:66px;}
+.listnew li{padding-left:25px;}
+.km-infor{display: block;margin-bottom: 5px;margin-left: 10px;margin-top: 5px;}
+/*block ho tro su dung*/
+#hotrosudung{width:500px;float:right;background:#fff;padding-bottom:35px;}
+.content-ht{float:left;width:490px;}
+.hotrosudung-title{float:left;width:100%;height:35px;display:block;}
+.block-title-detail{background:#f2f2f2;border-top:2px solid #c0272d;margin-bottom:20px;}
+.hotrosudung-title span.title{}
+.post-more{display:inline-block;width:100%;margin-top:5px;}
+.poster{color:#d71b1b;font-size:10px;float:left;}
+.poster .name-poster{text-transform:uppercase;font-weight:bold;}
+
+/*block phu kien san pham*/
+#phukiensanpham{float:left;width:100%;background:#fff;/* border-top:2px solid #929090;border-bottom:2px solid #929090; */}
+#phukiensanpham .pk-title{background:#f2f2f2;float:left;width:100%;display:block;height:35px;}
+#phukiensanpham .pk-content{padding:20px;float:left;}
+#phukiensanpham .item-pk{float:left;width:300px;margin:10px;}
+#phukiensanpham .item-pk .image{float:left;margin-right:10px;display:inline-block;width:140px;height:79px;}
+#phukiensanpham .item-pk .name{display:block;font-weight:bold;}
+#phukiensanpham .item-pk .price{font-weight:bold;font-size:99%;color:#d71a21;}
+#phukiensanpham .item-pk .price label{color:#333;text-transform:uppercase;font-weight:normal;}
+.pk-title .title{padding-left:25px!important;}
+/* block review form */
+#review-overlay{display:none;background-color: rgb(0, 0, 0); opacity: 0.5; height: 100%; width: 100%; position: fixed; left: 0px; top: 0px; z-index: 9998;}
+#product-reviewform{display:none;z-index:9999;position:fixed;top:100px;left:50%;margin-left:-225px;width:450px;}
+#reviewform{background:#fff;}
+#review-form{padding:10px 30px;display:inline-block;}
+/* #reviewform .review-title{border-bottom: 2px solid #D71A21;height: 28px;margin-bottom:15px;} */
+#reviewform .title-review{margin-bottom:15px;}
+#reviewform .your-review{font-size:14px;}
+#reviewform .your-review span{font-weight:bold;}
+#reviewform .your-rating{font-size:13px;margin:5px 0;}
+#review-form #review_field{width:305px;height:100px;}
+#review-form button.button > span{padding:3px 10px 3px 15px;}
+#review-form button.button span span{font-size:14px;}
+#review-form .buttons-set{text-align:center;}
+#review-form .buttons-set button.button{float:none;}
+.std{clear:both;padding:0 0 20px;}
+#form-validate{float:left;}
+#firstname, #lastname, #password, #confirmation,#email_address,#email,#pass,#customername{border:none;background-color:#e0e0e0;height:25px;margin-bottom:10px;}
+#firstname, #lastname{width:120px;}
+.name-firstname, .name-lastname{display:inline;float:left;line-height:1.6em;font-style:italic;max-width:115px;}
+.name-lastname{margin-left:10px;}
+#is_subscribed{width:15px;height:15px;border: none;color:#fff;background-color:#c1c1c1;-moz-appearance:none;webkit-appearance:none;-o-appearance:none;border: 0px inset ThreeDFace ! important;margin: 0 10px 0 5px;padding: 5px 4px 3px 5px;}
+.loginfacebook a{float:right;}
+.loginfacebook .lb-fb{background: url("http://cellphones.com.vn/skin/frontend/default/blank/images/star_fb.png") no-repeat scroll left center transparent;color: #808080;float: right;font-size: 12px;line-height: 12px;margin: 5px 0;padding-left: 10px;}
+#firstname, #lastname{width:110px !important;}
+#lastname{margin-left:5px;}
+.checknewllter .input-box{width:20px;height:20px;display:block;float:left;}
+#tbl-register tr{padding-top:20px;font-size:15px;line-height: 1.9em;}
+#signupnewlleter{font-size:15px;font-style:italic;padding-left:10px;}
+.checknewllter{display:block;width:140px;float:right;}
+.btn-register{background-image: url("http://cellphones.com.vn/skin/frontend/default/blank/images/dangky.png");border:none;height: 25px;width: 120px;float:right;margin-top:-20px;margin-right:10px;}
+.btn-register span{font-size:13.28px;font-weight:bold;text-transform:uppercase;margin-left:-10px;display:block;}
+#email_address, #password, #confirmation,#email,#pass,#customername{width:240px;}
+.customer-name{float:left;display:inline;}
+#form-validate .customer-name .name-lastname{width:120px;}
+.passlogin .password{width:120px;margin-right:20px;}
+.passlogin .confirmpassword{width:120px;}
+#form-validate .fieldset{margin-top:20px;margin-right:15px;margin-left:5px;}
+#form-validate .buttons-set{margin-right:5px;}
+#login-form .fieldset{margin-top:20px;margin-right:5px;margin-left:5px;}
+#login-form .buttons-set{margin-right:5px;}
+#wishlist-table .product-name a,#wishlist-table .product-image{color:#000;}
+#wishlist-table .product-name a:hover,#wishlist-table .product-image:hover{color:red;}
+#product-data-tab{float:left;width:100%;margin-top:-3px;display:block;}
+.forgotpwd{margin-left:35px;}
+.cart h1{font-size:25px;font-weight:normal;text-transform:uppercase;color:#333333;margin-top:30px;margin-bottom:60px;padding:0;margin-left:10px;}
+.cart-step{display:block;float:right;margin-top:30px;}
+.cart-step h4{margin-top:10px;color:#4d4d4d;font-size:12px;font-weight:normal;}
+.step-purchasing{margin-left:40px;}
+.step-cart{margin-left:65px;}
+.step-checkout{margin-left:80px;}
+.extotal,.addtotal{display:block;width:10px;height:10px;background-color:#e0e0e0;cursor:pointer;}
+.extotal{background-image:url(http://cellphones.com.vn/skin/frontend/default/blank/images/cart-sub.png);background-position: 50% 100%;}
+.addtotal{background-image:url(http://cellphones.com.vn/skin/frontend/default/blank/images/cart-sub.png)}
+.qty-action{display: block;height: 20px;margin-left:75px;margin-top: -23px; position: absolute;width: 10px;}
+.slg{width:80px;}
+.btn-dathang span{background:#56a317 !important;height:21px!important;line-height:21px;display:block;color:#fff!important;font-size:11px!important;font-weight:normal;padding:0 15px 0 20px;}
+.btn-update span{background:#56a317 !important;height:21px!important;line-height:21px;display:block;color:#fff!important;font-size:11px!important;font-weight:normal;padding:0 20px 0 15px;}
+.btn-dathang span span{padding-top:0;}
+.btn-update span span{padding-top:0;}
+.discount h2{font-size:11px;color:#1a1a1a;}
+.discount label{font-size:11px;color:#333333;padding-left:25px;}
+.discount-form{width:380px;height:55px;background:#f5f5f5 url('http://cellphones.com.vn/skin/frontend/default/blank/images/copoun-bgr.png') repeat-x top left;display:block;margin-top:5px;}
+#coupon_code{border: medium none;height: 25px; margin-left: 10px;margin-top: 12px;width:250px;}
+#btn-coupon{border:1px solid #ddd;}
+#btn-coupon span{background:#fff;height:30px;}
+#btn-coupon span span{color:#333;background-color:none;height:10px;padding-top:5px;}
+.discount-form .input-box{float:left;}
+.discount-form .buttons-coupon{height:30px;float:right;margin-top: 10px;}
+#coupon{float:left;margin-top:-20px;}
+#shopping-cart-totals-table strong{font-size:12px!important;font-weight:normal;color:#333333;}
+#shopping-cart-totals-table .price{color:#ff0000;}
+.price-text{font-size:11px;font-size:arial;font-style:italic;width:100px;}
+.phu-kien-name .page-title{padding:0 0 5px 0;margin:0 0 5px 0;height:60px;background: url("http://cellphones.com.vn/skin/frontend/default/blank/images/taotaikhoan.png") repeat scroll 0 0 transparent;}
+.phukien-name{font-size:18px!important;color:#333!important;text-transform:uppercase;padding-top:20px;margin-left:20px;}
+.phukien-price{color:#c1272d;font-size:18px;padding-top:70px;}
+#phukien-stock{color:#1a1a1a;font-size:13px;font-style:italic;padding-top:10px;padding-bottom:5px;}
+.phukien-items{color:#666666;font-size:14px;font-style:italic;}
+.phukien-action{margin-top:40px;}
+.phukien-vanchuyen{color:#1a1a1a;font-size:13px;font-style:italic;padding-top:10px;}
+.pk-like{display:block;width:96px;height:40px;background:url("http://cellphones.com.vn/skin/frontend/default/blank/images/likepk.png") repeat scroll 0 0 transparent;float:left;margin-right:10px;}
+.phukien-like{color:#808080;font-size:13px;padding-top:10px;display:block;float:left;padding-left:30px;background:url("http://cellphones.com.vn/skin/frontend/default/blank/images/phukienlike.png") no-repeat scroll 5% 90% transparent;}
+.phukien-like-active{color:#808080;font-size:13px;padding-top:10px;display:block;float:left;padding-left:30px;background:url("http://cellphones.com.vn/skin/frontend/default/blank/images/phukienlike.png") no-repeat scroll 5% 90% transparent;}
+#phukien-like-total{color:#808080;font-size:13px;padding-top:10px;padding-top:10px;display:block;float:left;padding-left:5px;}
+.pk-addToBasket{display:block;width:96px;height:40px;background:url("http://cellphones.com.vn/skin/frontend/default/blank/images/muahangpk.png") repeat scroll 0 0 transparent;text-align: center;float:left;}
+.pk-addToBasket span{color:#fff;font-size:13px;padding-top:10px;display:block;}
+.phukien-hotro{padding-top:35px;font-size:13px!important;}
+.phukien-info{background-color:#fff;display:table;width:100%;padding-top:5px;height:auto;padding-bottom:20px;}
+.pk-tuongthich-title,.pk-thongso-title{color:#000;font-size:18px;padding-left:30px;padding-top:10px;}
+.phukien-thongsokythuat{min-height:100px;width:100%;border-top:1px solid #ddd;padding-top:5px;display:block;}
+.thongso-content{padding-top:10px;padding-bottom:10px;padding-right:5px;font-size:13px;color:#333;padding-left:30px;}
+.pk-tuongthich{min-height:100px;height:auto;width:100%;border-top:1px solid #ddd;padding-top:5px;display:block;}
+.item-product-for{width:310px;height:110px;float:left;display:block;padding-left:20px;margin-top:20px;margin-bottom:10px;background:#fff;}
+.product-for-image a{width:110px;height:110px;float:left;display:block;}
+.product-for-name{float:left;display:block;padding-top:10px;}
+.product-for-name a{font-size:13px;font-weight:bold;color:#333;text-transform:uppercase;padding-top:10px;}
+.product-for-price{font-size:13px;font-weight:bold;color:#c0272d;padding-top:5px;}
+.xemthem-for{font-size:13px;color:#989898;padding-top:30px;font-weight:bold;}
+.no-product-for{color: #333;font-size: 13px;padding-top: 10px;}
+.review-name{width:100%;height:30px;background:url("http://cellphones.com.vn/skin/frontend/default/blank/images/review-name-bgr.png") no-repeat scroll 0 90% transparent;color:#c0272d;font-size:15px;padding-left: 10px;padding-top: 10px;}
+.content-review{padding-left:10px;font-size:14px;color:#333;padding-top:10px;padding-right:5px;}
+.review-name:first-letter{text-transform:uppercase;}
+.title-consult{width:100%;height:30px;background:url("http://cellphones.com.vn/skin/frontend/default/blank/images/product-consult-bgr.png") no-repeat scroll 0 90% transparent;color:#c0272d;font-size:15px;padding-left: 10px;padding-top: 5px;}
+.title-consult:first-letter{text-transform:uppercase;}
+#search_mini_form{position:relative;z-index:100;}
+.btn-search{position:absolute;right:0;top:18px;}
+/*#s{position:absolute;left:0;top:18px;margin-left:-50px;height:35px;}*/
+#carousel-slideshow-nav1{text-align:center;width:130px;margin-bottom:5px;}
+.carousel-slideshow-nav{display:block;text-align:center;}
+#product-old{border-top:1px solid #E5E5E5;border-bottom:5px solid #cccccc;}
+#product-new-date{border-top:1px solid #E6B4B5;border-bottom:1px solid #cccccc;background-color:#f1f1f1;}
+#productex-title{border-bottom: 1px solid #CCCCCC;border-top: 1px solid #E6B4B5;background-color:#F2F2F2;}
+#reviewsp{border-top:1px solid #e5e5e5;height:50px;}
+#luachon-sanpham{border-bottom:3px solid #F2F2F2;}
+.isselected{color:#ea8c90!important;}
+.stock-info{color:#060;}
+.stock-info:first-child{}
+#cloudZoom{display: block;height: 350px;width: 255px;}
+.list-brand{
+/*
+left: 50%;margin-left: -500px;position: relative;text-align: center;margin-top:5px;margin-bottom:3px;
+*/
+margin: 0 auto;
+
+width: 1000px;height:40px;background-color:#fff;}
+.list-brand li{display:inline-block;text-align:center;margin-left:0px;margin-right:0px;}
+.list-brand li a{display:block;height:100%;width:100%;}
+.list-brand li a:hover{background-color:#f1f1f1;}
+.clearer{clear:both;}
+.stockAvailable44, .stockAvailable46 {color:#56A61D;}
+
+/*Metro Style*/
+#wrapper1,#wrapper2,#wrapper3{width:1000px;height:470px;}
+#wrapper1{/*left:10px;margin-top:5px;*/}
+.thumb-item:hover {opacity:0.8;}
+#thumb1-1,#thumb2-1,#thumb3-1{width:330px;height:160px;position: absolute;left:0px;top:0px;background:#409da5;line-height: 213px;}
+#thumb1-1 img,#thumb2-1 img,#thumb3-1 img{max-width: 330px;max-height: 160px;}
+#thumb1-1 .title,#thumb2-1 .title,#thumb3-1 .title{font-size:26px;}
+#thumb1-2,#thumb2-2,#thumb3-2{width:215px;height:102px;position: absolute;left:0px;top:113px;background:#4849a6;line-height:102px;line-height:102px;}
+#thumb1-2 img,#thumb2-2 img,#thumb3-2 img{max-width: 215px;max-height: 102px;}
+#thumb1-2 .title,#thumb2-2 .title,#thumb3-2 .title{font-size:25px;}
+#thumb1-3,#thumb2-3,#thumb3-3{width:140px;height:65px;position: absolute;left:225px;top:0px;background:#cd432d;line-height:65px;line-height:65px;}
+#thumb1-3 img,#thumb2-3 img,#thumb3-3 img{max-width: 140px;max-height: 65px;}
+#thumb1-3 .title,#thumb2-3 .title,#thumb3-3 .title{font-size:16px;}
+#thumb1-4,#thumb2-4,#thumb3-4{width:213px;height:215px;position: absolute;left:332px;top:0px;background:#da8515;line-height:215px;}
+#thumb1-4 img,#thumb2-4 img,#thumb3-4 img{max-width: 213px;max-height: 215px;}
+#thumb1-4 .title,#thumb2-4 .title,#thumb3-4 .title{font-size:16px;}
+#thumb1-5,#thumb2-5,#thumb3-5{width:213px;height:215px;position: absolute;left:547px;top:0;background:#7d9f2a;line-height:215px;}
+#thumb1-5 img,#thumb2-5 img,#thumb3-5 img{max-width: 213px;max-height: 215px;}
+#thumb1-5 .title,#thumb2-5 .title,#thumb3-5 .title{font-size:35px;}
+#thumb1-6,#thumb2-6,#thumb3-6{width:238px;height:155px;position: absolute;left:762px;top:0px;background:#672c9b;line-height:155px;}
+#thumb1-6 img,#thumb2-6 img,#thumb3-6 img{max-width: 238px;max-height: 155px;}
+#thumb1-6 .title,#thumb2-6 .title,#thumb3-6 .title{font-size:54px;}
+#thumb1-7,#thumb2-7,#thumb3-7{width:330px;height:160px;position: absolute;left:0px;top:162px;background:#621354;line-height:160px;}
+#thumb1-7 img,#thumb2-7 img,#thumb3-7 img{max-width: 330px;max-height: 160px;}
+#thumb1-7 .title,#thumb2-7 .title,#thumb3-7 .title{font-size:40px;}
+#thumb1-8,#thumb2-8,#thumb3-8{width:164px;height:146px;position: absolute;left:0px;top:324px;background:#409da5;line-height:146px;}
+#thumb1-8 img,#thumb2-8 img,#thumb3-8 img{max-width: 164px;max-height: 146px;}
+#thumb1-8 .title,#thumb2-8 .title,#thumb3-8 .title{font-size:19px;}
+#thumb1-9,#thumb2-9,#thumb3-9{width:164px;height:146px;position: absolute;left:166px;top:324px;background:#7d9f2a;line-height:146px;}
+#thumb1-9 img,#thumb2-9 img,#thumb3-9 img{max-width: 164px;max-height: 146px;}
+#thumb1-9 .title,#thumb2-9 .title,#thumb3-9 .title{font-size:19px;}
+#thumb1-10,#thumb2-10,#thumb3-10{width:428px;height:253px;position: absolute;left:332px;top:217px;background:#03417a;line-height:253px;}
+#thumb1-10 img,#thumb2-10 img,#thumb3-10 img{max-width: 428px;max-height: 253px;}
+#thumb1-10 .title,#thumb2-10 .title,#thumb3-10 .title{font-size:51px;}
+#thumb1-11,#thumb2-11,#thumb3-11{width:238px;height:155px;position: absolute;left:762px;top:157px;background:#409da5;line-height:155px;}
+#thumb1-11 img,#thumb2-11 img,#thumb3-11 img{max-width: 238px;max-height: 155px;}
+#thumb1-11 .title,#thumb2-11 .title,#thumb3-11 .title{font-size:25px;}
+#thumb1-12,#thumb2-12,#thumb3-12{width:238px;height:155px;position: absolute;left:762px;top:315px;background:#da8515;line-height:155px;}
+#thumb1-12 img,#thumb2-12 img,#thumb3-12 img{max-width: 238px;max-height: 155px;}
+#thumb1-12 .title,#thumb2-12 .title,#thumb3-12 .title{font-size:24px;}
+.fi_front_title a {background: rgba(255, 255, 255, 0.7);bottom: 0;color: #000;display: block;height: 35px;line-height: 14px;overflow: hidden;padding: 5px 0px 0px;position: absolute;text-align: center;width: 100%;}
+/*
+.feature_item_front:hover .fi_front_title a, .fi_front_title a:hover {background: none repeat scroll 0 0 rgba(255, 255, 255, 0.8);}
+*/
+.wrapword { white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */ white-space: -pre-wrap;      /* Opera 4-6 */ white-space: -o-pre-wrap;    /* Opera 7 */ white-space: pre-wrap;       /* css-3 */ word-wrap: break-word;       /* Internet Explorer 5.5+ */}
+/* home featured products */
+.f-home{}
+.f-home strong{font-weight:normal;}
+.f-home .list-wrap{float:left;width:1000px;padding-bottom: 10px;}
+.f-home .list-wrap .list-cat{width:490px;float:left;}
+.f-home .list-wrap .list1,.f-home .list-wrap .list3{margin-right:20px;}
+.f-home .list-wrap .list-cat h2{background:#dedfe3;text-align:center;font-weight:lighter;padding:5px 0;font-size:20px;color:#000;}
+.f-home .list-wrap .list-cat h2 a{color:#000;text-transform: uppercase;}
+.f-home .list-wrap .list-cat .brands{width:100%;float:left;border-bottom:2px solid #dedfe3;padding:10px 0;}
+.f-home .list-wrap .list-cat .brands li{float:left;margin:0 10px;}
+.f-home .list-wrap .list-cat .brands li a{/* color:#0380be;text-decoration:underline; */}
+
+.f-home .list-wrap .list-cat .products{float:left;width:480px;}
+.f-home .list-wrap .list-cat .products li{padding:10px 0;}
+.f-home .list-wrap .list-cat .products li.pro0{width:480px;height:158px;margin:10px 0;padding-bottom:5px;}
+.f-home .list-wrap .list-cat .products li.pro1,.f-home .list-wrap .list-cat .products li.pro2{float:left;width:240px;height: 75px;}
+.pro-list{}
+.pro-list .image{float:left;position:relative;left:5px;}
+.pro-list .image .sale-off, .product-image .sale-off{color: white; position: absolute; background: none repeat scroll 0% 0% #259325;text-align: center; line-height: 20px;height: 20px; width: 25px; font-weight: bold;opacity:1;}
+.pro-list .image .brand-name{position:absolute;bottom:0;left:5px;padding:5px;z-index:10;background:#fff;border-radius:4px;box-shadow: 0 3px 5px #7A7A7A;}
+/*
+li.pro0 .pro-list .image .sale-off{position:absolute;top:0;left:10px;z-index:10;background:#7a199f;text-align:center;padding:5px;border-radius:4px;color:#fff;font-weight:bold;line-height:1em;}
+*/
+li.pro0 .pro-list .image .brand-name{position:absolute;bottom:0;left:10px;padding:5px;z-index:10;background:#fff;border-radius:4px;box-shadow: 0 3px 5px #7A7A7A;}
+li.pro0 .pro-list .pro-detail{margin-left:150px;}
+.pro-list .pro-detail{margin-left:80px;}
+.pro-list  .price{color:red;font-weight:bold;margin:10px 0;}
+li.pro0 .pro-list .title{font-size:130%;}
+.pro-list .title{font-size:100%;color:#001522;height:45px;font-weight: normal;}
+.pro-list .desc{margin-bottom:10px;height:60px;color:#5F6A72;}
+.brands a.more,
+.pro-list .desc a.more{font-weight:bold;}
+
+/* list-post */
+.list-post{}
+.list-post .post-title{font-weight:bold;}
+.list-post .details a{display:block;color: #5F6A72;font-size: 11px; margin:3px 0;}
+.list-post{font-size: 13px;list-style: square outside none;margin: 0 0 0 24px;padding: 0;}
+.list-post .post-item{float:left;width:450px;}
+.list-post .even{margin-left:40px;}
+
+.tintuctrangchu2 {margin-top: 5px;}
+.tintuctrangchu2 .nd1{color: white; text-align: center; float: left; width: 1000px; background: none repeat scroll 0px 0px #af2026; font-size: 22px; margin-bottom: 5px; padding: 0px; font-weight: bold; word-spacing: 8px;}
+.tintuctrangchu2 .nd1 span{line-height: 47px;color: #FFFFFF;}
+.tintuctrangchu2 .nd2,.tintuctrangchu2 .nd3,.tintuctrangchu2 .nd4{font-size: 20px;padding: 10px;color: white;width:306px;text-align:center;float:left;background:#363636}
+.tintuctrangchu2 .nd3,.tintuctrangchu2 .nd4{margin-left: 11px;}
+
+/* Popup Begin */
+#link {width:120px;height:450px;margin:auto;position:absolute;top:300px;left:1050px;}
+#link a {width:100%;height:100%;display:block;}
+#dialog {background: url(/media/tht/bgPopup.png) no-repeat right transparent;}
+.styled-select select {background: #fff;width: 260px;padding-top: 5px;font-size: 16px;height: 34px;border:none;}
+.styled-select {margin: 184px 0 0 30px;border: none;width: 260px;height: 34px;overflow: hidden;background: transparent;}
+.ui-widget-overlay {background: url("http://cellphones.com.vn/skin/frontend/default/blank/css/images/ui-bg_flat_0_aaaaaa_40x100.png") repeat-x scroll 50% 50% #000000;opacity: 0.3;width:100%;position:fixed;top:0;left:0;}
+.ui-widget-content {background: none;border: none;color: #222222;}
+.bt {background: none repeat scroll 0 0 transparent;border: 0 none;cursor: pointer;height: 35px;margin: -36px 20px 0 0;padding: 0;
+width: 120px;float:right;}
+/**/
+.popupBottom {border: 1px solid rgba(0, 0, 0, 0.3);bottom: 0;position: fixed;right: 5px; background: none repeat scroll 0 0 #FFFFFF;color: #5F6A72;}
+.popupBottom b{color: #5F6A72;}
+.popupBottom .popupBottomHead {display: inline-block; height: 25px; background: none repeat scroll 0px 0px rgb(193, 39, 45); color: rgb(59, 89, 152); width: 325px; line-height: 25px;cursor: pointer;}
+.popupBottom .popupBottomContent {padding: 10px; width: 305px;}
+.popupBottom .popupBottomHead .popupBottomHeadText {color: white; font-weight: bold; padding-left: 10px;}
+.popupBottom .popupBottomHead .popupBottomHeadButton {width: 9px; height: 9px; display: inline-block; background-image: url("http://cellphones.com.vn/skin/frontend/default/blank/images/icon_web.png"); background-position: -36px -89px; background-repeat: no-repeat; background-size: auto auto; float: right; margin-right: 8px; margin-top: 6px;}
+.popupBottom .popupBottomContent .bottomLine {background: url("http://cellphones.com.vn/skin/frontend/default/blank/images/popup-bottom.png") no-repeat scroll 0 bottom transparent;padding: 10px;}
+.popupBottom .popupBottomContent .hotro {padding-top: 0px; text-align: center;width: 290px;}
+.popupBottom .popupBottomContent .hotro .yahoo,.popupBottom .popupBottomContent .hotro .skype  {display: inline-block; text-align: center; width: 100px;}
+.popupBottom .popupBottomContent .hotro .yahoo span,.popupBottom .popupBottomContent .hotro .skype span {color: #5F6A72;}
+.popupBottom .popupBottomContent .hotro .yahoo img,.popupBottom .popupBottomContent .hotro .skype img {width: 35px;}
+
+.supportList{display:block;color:#5F6A72}
+.supportList li{list-style:none;padding: 5px 0;}
+.supportList .head{text-transform:uppercase;font-weight:bold;}
+.supportList .skype{width:24px;height:24px;background:url(/media/logo/metro_skype_24.png) no-repeat;display:inline-block;margin:0 15px;}
+.supportList .skype2 img{width: 110px;}
+.supportList .yahoo{width:24px;height:24px;background:url(/media/logo/metro_yahoo_24.png) no-repeat;display:inline-block;margin:0 15px;}
+.supportList .yahoo2 img{margin-top: 5px; width: 101px; margin-left: 10px;}
+.supportList .viber,.supportList .whatsapp,.supportList .kakao,.supportList .zalo{width:24px;height:24px;display:inline-block;margin:0 4px;}
+.supportList .viber{background:url(/media/logo/metro_viber_24.png) no-repeat;}
+.supportList .whatsapp{background:url(/media/logo/metro_whatsapp_24.png) no-repeat;}
+.supportList .kakao{background:url(/media/logo/metro_kakao_24.png) no-repeat;}
+.supportList .zalo{background:url(/media/logo/metro_zalo_24.png) no-repeat;}
+.supportList .sdt{line-height: 24px;vertical-align: top;color:#5F6A72}
+.supportList .banhang .skype,.supportList .banhang .yahoo{margin:0 4px;}
+.supportList .namesupport{line-height: 24px;vertical-align: top;color:#5F6A72;display: inline-block;width: 60px;}
+/* Popup End */
+
+ul.youtube-video li {width: 130px;min-height: 90px;border: none;display: -moz-inline-stack;display: inline-block;vertical-align: top;margin: 5px;zoom: 1;*display: inline;_height: 90px;}
+
+/* Custom Page */
+.tht_custom_page_cskh {color: #666;}
+.cskh_header {height: 200px; vertical-align: middle; background: url('http://cellphones.com.vn/skin/frontend/default/blank/images/cskh/cskh_img.png') no-repeat 700px 0;}
+.cskh_header_text {color: #666; font-size: 26px; font-weight: bold; padding-top: 30px;}
+.cskh_header_img {background: url('http://cellphones.com.vn/skin/frontend/default/blank/images/cskh/phone.png') no-repeat 0 -1px;}
+.cskh_header_phone {margin: 0 0 0 30px; font-size: 16px;}
+.cskh_header_phone span{color: #c1272d;}
+.cskh_header_mail {background: url('http://cellphones.com.vn/skin/frontend/default/blank/images/cskh/mail.png') no-repeat 0 -1px;}
+.cskh_header_mail div{margin: 0 0 0 30px; font-size: 16px;}
+.cskh_nav {overflow: hidden;width: 100%;}
+.cskh_nav > ul {box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);height: 40px;margin-top: 4px;padding-left: 180px;}
+.cskh_nav li {border-left: 1px solid;float: left;list-style: none outside none;margin: 6px;padding: 5px 15px;}
+.cskh_nav li:first-child {border-left:none;} 
+.cskh_nav a {font-size: 15px;color:#666;}
+.cskh_content {padding-left: 20px;font-size: 14px;}
+.cskh_content h2 {color: #C1272D;font-size: 14px;font-weight: bold;padding: 15px 0;}.cskh_content h3 {font-size: 14px;padding: 10px 0;}
+.cskh_content p {margin:0;padding: 5px 0;}
+.cskh_content > ul {list-style: none;}
+.cskh_content > ul h2{cursor: pointer;}
+.cskh_content > ul li > div {display: none;}
+
+#tht_custom_page_csbm {font-size: 14px;color: #666;}
+#tht_custom_page_csbm h2 {text-align: center;padding: 10px 0;}
+#tht_custom_page_csbm li {padding: 5px 0;line-height: 22px;}
+#tht_custom_page_csbm hr {margin: 0 auto 5px;width: 50%;border: 1px solid #CCCCCC;}
+/* Custom Page End*/
+
+#bh_btn_panel {display: block;}
+#bh_result_anchor {clear:both;}
+#bh_result_panel{clear:both;width:500px;box-shadow: 0 0 6px #CCCCCC;padding: 10px;margin: 0 0 0 200px;}
+#bh_result_panel #bh_result_close {float:right;color: #666666;}
+#bh_result_panel #bh_result_top {color: #666666;}
+#bh_result_content span {color: #666666;display: block;}
+#bh_result_content .store_warranty_province {color:#C1272D;font-weight:bold;}
+#bh_result_content .store_warranty_name {font-weight: bold;}
+#bh_result_content h4 {text-transform: uppercase;color: #C1272D;padding: 0 0 10px 10px;}
+.bh_logo_btn {border: 1px solid transparent;margin: 0 30px 20px 0;overflow: hidden;text-align: center;transition: border-color 0.3s ease 0s;float:left;padding: 20px 0;opacity: 0.6;}
+.bh_logo_btn:hover{border: 1px solid #CCCCCC;opacity: 1;}
+
+/*static block*/
+.block-cattop{width:1000px;}
+.list-bcattop{float:left;}
+.list-bcattop li{float:left;border-right:1px solid #fff;}
+.list-bcattop li.last{border-right:0 !important;}
+
+.block-cattop .list-bcattop{border-right:1px solid #fff;height:188px;}
+.block-cattop .last{border-right:0 !important;}
+.listbcattop1{width:236px;padding:0;color:#fff;background:#d61921;}
+.listbcattop1 .name{display:block;color:#fff;text-transform:uppercase;font-size:15px;padding-top:10px;}
+.listbcattop1 .price .unit-price{}
+.des{padding-top:25px;color:#fff;}
+
+.listbcattop2{width:145px;background:#8cc63f;text-align:center;}
+.listbcattop2 a{display:block;}
+
+.listbcattop3{width:145px;background:#8cc63f;position:relative;}
+.listbcattop3 .name-price{/*position:absolute;left:10px;bottom:12px;*/color:#fff;}
+.listbcattop3 .name-price .name{display:block;color:#fff;font-size:13px;line-height:1.5em;margin-left: 5px;}
+.listbcattop3 .name-price .price{}
+.listbcattop3 .image{/*position:absolute;bottom:0;right:13px;*/}
+.listbcattop3 .price {margin-left: 5px;}
+
+.listbcattop4{width:235px;background:#c7b299;color:#fff;}
+.listbcattop4 .name{display:block;color:#fff;text-transform:uppercase;font-size:15px;padding-top:10px;}
+.listbcattop1 .price, .listbcattop4 .price{border-bottom:1px solid #fff;display:block;padding-bottom:10px;color:#fff;}
+.listbcattop4 .price .unit-price{}
+.listbcattop4 .des{padding-top:25px;}
+
+.listbcattop5{width:235px;background:#fff;position:relative;}
+.listbcattop5 .image{/*position:relative;padding:12px 0 0 11px;*/}
+.listbcattop5 .image a{}
+.listbcattop4 .image .new, .listbcattop5 .image .new {position:absolute;top:5px;right:7px;background:#d61921;padding:4px 10px;text-transform:uppercase;font-size:28px;color:#fff;letter-spacing:0.25px;}
+.listbcattop5 .des{position:absolute;left:0;bottom:0;padding:10px 15px;background:#D61921;color:#fff;line-height:1.5em;width: 205px;}
+.list-bcattop .image {margin-left: 0px;}
+.list-bcattop .image > img {padding-top: 0px;}
+
+.box-listcat {}
+.box-listcat .price-box {text-align: center;}
+.block-catleft{float:left;width:764px;}
+.box-filter{padding:6px 13px;clear: both;}
+.box-filter .hover{background:none;}
+.box-filter div.selector{margin-left:3px;}
+.box-filter div.selector span{background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/bg_select.png) top right no-repeat;min-width:47px;height:20px;line-height:20px;padding:0 20px 0 8px;border:1px solid #d9d9d9;}
+.box-filter div.selector select{min-width:77px;height:22px;border:1px solid #d9d9d9;}
+.box-filter div.selector select option{padding-left:8px;font-size:11px;}
+.filter-label{float:left;color:#333;margin-right:13px;line-height:20px;}
+.box-filter a{float:left;color:#fff;padding:4px 5px;margin-right:1px;background:#b3b3b3;}
+.box-filter a.stock-active{background:#d61921;}
+
+.box-filter-pk{padding:4px 3px 4px 0;}
+.box-filter-pk .box-step{float:left;background:#29abe2;margin-right:1px;}
+.box-filter-pk span.step{float:left;width:49px;height:46px;font-size:0;text-indent:-9999em;border-right:1px solid #fff;}
+.box-filter-pk span.step1{background:#29abe2 url(http://cellphones.com.vn/skin/frontend/default/blank/images/step_pk01.png) center center no-repeat;}
+.box-filter-pk span.step2{background:#29abe2 url(http://cellphones.com.vn/skin/frontend/default/blank/images/step_pk02.png) center center no-repeat;}
+.box-filter-pk span.step3{background:#29abe2 url(http://cellphones.com.vn/skin/frontend/default/blank/images/step_pk03.png) center center no-repeat;}
+
+.box-filter-pk div.selector{text-align:center;}
+.box-filter-pk div.selector span{font-size:15px;color:#fff;text-transform:uppercase;line-height:46px;display:inline-block;padding-right:12px;padding-left:5px;background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/bg_select_pk.png) center right no-repeat;}
+.box-filter-pk div.selector span:hover{color:#ccc;}
+.box-filter-pk div.selector select{height:46px;border:1px solid #fff;box-shadow:2px 5px 5px #b1b0b1;background:#ccc;}
+.box-filter-pk div.selector select option{border-bottom:1px solid #fff;text-align:center;padding:5px 0;text-transform:capitalize;background-color:#29ABE2;}
+
+.box-filter-pk .box-step1 div.selector{width:186px;}
+.box-filter-pk .box-step1 div.selector select{width:186px;}
+.box-filter-pk .box-step2 div.selector{width:192px;}
+.box-filter-pk .box-step2 div.selector select{width:192px;}
+.box-filter-pk .box-step3 div.selector{width:230px;}
+.box-filter-pk .box-step3 div.selector select{width:230px;}
+
+.box-filter-pk-sp {padding: 15px;}
+.box-filter-pk-sp ul li {float:left;width:175px;background: url("http://cellphones.com.vn/skin/frontend/default/blank/images/arrow_right.png") no-repeat scroll 0 10px transparent;padding: 8px 0;}
+.box-filter-pk-sp ul li a{padding-left: 12px;}
+.box-filter-pk-sp ul li a .count{color: #D61921;}
+
+.category-products {border-top:1px solid #999;padding:20px 0 10px;clear: both;}
+
+.tag-cat{padding-bottom:12px;float:left;clear:both;}
+.tag-cat .title{float:left;text-transform:uppercase;font-size:85%;color:#fff;background:#808080;padding:1px 3px;margin-right:2px;}
+.list-tag{float:left;}
+.list-tag li{float:left;}
+.list-tag li.text{}
+.list-tag li.seperate{}
+.list-tag li.text a{padding:0 5px;}
+.list-tag li a,.list-tag li span{font-size:78%;color:#808080;}
+
+.block-catright{float:right;width:235px;padding-bottom:80px;border-left:1px solid #999;}
+.block-catright .title{font-size:22.26px;color:#1a1a1a;padding-left:14px;}
+
+.fb-container {width: 237px;height: 290px;overflow: hidden;}
+.fb-container > div {margin: -1px;}
+
+.block-catright .sforum .title{padding-top:10px;padding-bottom:3px;}
+.list-sforum{}
+.list-sforum li{clear:both;float:left;width:100%;border-bottom:1px dotted #d8d8d8;padding:10px 0;}
+.list-sforum li.last{border-bottom:0 !important;}
+.list-sforum li .image{float:left;margin:0 10px;width:54px;height:48px;border:1px solid #d2d2d1;}
+.list-sforum li .text{/*color:#a0a5bb;*/}
+.text > a {color: #A0A5BB;}
+.block-catright .schannel .title{padding-top:20px;padding-bottom:15px;}
+.list-sc{padding:10px 5px;margin-left:15px;}
+.list-sc .image{display:block;}
+.list-sc .image img{border:1px solid #bfbfbf;}
+.list-sc .text{display:block;color:#9392a1;padding-top:5px;}
+.facebook-likebox{display: block;float: left;height: 20px;margin-right: 100px;width: 10px;}
+.block-img-cat{display:inline-block;width:12px;height:12px;position:related;margin-left:2px;margin-right:2px;}
+.selectedcolor{display:block;width:10px;height:10px;background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/colorselected.png) center center no-repeat;position:absolute;margin-left:4px;}
+.video-title-img{background-image: url("http://cellphones.com.vn/skin/frontend/default/blank/images/video-title2.png");display: block;height: 50px;top:35px;left:75px;position: absolute;width: 50px;opacity: 0.8;}
+.video-infor{display:block;height:auto;float:none;position:relative;}
+.video-infor img{border: 1px solid #BFBFBF;padding: 3px;}
+.video-infor:hover > .video-title-img{opacity: 1;}
+.thong-so-ky-thuat{width:100%;height:auto;float:left;padding-bottom:10px;}
+.title-thong-so{display:block;width:100%;height:35px;background:none repeat scroll 0 0 #F2F2F2;border-top:2px solid #C0272D;margin-bottom:10px;}
+.title-thong-so span{padding-left:25px;}
+.content-thongso li{width:100%;padding-top:5px;border-bottom:1px dashed #f1f1f1;display:block;height:25px;padding-left:25px;color:#404142;/* font-size:13px; */}
+.content-thongso li:last-child{border-bottom:none !important;}
+.content-thongso strong{display:inline-block;width: 220px;}
+.content-thongso{color:#404142;}
+.warranty-info{}
+.list-diachi li{cursor:pointer;}
+.sub-menu{position:absolute;display:block;width:1000px!important;min-height:262px;height:auto;margin-top:10px;border:none!important;box-shadow:0px 1px 2px 1px #333333;background:none!important;top:25px;}
+.sub-menu-item{float:left;display:block;margin-right:5px;width:165px;left:0!important;position:relative!important;top:0!important;margin-top:10px;background:none!important;border:none!important;z-index:2;}
+.buy-option{padding-left:5px;padding-top:5px;background:none!important;}
+.buy-option-title{color:#ffffff;font-size:15px;margin-left:15px;padding-top:5px;border-bottom:1px solid #ffffff;line-height:40x;display:inline;font-weight:normal;text-transform:uppercase;}
+.linkitem{color:#ffffff!important;font-size:12px;line-height:25px;}
+.buy-option-item{margin-left: 0px;display: inline-block;border:none!important;}
+.link-item{color:#ffffff!important;font-size:12px;}
+.link-item > img {border: 1px solid transparent;}
+.link-item > img:hover {border: 1px solid #fff;}
+.sub-menu-background{background:#333333!important;width:100%!important;height:100%!important;top:0!important;left:0!important;display:block!important;z-index:1;position:absolute!important;border:none!important;}
+.tu-van-truc-tiep{background: none repeat scroll 0 0 black !important;border:none!important;clear: both;display: block;height: 25px;left: 0 !important;position: absolute !important;bottom: 0;top:none!important;width: 1000px !important;z-index: 2 !important;text-align:center;color:#ffffff;padding-top:5px;font-size:13px;}
+.hedieuhanh .buy-option-item {display: block;}
+/* pkien */
+.sub-phukien{float:left;display:block;margin-right:10px;left:0!important;position:relative!important;top:0!important;margin-top:10px;background:none!important;border:none!important;z-index:2;width:180px;min-height:100px;}
+.sub-phukien-item{margin-left:10px;}
+.sub-phukien .buy-option{clear:both;}
+.sub-not-child{bottom: 0;float: left;left: 0 !important;position: relative !important;width: 100% !important;margin-top:10px;margin-bottom:40px;z-index: 20;} 
+.sub-not-child li{float:left!important;display:inline-block;}
+/* endpkien */
+#static-menu-3{background: none repeat scroll 0 0 transparent !important;display: block;float: left !important;height: 180px;left: 0 !important;position: relative !important;width: 280px;z-index: 1;margin-top:10px;border-left:none!important;border-right:none!important;border-top:none!important;border-bottom:none!important;}
+#static-menu-3 img{float:left;padding-left:10px;}
+#static-menu-3 p{color:#fff;float:left;padding-left:5px;font-size:12px;width:150px;line-height:14px;} 
+.menu-h3{color: #FFFFFF;font-size: 18px;font-weight: normal;line-height:3em;text-align: center;text-transform: uppercase;}
+.top-menu-border{background-image: url("http://cellphones.com.vn/skin/frontend/default/blank/images/topmenu-border.jpg") !important;border: medium none !important;height: 2px;left: 0 !important;width: 100%;}
+.bottom-menu-border{background-image: url("http://cellphones.com.vn/skin/frontend/default/blank/images/bottommenu-border.jpg") !important;border: medium none !important;height: 2px;left: 0 !important;bottom:30px!important;width: 100%;}
+
+.ui-dialog-titlebar {display: none!important;}
+.no-background {border:none;background:none;}
+.no-background  .ui-dialog-titlebar {display: none;}
+#dialog-video {background: none repeat scroll 0 0 #FFFFFF;border: 1px solid #AAAAAA;padding: 13px;}
+
+.jm-lemmon-slider { background:#fff;position:relative;padding: 0 30px; }
+.jm-lemmon-slider .slider    { overflow:hidden; position:relative; width:100%; height:40px !important; }
+.jm-lemmon-slider ul { margin:0; padding:0; height:40px; }
+.jm-lemmon-slider li { float:left; list-style:none; margin:0 5px 0 0; }
+.jm-lemmon-slider li { text-align:center; line-height:40px; font-size:25px; }
+.jm-lemmon-slider .slider li img {opacity: 0.6;filter: alpha(opacity = 60);}
+.jm-lemmon-slider .slider li:hover img {opacity: 1;filter: alpha(opacity = 100);}
+.jm-lemmon-slider .controls a {display: block;height: 30px;margin-top: -15px;position: absolute;top: 50%;width: 30px;background: #EEEFF1;color: #8B8C8D;font-size: 16px;line-height: 28px;text-align: center;}
+.jm-lemmon-slider .controls a:hover {background: #D63333;color: #fff;}
+.jm-lemmon-slider .controls .prev-slide {left: 0;}
+.jm-lemmon-slider .controls .next-slide {right: 0;}
+.close-video{right:20px;bottom:10px;position:absolute;cursor:pointer;}
+#smember-slide-btn{}
+#smember_panel{color: #737373;display: none;border-top: 2px solid rgb(192, 39, 45);padding: 10px 10px 10px 30px}
+#smember_panel p span,#smember_panel p strong{}
+#smember_panel a{color: #737373;text-decoration: underline;}
+#smember_panel ul{list-style: disc;padding-left: 25px;}
+#smember_panel p,#smember_panel ul li {padding-bottom: 5px;}
+#smember_panel .checkpoint_panel {padding: 15px; text-align: center;}
+#smember_panel .checkpoint_panel iframe {width:600px;height:350px;padding:10px;border: 1px solid #E3E3E3;}
+#smember_panel .highlight {color: #D61921;font-weight: bold;}
+
+/*** dichvu menu Begin ***/
+.new-nav-text {position: absolute; background: none repeat scroll 0px 0px green; font-size: 11px ! important; text-shadow: none ! important; padding: 2px 3px; height: 14px !important;; left: 30%; top: -19px;}
+/*** dichvu menu End ***/
+
+/*** dichvu list Begin ***/
+.box-listcat-dich-vu .product-name {text-transform:none;letter-spacing:normal;height:40px !important;}
+.box-listcat-dich-vu .products-grid li.item {margin: 25px 12px 0 0;}
+.box-listcat-dich-vu .action p,.dichvu-view .price-box .price-box-content p,.search-list .action p,.search-list .price-box-content p {padding-bottom: 5px; font-weight: bold;}
+.dichvu-view .price-box .price-box-content p {color: #C0272D;font-size: 18px;}
+.box-listcat-dich-vu .action .price-baohanh,.search-list .action .price-baohanh {display: none;}
+.dichvu-view .price-box .price-box-content .price-bh {display: none;}
+/*** dichvu list End ***/
+/*** SpecialPrice List Begin ***/
+.box-listcat-specialprice .price-box {text-align: center;}
+.box-listcat-specialprice .price-box .price-label{display:none;}
+.box-listcat-specialprice .price-box .old-price {color:#999;}
+/*** SpecialPrice List End ***/
+/*** Dichvu View Begin***/
+.dichvu-view {border-bottom:none;}
+.dichvu-view .product-name {margin-top: 0px;background: #F2F2F2;height: 70px;}
+/*.dichvu-view .product-name h1{font-size: 20px;padding:20px 0 20px 20px;border-top: 2px solid #C0272D;border-bottom: 1px dotted;}*/
+.dichvu-view .product-name h1{font-size: 20px;line-height: 70px;}
+.dichvu-view .price-box {height: 140px;margin-bottom: 0;}
+.dichvu-view .bg-shadow {/*height: 500px;position: relative;*/}
+.dichvu-view .bg-gradient1{height: 50px !important;width: 1000px !important;position: absolute !important;top: 120px !important;}
+.dichvu-view .bg-gradient2{height: 50px !important;width: 1000px !important;position: absolute !important;top: 285px !important;}
+.dichvu-view .bg-gradient{
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzg5ODk4OSIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iI2I3YjdiNyIgc3RvcC1vcGFjaXR5PSIwLjYiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzg5ODk4OSIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+background: -moz-linear-gradient(left,  rgba(137,137,137,0) 0%, rgba(183,183,183,0.6) 50%, rgba(137,137,137,0) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(137,137,137,0)), color-stop(50%,rgba(183,183,183,0.6)), color-stop(100%,rgba(137,137,137,0))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left,  rgba(137,137,137,0) 0%,rgba(183,183,183,0.6) 50%,rgba(137,137,137,0) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left,  rgba(137,137,137,0) 0%,rgba(183,183,183,0.6) 50%,rgba(137,137,137,0) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(left,  rgba(137,137,137,0) 0%,rgba(183,183,183,0.6) 50%,rgba(137,137,137,0) 100%); /* IE10+ */
+background: linear-gradient(to right,  rgba(137,137,137,0) 0%,rgba(183,183,183,0.6) 50%,rgba(137,137,137,0) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00898989', endColorstr='#00898989',GradientType=1 ); /* IE6-8 */
+}
+.dichvu-view .short-description {color: #333;padding-left: 20px;text-align: justify;line-height: 20px;}
+.dichvu-view .short-description-title,.dichvu-view .diachi-muahang .title,.dichvu-view .khuyenmai .khuyenmai-title,.dichvu-view .price-box .price-box-title {font-size: 20px;height: 50px;line-height: 50px;text-transform: uppercase;padding: 0 0 0 90px;color: #333;font-weight: normal;}
+.dichvu-view .short-description-title {background:url(/media/logo/metro_thongtindichvu_70.png) no-repeat;}
+.dichvu-view .short-description-content,.dichvu-view .diachi-muahang .info,.dichvu-view .price-box .price-box-content,.dichvu-view .khuyenmai .khuyenmai-info {padding-top: 10px;min-height: 105px;padding-bottom: 0;padding-left: 10px;}
+.dichvu-view .diachi-muahang .title {background: url(/media/logo/metro_diachi_70.png) no-repeat scroll left center transparent;}
+.dichvu-view .khuyenmai {margin-top: 0;float: none;}
+.dichvu-view .khuyenmai .khuyenmai-title {background:url(/media/logo/metro_khuyenmai_70.png) no-repeat;}
+.dichvu-view .khuyenmai .khuyenmai-info {background:none;}
+.dichvu-view .price-box {padding-left:20px;}
+.dichvu-view .price-box .price-box-title {background:url(/media/logo/metro_gia_70.png) no-repeat;}
+
+.dichvu-view .diachi-muahang .question {display: none;}
+.short-description-icon {padding-left: 10px;text-align: center;bottom: 0;position: absolute;}
+.short-description-icon li{float:left; padding: 2px;width: 80px;}
+.short-description-icon li span{text-transform:uppercase;color: #333;display: block;padding-top: 2px;}
+
+.dichvu-view .bg-shadow .product-center {position: absolute;right: 39%;}
+.dichvu-view .bg-shadow .product-left,.dichvu-view .bg-shadow .product-right {padding-top: 50px;}
+.dichvu-view .bg-shadow .product-left {/*position: absolute;*/}
+.dichvu-view .bg-shadow .product-right {/*position: absolute;right: 0;*/}
+
+.dichvu-view .bg-shadow .product-right .action {line-height: 21px;}
+.ttct-dichvu .title-thong-so {text-align: center;}
+.ttct-dichvu .content-thongso {margin: 0 auto;width: 650px;}
+.ttct-dichvu .content-thongso strong {width: auto;}
+.ttct-dichvu .content-thongso img {max-width: 100%;}
+.ttct-dichvu .content-thongso ul {list-style: disc;}
+.ttct-dichvu .content-thongso li {height: auto;display: list-item;padding-left: 0;border-bottom: none;}
+.ttct-dichvu .content-thongso p {padding: 4px 0;}
+/*** Dichvu View End***/
+.top-brand-nohome .banner-center {/*display:none;*/}
+.coupon {width: 100%; float: left; margin-bottom: 5px; margin-top: 15px;}
+.coupon a{background: red; padding: 10px; color: #fff;font-size: 13px;}
+.coupon a span{font-size:18px;}
+
+.search-list .block-search {clear: both;}
+.search-list .block-search .more {float: right;margin: 15px;}
+.search-list .block-search .more a{color: red; font-style: italic;}
+.search-list .block-search .more a span{font-size: 18px;}
+.search-list .block-search .title {margin: 15px 0;padding: 10px;text-transform: uppercase;font-size: 15px;font-weight: bold;border-top: 1px solid #999;
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwLjE1Ii8+CiAgICA8c3RvcCBvZmZzZXQ9IjMzJSIgc3RvcC1jb2xvcj0iIzAwMDAwMCIgc3RvcC1vcGFjaXR5PSIwIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+background: -moz-linear-gradient(left,  rgba(0,0,0,0.15) 0%, rgba(0,0,0,0) 33%);
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0.15)), color-stop(33%,rgba(0,0,0,0)));
+background: -webkit-linear-gradient(left,  rgba(0,0,0,0.15) 0%,rgba(0,0,0,0) 33%);
+background: -o-linear-gradient(left,  rgba(0,0,0,0.15) 0%,rgba(0,0,0,0) 33%);
+background: -ms-linear-gradient(left,  rgba(0,0,0,0.15) 0%,rgba(0,0,0,0) 33%);
+background: linear-gradient(to right,  rgba(0,0,0,0.15) 0%,rgba(0,0,0,0) 33%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#26000000', endColorstr='#00000000',GradientType=1 );
+}
+
+.dathang-khongcosan {background: #D61921; clear: both; margin-bottom: 10px; text-align: center; padding: 5px 0px;}
+.dathang-khongcosan a {color: #FFF;}
+.arrow-text-270deg {-ms-transform:rotate(-270deg); /* IE 9 */-moz-transform:rotate(-270deg); /* Firefox */-webkit-transform:rotate(-270deg); /* Safari and Chrome */-o-transform:rotate(-270deg); /* Opera */}
+.arrow-text-270deg2:after
+{content:"»";-ms-transform:rotate(-270deg);-moz-transform:rotate(-270deg); -webkit-transform:rotate(-270deg);-o-transform:rotate(-270deg);display: inline-block;margin-left:7px;line-height: 0;font-size: 130%;}
+
+
+#slide-breaking {margin: 0;}
+#like-box {line-height: 1px;margin-top: 6px;}
+#like-box .fb-like {padding-right: 10px;}
+
+.ui-dialog {font-family: roboto;color: #333333;font-size: 15px;}
+.dialog-header h4 {text-align: center;color: #FFF;background: #D62027;text-transform: uppercase;font-size: 16px;padding: 5px 0;}
+.dialog-content {padding: 8px;}
+.ui-dialog .close-video {right: 10px;top: 10px;bottom: auto;border-radius: 20px;color: #FFF;font-family: verdana;padding: 0 7px 2px;top: 5px;}
+.ui-dialog .close-video:hover {background: #FFFFFF;border-radius: 20px;color: #D62027;font-family: verdana;padding: 0 7px 2px;}
+
+#dialog-dathang #cps-product-img {float: left; padding-right: 20px;width: 40px;height: 80px;padding-left: 5px;}
+#dialog-dathang #cps-product-img img {width: 100%;}
+#dialog-dathang .price, .cps-required-asterisk {color: #D62027;}
+#dialog-dathang .cps-form, #dialog-subscriber .cps-form  {clear: both;padding-top: 10px;display: block;}
+#dialog-subscriber .cps-form  {padding-top: 0;}
+#dialog-dathang .cps-form-line{margin: 8px 0;}
+#dialog-subscriber .cps-form-line {margin: 18px 0;}
+#dialog-dathang select {}
+#dialog-dathang select option {padding: 1px 6px;}
+#dialog-dathang input, #dialog-dathang textarea, #dialog-subscriber input {width: 95%;padding: 4px 3px;}
+#dialog-dathang textarea {resize: none;}
+#dialog-dathang #cname, #dialog-subscriber #subname {width: 76%;}
+#alert-dathang {clear: both; color: #D62027; padding-top: 5px; padding-left: 3px;}
+#dialog-dathang #cpssubmit, #dialog-subscriber #subsubmit {background: #D62027; color: #FFF; border: none; padding: 3px 10px; font-family: roboto;cursor: pointer;}
+
+.error {color: #D62027;font-weight: normal;}
+
+.tht-comment {clear: both; margin-bottom: 10px;}
+.title-tht-comment {background: #F2F2F2;border-top: 2px solid #C0272D;clear: both;display: block;height: 35px;margin-bottom: 10px;width: 100%;}
+.title-tht-comment span {padding-left: 25px;}
+.content-tht-comment {/*overflow: hidden; height: 350px;*/}
+.tht-comment .more {color: #FFF; padding: 5px 0px; text-align: center; margin: 0px auto; width: 100px; background: none repeat scroll 0px 0px rgb(164, 172, 175);cursor: pointer;}
+.tht-comment .more:hover {background: #666;}
+
+.btn-buy {display: inline-block;}
+.btn-buy-contain {border-radius: 5px;overflow: hidden;}
+.btn-buy-block1 {display: inline-block; height: 30px; margin: 8px; width: 30px; vertical-align: top;}
+.btn-buy-block2 {text-transform: uppercase; font-size: 15px; display: inline-block; font-weight: lighter; line-height: 18px; color: #fff; padding: 5px; width: 80px;}
+
+.btn-buy-fast .btn-buy-contain {border: 1px solid #01a48c;}
+.btn-buy-fast .btn-buy-block1 {background: url("http://cellphones.com.vn/media/tht/btn-buy-fast-01a48c.png") no-repeat scroll 0px 0px / contain  transparent;}
+.btn-buy-fast .btn-buy-block2 {background: #01a48c;}
+.btn-buy-fast:hover .btn-buy-contain {border: 1px solid #d62027;}
+.btn-buy-fast:hover .btn-buy-block1 {background: url("http://cellphones.com.vn/media/tht/btn-buy-fast-d62027.png") no-repeat scroll 0px 0px / contain  transparent;}
+.btn-buy-fast:hover .btn-buy-block2 {background: #d62027;}
+
+.btn-buy-tg {margin-left: 40px;}
+.btn-buy-tg .btn-buy-contain {border: 1px solid #01a48c;}
+.btn-buy-tg .btn-buy-block1 {background: url("http://cellphones.com.vn/media/tht/btn-buy-tg-01a48c.png") no-repeat scroll 0px 0px / contain  transparent;}
+.btn-buy-tg .btn-buy-block2 {background: #01a48c;}
+.btn-buy-tg:hover .btn-buy-contain {border: 1px solid #d62027;}
+.btn-buy-tg:hover .btn-buy-block1 {background: url("http://cellphones.com.vn/media/tht/btn-buy-tg-d62027.png") no-repeat scroll 0px 0px / contain  transparent;}
+.btn-buy-tg:hover .btn-buy-block2 {background: #d62027;}
+
+.btn-buy-email {}
+.btn-buy-email .btn-buy-contain {border: 1px solid #01a48c;}
+.btn-buy-email .btn-buy-block1 {background: url("http://cellphones.com.vn/media/tht/btn-buy-email-01a48c.png") no-repeat scroll 0px 0px / contain  transparent;}
+.btn-buy-email .btn-buy-block2 {background: #01a48c;}
+.btn-buy-email:hover .btn-buy-contain {border: 1px solid #d62027;}
+.btn-buy-email:hover .btn-buy-block1 {background: url("http://cellphones.com.vn/media/tht/btn-buy-email-d62027.png") no-repeat scroll 0px 0px / contain  transparent;}
+.btn-buy-email:hover .btn-buy-block2 {background: #d62027;}
+
+.tablepad td {padding: 5px;}
+.tablepad td p {font-size: 12px;}
+.tablepad th {background: #d62027;text-align: center;vertical-align: middle;}
+.tablepad th p {color: #fff;}
+
+table p {margin-bottom: 0 !important;padding-top: 5px !important;padding-bottom: 5px !important;}
+.clearfix:after {content: ".";display: block;clear: both;visibility: hidden;line-height: 0;height: 0;}
+.clearfix {display: inline-block;}
+html[xmlns] .clearfix {display: block;}
+* html .clearfix {height: 1%;}
+
+/*
+
+Uniform Theme: Uniform Default
+Version: 1.6
+By: Josh Pyles
+License: MIT License
+---
+For use with the Uniform plugin:
+http://pixelmatrixdesign.com/uniform/
+---
+Generated by Uniform Theme Generator:
+http://pixelmatrixdesign.com/uniform/themer.html
+
+*/
+
+/* Global Declaration */
+
+div.selector, 
+div.selector span, 
+div.checker span,
+div.radio span, 
+div.uploader, 
+div.uploader span.action,
+div.button,
+div.button span {}
+
+.selector, 
+.radio, 
+.checker, 
+.uploader,
+.button, 
+.selector *, 
+.radio *, 
+.checker *, 
+.uploader *,
+.button *{}
+
+/* INPUT & TEXTAREA */
+
+input.text,
+input.email, 
+input.password,
+textarea.uniform {
+  font-size: 12px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  padding: 3px;
+  color: #777;
+  background: url('http://cellphones.com.vn/skin/frontend/default/blank/images/bg-input-focus.png') repeat-x 0px 0px;
+  background: url('http://cellphones.com.vn/skin/frontend/default/blank/images/bg-input.png') repeat-x 0px 0px;
+  border-top: solid 1px #aaa;
+  border-left: solid 1px #aaa;
+  border-bottom: solid 1px #ccc;
+  border-right: solid 1px #ccc;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  outline: 0;
+}
+
+input.text:focus,
+input.email:focus,
+input.password:focus,
+textarea.uniform:focus {
+  -webkit-box-shadow: 0px 0px 4px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0px 0px 4px rgba(0,0,0,0.3);
+  box-shadow: 0px 0px 4px rgba(0,0,0,0.3);
+  border-color: #999;
+  background: url('http://cellphones.com.vn/skin/frontend/default/blank/images/bg-input-focus.png') repeat-x 0px 0px;
+}
+
+/* SPRITES */
+
+/* Select */
+
+div.selector {
+}
+
+div.selector span {
+}
+
+div.selector select {
+  /* change these to adjust positioning of select element */
+  top: 0px;
+  left: 0px;
+}
+
+div.selector:active, 
+div.selector.active {}
+
+div.selector:active span, 
+div.selector.active span {}
+
+div.selector.focus, div.selector.hover, div.selector:hover {}
+
+div.selector.focus span, div.selector.hover span, div.selector:hover span {}
+
+div.selector.focus:active,
+div.selector.focus.active,
+div.selector:hover:active,
+div.selector.active:hover {}
+
+div.selector.focus:active span,
+div.selector:hover:active span,
+div.selector.active:hover span,
+div.selector.focus.active span {}
+
+div.selector.disabled {}
+
+div.selector.disabled span {}
+
+/* Checkbox */
+
+div.checker {
+  width: 19px;
+  height: 19px;
+}
+
+div.checker input {
+  width: 19px;
+  height: 19px;
+}
+
+div.checker span {
+  background-position: 0px -260px;
+  height: 19px;
+  width: 19px;
+}
+
+div.checker:active span, 
+div.checker.active span {
+  background-position: -19px -260px;
+}
+
+div.checker.focus span,
+div.checker:hover span {
+  background-position: -38px -260px;
+}
+
+div.checker.focus:active span,
+div.checker:active:hover span,
+div.checker.active:hover span,
+div.checker.focus.active span {
+  background-position: -57px -260px;
+}
+
+div.checker span.checked {
+  background-position: -76px -260px;
+}
+
+div.checker:active span.checked, 
+div.checker.active span.checked {
+  background-position: -95px -260px;
+}
+
+div.checker.focus span.checked,
+div.checker:hover span.checked {
+  background-position: -114px -260px;
+}
+
+div.checker.focus:active span.checked,
+div.checker:hover:active span.checked,
+div.checker.active:hover span.checked,
+div.checker.active.focus span.checked {
+  background-position: -133px -260px;
+}
+
+div.checker.disabled span,
+div.checker.disabled:active span,
+div.checker.disabled.active span {
+  background-position: -152px -260px;
+}
+
+div.checker.disabled span.checked,
+div.checker.disabled:active span.checked,
+div.checker.disabled.active span.checked {
+  background-position: -171px -260px;
+}
+
+/* Radio */
+
+div.radio {
+  width: 18px;
+  height: 18px;
+}
+
+div.radio input {
+  width: 18px;
+  height: 18px;
+}
+
+div.radio span {
+  height: 18px;
+  width: 18px;
+  background-position: 0px -279px;
+}
+
+div.radio:active span, 
+div.radio.active span {
+  background-position: -18px -279px;
+}
+
+div.radio.focus span, 
+div.radio:hover span {
+  background-position: -36px -279px;
+}
+
+div.radio.focus:active span,
+div.radio:active:hover span,
+div.radio.active:hover span,
+div.radio.active.focus span {
+  background-position: -54px -279px;
+}
+
+div.radio span.checked {
+  background-position: -72px -279px;
+}
+
+div.radio:active span.checked,
+div.radio.active span.checked {
+  background-position: -90px -279px;
+}
+
+div.radio.focus span.checked, div.radio:hover span.checked {
+  background-position: -108px -279px;
+}
+
+div.radio.focus:active span.checked, 
+div.radio:hover:active span.checked,
+div.radio.focus.active span.checked,
+div.radio.active:hover span.checked {
+  background-position: -126px -279px;
+}
+
+div.radio.disabled span,
+div.radio.disabled:active span,
+div.radio.disabled.active span {
+  background-position: -144px -279px;
+}
+
+div.radio.disabled span.checked,
+div.radio.disabled:active span.checked,
+div.radio.disabled.active span.checked {
+  background-position: -162px -279px;
+}
+
+/* Uploader */
+
+div.uploader {
+  background-position: 0px -297px;
+  height: 28px;
+}
+
+div.uploader span.action {
+  background-position: right -409px;
+  height: 24px;
+  line-height: 24px;
+}
+
+div.uploader span.filename {
+  height: 24px;
+  margin: 2px 0px 2px 2px;
+  line-height: 24px;
+}
+
+div.uploader.focus,
+div.uploader.hover,
+div.uploader:hover {
+  background-position: 0px -353px;
+}
+
+div.uploader.focus span.action,
+div.uploader.hover span.action,
+div.uploader:hover span.action {
+  background-position: right -437px;
+}
+
+div.uploader.active span.action,
+div.uploader:active span.action {
+  background-position: right -465px;
+}
+
+div.uploader.focus.active span.action,
+div.uploader:focus.active span.action,
+div.uploader.focus:active span.action,
+div.uploader:focus:active span.action {
+  background-position: right -493px;
+}
+
+div.uploader.disabled {
+  background-position: 0px -325px;
+}
+
+div.uploader.disabled span.action {
+  background-position: right -381px;
+}
+
+div.button {
+  background-position: 0px -523px;
+}
+
+div.button span {
+  background-position: right -643px;
+}
+
+div.button.focus,
+div.button:focus,
+div.button:hover,
+div.button.hover {
+  background-position: 0px -553px;
+}
+
+div.button.focus span,
+div.button:focus span,
+div.button:hover span,
+div.button.hover span {
+  background-position: right -673px; 
+}
+
+div.button.active,
+div.button:active {
+  background-position: 0px -583px;
+}
+
+div.button.active span,
+div.button:active span {
+  background-position: right -703px;
+  color: #555;
+}
+
+div.button.disabled,
+div.button:disabled {
+  background-position: 0px -613px;
+}
+
+div.button.disabled span,
+div.button:disabled span {
+  background-position: right -733px;
+  color: #bbb;
+  cursor: default;
+}
+
+/* PRESENTATION */
+
+/* Button */
+
+div.button {
+  height: 30px;
+}
+
+div.button span {
+  margin-left: 13px;
+  height: 22px;
+  padding-top: 8px;
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding-left: 2px;
+  padding-right: 15px;
+}
+
+/* Select */
+div.selector {
+  /* width: 190px;
+  font-size: 12px; */
+}
+
+div.selector select {
+  /* min-width: 190px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  border: solid 1px #fff; */
+}
+
+div.selector span {
+  /* padding: 0px 25px 0px 2px;
+  cursor: pointer; */
+}
+
+div.selector span {
+  /* color: #666;
+  width: 158px;
+  text-shadow: 0 1px 0 #fff; */
+}
+
+div.selector.disabled span {
+  /* color: #bbb; */
+}
+
+/* Checker */
+div.checker {
+  margin-right: 5px;
+}
+
+/* Radio */
+div.radio {
+  margin-right: 3px;
+}
+
+/* Uploader */
+div.uploader {
+  width: 190px;
+  cursor: pointer;
+}
+
+div.uploader span.action {
+  width: 85px;
+  text-align: center;
+  text-shadow: #fff 0px 1px 0px;
+  background-color: #fff;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+div.uploader span.filename {
+  color: #777;
+  width: 82px;
+  border-right: solid 1px #bbb;
+  font-size: 11px;
+}
+
+div.uploader input {
+  width: 190px;
+}
+
+div.uploader.disabled span.action {
+  color: #aaa;
+}
+
+div.uploader.disabled span.filename {
+  border-color: #ddd;
+  color: #aaa;
+}
+/*
+
+CORE FUNCTIONALITY 
+
+Not advised to edit stuff below this line
+-----------------------------------------------------
+*/
+
+.selector, 
+.checker, 
+.button, 
+.radio, 
+.uploader {
+  display: -moz-inline-box;
+  display: inline-block;
+  vertical-align: middle;
+  zoom: 1;
+  *display: inline;
+}
+
+.selector select:focus, .radio input:focus, .checker input:focus, .uploader input:focus {
+  outline: 0;
+}
+
+/* Button */
+
+div.button a,
+div.button button,
+div.button input {
+  position: absolute;
+}
+
+div.button {
+  cursor: pointer;
+  position: relative;
+}
+
+div.button span {
+  display: -moz-inline-box;
+  display: inline-block;
+  line-height: 1;
+  text-align: center;
+}
+
+/* Select */
+
+div.selector {
+  position: relative;
+  overflow: hidden;
+}
+
+div.selector span {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+div.selector select {
+  position: absolute;
+  opacity: 0;
+  filter: alpha(opacity:0);
+  border: none;
+  background: none;
+}
+
+/* Checker */
+
+div.checker {
+  position: relative;
+}
+
+div.checker span {
+  display: -moz-inline-box;
+  display: inline-block;
+  text-align: center;
+}
+
+div.checker input {
+  opacity: 0;
+  filter: alpha(opacity:0);
+  display: inline-block;
+  background: none;
+}
+
+/* Radio */
+
+div.radio {
+  position: relative;
+}
+
+div.radio span {
+  display: -moz-inline-box;
+  display: inline-block;
+  text-align: center;
+}
+
+div.radio input {
+  opacity: 0;
+  filter: alpha(opacity:0);
+  text-align: center;
+  display: inline-block;
+  background: none;
+}
+
+/* Uploader */
+
+div.uploader {
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+}
+
+div.uploader span.action {
+  float: left;
+  display: inline;
+  padding: 2px 0px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+div.uploader span.filename {
+  padding: 0px 10px;
+  float: left;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: default;
+}
+
+div.uploader input {
+  opacity: 0;
+  filter: alpha(opacity:0);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  float: right;
+  height: 25px;
+  border: none;
+  cursor: default;
+}
+#uniform-select-first,#uniform-select-two,#uniform-select-three{
+	background:none !important;
+}
+#select-first,#select-two,#select-three{
+	cursor:pointer;
+}
+@font-face {
+    font-family: 'MyriadProBold';
+    src: url('http://cellphones.com.vn/skin/frontend/default/blank/fonts/myriadpro-bold-webfont.eot');
+    src: url('http://cellphones.com.vn/skin/frontend/default/blank/fonts/myriadpro-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('http://cellphones.com.vn/skin/frontend/default/blank/fonts/myriadpro-bold-webfont.woff') format('woff'),
+         url('http://cellphones.com.vn/skin/frontend/default/blank/fonts/myriadpro-bold-webfont.ttf') format('truetype'),
+         url('http://cellphones.com.vn/skin/frontend/default/blank/fonts/myriadpro-bold-webfont.svg#MyriadProBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MyriadProCondBold';
+    src: url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-boldcond-webfont.eot');
+    src: url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-boldcond-webfont.eot?#iefix') format('embedded-opentype'),
+         url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-boldcond-webfont.woff') format('woff'),
+         url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-boldcond-webfont.ttf') format('truetype'),
+         url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-boldcond-webfont.svg#MyriadProCondBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MyriadProCondBoldItalic';
+    src: url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-boldcondit-webfont.eot');
+    src: url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-boldcondit-webfont.eot?#iefix') format('embedded-opentype'),
+         url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-boldcondit-webfont.woff') format('woff'),
+         url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-boldcondit-webfont.ttf') format('truetype'),
+         url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-boldcondit-webfont.svg#MyriadProCondBoldItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MyriadProBoldItalic';
+    src: url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-boldit-webfont.eot');
+    src: url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-boldit-webfont.eot?#iefix') format('embedded-opentype'),
+         url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-boldit-webfont.woff') format('woff'),
+         url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-boldit-webfont.ttf') format('truetype'),
+         url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-boldit-webfont.svg#MyriadProBoldItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MyriadProCondRegular';
+    src: url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-cond-webfont.eot');
+    src: url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-cond-webfont.eot?#iefix') format('embedded-opentype'),
+         url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-cond-webfont.woff') format('woff'),
+         url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-cond-webfont.ttf') format('truetype'),
+         url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-cond-webfont.svg#MyriadProCondRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MyriadProCondItalic';
+    src: url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-condit-webfont.eot');
+    src: url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-condit-webfont.eot?#iefix') format('embedded-opentype'),
+         url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-condit-webfont.woff') format('woff'),
+         url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-condit-webfont.ttf') format('truetype'),
+         url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-condit-webfont.svg#MyriadProCondItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MyriadProLightBold';
+    src: url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-semibold-webfont.eot');
+    src: url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-semibold-webfont.woff') format('woff'),
+         url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-semibold-webfont.ttf') format('truetype'),
+         url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-semibold-webfont.svg#MyriadProLightBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MyriadProLightBoldItalic';
+    src: url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-semiboldit-webfont.eot');
+    src: url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-semiboldit-webfont.eot?#iefix') format('embedded-opentype'),
+         url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-semiboldit-webfont.woff') format('woff'),
+         url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-semiboldit-webfont.ttf') format('truetype'),
+         url('http://cellphones.com.vn/skin/frontend/default/blank/css/fonts/myriadpro-semiboldit-webfont.svg#MyriadProLightBoldItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2013 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/* Widgets =============================================================================== */
+.widget { display:inline; }
+.widget .widget-title { clear:both; padding:15px 0 0; margin:0 0 7px; }
+.widget .widget-title h2 { font-size:15px; font-weight:bold; color:#e25203; }
+
+.widget .mini-products-images-list .product-image { display:block; width:76px; height:76px; border:1px solid #a9a9a9; margin:0 auto; }
+.widget .mini-products-images-list li.item { float:left; width:77px; height:77px; }
+
+/* Widget: Catalog New Proructs List */
+.widget-new-products { display:block; }
+.col-main .widget-new-products { margin:7px 0; }
+.widget-new-products .products-grid .product-image,
+.widget-new-products .products-list .product-image { width:85px; height:85px; }
+.widget-new-products .products-list .product-shop { margin-left:100px; }
+.sidebar .widget-new-products .block { font-size:11px; line-height:1.25; }
+.sidebar .widget-new-products .block-title strong { background:url(http://cellphones.com.vn/skin/frontend/base/default/images/widgets/i_widget-new.gif) 0 1px no-repeat; padding-left:21px; color:#dc5033; }
+
+/* Widget: Recently Viewed Proructs */
+.widget-viewed { display:block; }
+.col-main .widget-viewed { margin:7px 0; }
+.widget-viewed .products-grid .product-image,
+.widget-viewed .products-list .product-image { width:85px; height:85px; }
+.widget-viewed .products-list .product-shop { margin-left:100px; }
+.sidebar .widget-viewed .block { font-size:11px; line-height:1.25; }
+.sidebar .widget-viewed .block-title strong { background:url(http://cellphones.com.vn/skin/frontend/base/default/images/widgets/i_block-list.gif) 0 0 no-repeat; padding-left:21px; }
+
+/* Widget: Recently Compared Proructs */
+.widget-compared { display:block;}
+.col-main .widget-compared { margin:7px 0; }
+.widget-compared .products-grid .product-image,
+.widget-compared .products-list .product-image { width:85px; height:85px; }
+.widget-compared .products-list .product-shop { margin-left:100px; }
+.sidebar .widget-compared .block { font-size:11px; line-height:1.25; }
+.sidebar .widget-compared .block-title strong { background:url(http://cellphones.com.vn/skin/frontend/base/default/images/widgets/i_block-list.gif) 0 0 no-repeat; padding-left:21px; }
+
+/* Widget: CMS Static Block */
+.widget-static-block {}
+.sidebar .widget-static-block { display:block; margin:0 0 15px; }
+
+/* Widgets: Links Common Styles */
+.top-container .widget a { padding:0 0 0 7px; }
+
+.bottom-container .widget a { padding:0 3px; }
+
+/* Widget: Catalog Product Link */
+.widget-product-link-inline { display:inline; }
+
+.col-main .widget-product-link { display:block; text-align:right; margin:7px 0; }
+.col-main .widget-product-link a { background:url(http://cellphones.com.vn/skin/frontend/base/default/images/widgets/i_widget-link.gif) 100% 4px no-repeat; padding-right:15px; }
+
+.sidebar .widget-product-link { display:block; margin:0 0 15px; padding:0 10px; }
+.sidebar .widget-product-link a { background:url(http://cellphones.com.vn/skin/frontend/base/default/images/widgets/i_widget-link.gif) 100% 4px no-repeat; padding:0 15px 0 0; }
+
+/* Widget: Catalog Category Link */
+.widget-category-link-inline { display:inline; }
+
+.col-main .widget-category-link { display:block; text-align:right; margin:7px 0; }
+.col-main .widget-category-link a { background:url(http://cellphones.com.vn/skin/frontend/base/default/images/widgets/i_widget-link.gif) 100% 4px no-repeat; padding-right:15px; }
+
+.sidebar .widget-category-link { display:block; margin:0 0 15px; padding:0 10px; }
+.sidebar .widget-category-link a { background:url(http://cellphones.com.vn/skin/frontend/base/default/images/widgets/i_widget-link.gif) 100% 4px no-repeat; padding:0 15px 0 0; }
+
+/* Widget: CMS Page Link */
+.widget-cms-link-inline { display:inline; }
+
+.col-main .widget-cms-link { display:block; text-align:right; margin:7px 0; }
+.col-main .widget-cms-link a { background:url(http://cellphones.com.vn/skin/frontend/base/default/images/widgets/i_widget-link.gif) 100% 4px no-repeat; padding-right:15px; }
+
+.sidebar .widget-cms-link { display:block; margin:0 0 15px; padding:0 10px; }
+.sidebar .widget-cms-link a { background:url(http://cellphones.com.vn/skin/frontend/base/default/images/widgets/i_widget-link.gif) 100% 4px no-repeat; padding:0 15px 0 0; }
+/* ======================================================================================= */
+
+
+#sliderContent { width:100% margin:auto; padding:0 0px 0px;background: url("http://cellphones.com.vn/skin/frontend/default/blank/images/bg_list.png") repeat-x scroll left bottom transparent;}
+#sliderContent .viewer { width:100%; height:250px;overflow:hidden; position:relative;}
+#sliderContent .content-conveyor { width:610px; height:335px; position:relative; }
+#sliderContent .item {width:304px; float:left; font-family:Tahoma; text-align:center; background-color:#ebebeb;}
+#sliderContent .item h2 { font-size:100%; margin:10px 0; }
+#sliderContent .item dl { margin:10px 0; }
+#sliderContent .item dt, .item dd { float:left; width:149px; text-align:right; margin:0; font-size:70%; }
+#sliderContent .item dt { font-weight:bold; margin-right:5px; }
+#sliderContent .item dd { text-align:left; }
+#sliderContent .item img {border:1px solid #898989; background-color:#ffffff; padding:1px;}
+#slider{margin:10px auto;position:relative;}
+#slider a,#sliderlast a{opacity:1;}
+#sliderlast{margin:10px auto;}
+.bx-prev{position:absolute;left:10px;top:35%;background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/bt_prev.png) no-repeat;width:20px;height:25px;}
+.bx-next{position:absolute;right:10px;top:35%;background:url(http://cellphones.com.vn/skin/frontend/default/blank/images/bt_next.png) no-repeat;width:20px;height:25px;}
+
+#sliderContentlast{/* background: url("http://cellphones.com.vn/skin/frontend/default/blank/images/bg_list.png") repeat-x scroll left bottom transparent; */}
+#sanphamkm-slider1{width:99999px;height:310px;float:left;}
+#sanphamkm-slider1 li{width:200px;height:310px;display:inline;}
+#sliderContentlast{width:100%;}
+#sanphamkm-slider2{width:99999px;height:310px;float:left;}
+#sanphamkm-slider2 li{width:200px;height:310px;display:inline;}
+#sanphamsapve-slider{width:99999px;height:310px;float:left;}
+#sanphamsapve-slider li{width:230px;height:310px;display:inline;}
+.swatchesContainerPadded:after,
+.swatchesContainer:after { display:block; content:"."; clear:both; font-size:0; line-height:0; height:0; overflow:hidden; }
+#ul-moreviews li img{ cursor: pointer; }
+
+/* Swatch Product View Styles */
+
+#loadingImage {
+	-moz-opacity:0.8;
+	opacity: 0.8;
+   	filter: alpha(opacity = 80);
+   	border: 1px solid #CCC;
+	position:absolute;
+	left:400px;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:#fff;
+	width:75px;
+	height:50px;
+	top:330px;
+	background-image:url(http://cellphones.com.vn/skin/frontend/default/blank/images/loading.gif);
+	background-repeat:no-repeat;
+	background-position:center 25px;
+	color: #333;
+	font-size: 12px;
+	font-family: Tahoma;
+	vertical-align:middle;
+	text-align:center;
+	z-index:99; }
+
+.swatchesContainer { padding-top:8px; }
+
+.swatchesContainerPadded { padding-top:15px; }
+
+.swatchLabel { font-weight:normal!important; }
+
+.swatch {
+	width: 20px !important;
+	padding:2px;
+	display:inline;
+	cursor:pointer;
+	margin-bottom:4px;
+	margin-left:8px;
+	border:1px solid #e1e1e1;
+	opacity: 1;
+	filter:alpha(opacity=100);
+	transition:opacity .5s linear;
+	-moz-transition:opacity .5s linear;
+	-webkit-transition:opacity .5s linear;
+	-o-transition-transition:opacity .5s linear; }
+
+.swatchSelected { border:1px solid #000000 !important; }
+
+.disabledSwatch { cursor:default !important; filter:alpha(opacity=30); -moz-opacity:0.3; -khtml-opacity:0.3; opacity:0.3; }
+
+.swatchSelect { display:none; }
+
+.swatchContainer { display:inline;text-align:center; }
+
+.swatchContainer ul{display: block;width:100%;text-align:center;}
+/* Swatch Category View Styles */
+
+.float-clearer { clear:both;display: none; }
+
+.swatchesContainer-category { padding-top:8px; padding-bottom:20px; display: block; }
+
+.swatchLabel-category { font-weight:normal!important; font-size:9px; float:left; display:block; padding-top:2px; vertical-align:bottom; line-height:9px; }
+
+.swatchContainer-category { display:block !important; height:auto; }
+
+.firstswatch-category { padding:2px; float:left; display:inline; cursor:pointer; margin-bottom:8px; margin-top:4px; margin-left:0px; border:1px solid #e1e1e1; }
+
+.swatch-category {float:left; display:inline; cursor:pointer; margin-bottom:0px;margin-left:4px; border:1px solid #e1e1e1; }
+
+.swatch-shopby { padding:2px; display:inline; cursor:pointer; float:left; margin-top:5px; margin-bottom:4px; margin-left:5px; border:1px solid #e1e1e1; }
+
+.swatch-shopby-text { padding:2px; display:inline; cursor:pointer; float:left; margin-top:5px; margin-bottom:4px; margin-left:5px; }
+
+.swatch-category-container { margin-top:8px; margin-bottom:15px; overflow:auto !important; height:auto !important; position:relative;text-align:center;margin-left:-3px; }
+
+#lightbox{	position: absolute;	left: 0; width: 100%; z-index: 999; text-align: center; line-height: 0;}
+#lightbox img{ width: auto; height: auto; top: 0px; left: 0px; }
+#lightbox a img{ border: none; }
+
+#outerImageContainer{ position: relative; background-color: #fff; width: 250px; height: 250px; margin: 0 auto; }
+#imageContainer{ padding: 10px; }
+
+#loading{ position: absolute; top: 40%; left: 0%; height: 25%; width: 100%; text-align: center; line-height: 0; }
+#hoverNav{ position: absolute; top: 0; left: 0; height: 100%; width: 100%; z-index: 10; }
+#imageContainer>#hoverNav{ left: 0;}
+#hoverNav a{ outline: none;}
+
+#prevLink, #nextLink{ width: 49%; height: 100%; background-image: url(http://cellphones.com.vn/skin/frontend/default/blank/images/lightbox/blank.gif); /* Trick IE into showing hover */ display: block; }
+#prevLink { left: 0; float: left;}
+#nextLink { right: 0; float: right;}
+#prevLink:hover, #prevLink:visited:hover { background: url(http://cellphones.com.vn/skin/frontend/default/blank/images/lightbox/prevlabel.gif) left 15% no-repeat; }
+#nextLink:hover, #nextLink:visited:hover { background: url(http://cellphones.com.vn/skin/frontend/default/blank/images/lightbox/nextlabel.gif) right 15% no-repeat; }
+
+#imageDataContainer{ font: 10px Verdana, Helvetica, sans-serif; background-color: #fff; margin: 0 auto; line-height: 1.4em; overflow: auto; width: 100%	; }
+
+#imageData{	padding:0 10px; color: #666; }
+#imageData #imageDetails{ width: 70%; float: left; text-align: left; }	
+#imageData #caption{ font-weight: bold;	}
+#imageData #numberDisplay{ display: block; clear: left; padding-bottom: 1.0em;	}			
+#imageData #bottomNavClose{ width: 66px; float: right;  padding-bottom: 0.7em; outline: none;}	 	
+
+#overlay{ position: absolute; top: 0; left: 0; z-index: 999; width: 100%; height: 500px; background-color: #000; }
